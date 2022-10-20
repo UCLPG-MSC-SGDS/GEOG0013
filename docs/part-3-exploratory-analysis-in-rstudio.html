@@ -167,7 +167,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html"><i class="fa fa-check"></i>Part 3: Exploratory analysis in RStudio</a>
 <ul>
-<li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#data-types-and-variables"><i class="fa fa-check"></i>Data types and variables</a></li>
+<li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#what-is-statistics-and-data-in-general"><i class="fa fa-check"></i>What is statistics and data in general?</a></li>
+<li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#analysing-air-pollution-data-in-barcelona"><i class="fa fa-check"></i>Analysing air pollution data in Barcelona</a></li>
 <li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#frequency-distributions"><i class="fa fa-check"></i>Frequency distributions</a></li>
 <li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#descriptive-and-central-tendency-measures"><i class="fa fa-check"></i>Descriptive and central tendency measures</a></li>
 </ul></li>
@@ -196,24 +197,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="part-3-exploratory-analysis-in-rstudio" class="section level1 unnumbered hasAnchor">
 <h1>Part 3: Exploratory analysis in RStudio<a href="part-3-exploratory-analysis-in-rstudio.html#part-3-exploratory-analysis-in-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><strong>What is statistics?</strong></p>
-<p><strong>Definition</strong>: Statistics is a branch in the mathematical sciences that pertains to the collection, analysis, interpretation, and graphical presentation of data. The best thing about statistics is that it’s a highly applied branch of science which is applicable to many areas such as social science, politics, health (e.g., epidemiology), business &amp; finance, environmental sciences and geography.</p>
+<div id="what-is-statistics-and-data-in-general" class="section level2 unnumbered hasAnchor">
+<h2>What is statistics and data in general?<a href="part-3-exploratory-analysis-in-rstudio.html#what-is-statistics-and-data-in-general" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Definition 1</strong>: Statistics is a branch in the mathematical sciences that pertains to the collection, analysis, interpretation, and graphical presentation of data. The best thing about statistics is that it’s a highly applied branch of science which is applicable to many areas such as social science, politics, health (e.g., epidemiology), business &amp; finance, environmental sciences and geography.</p>
 <p>Statistics is broadly split into two main areas:</p>
 <ol style="list-style-type: decimal">
 <li>Descriptive statistics, which focuses on describing the visible characteristics about a dataset</li>
 <li>Inferential statistics is more research-based, which focuses on making predictions (rather than stating facts) and testing hypothesis about a phenomenon.</li>
 </ol>
-<p>We will focus on descriptive statistics as an introduction introducing everyone to the absolute basics. Descriptive statistics is all about knowing the <strong>data types</strong> and finding the <strong>distribution</strong>, <strong>central tendency</strong> and <strong>variability</strong> in such data set. These four key words may sound intimidating – but trust me – it is very easy!</p>
-<p>Let us learn how to perform this in RStudio using the air pollution data for Barcelona.</p>
-<div id="data-types-and-variables" class="section level2 unnumbered hasAnchor">
-<h2>Data types and variables<a href="part-3-exploratory-analysis-in-rstudio.html#data-types-and-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>What is a variable?</strong></p>
-<p><strong>Defintion</strong>: A <strong>variable</strong> is any characteristics, numbered value, or quantity that can be measured or counted. A variable can also be referred to a <strong>data Item</strong>. A variable can be broadly classified as <strong>discrete</strong>, <strong>continuous</strong> or <strong>categorical</strong> variable.</p>
-<ol style="list-style-type: decimal">
-<li><strong>Discrete</strong> variables contain data with countable items: e.g., number of crimes committed in London, number of students in a classroom, number of languages an individual can speak etc.,</li>
-<li><strong>Continuous</strong> variables contains data with measurable items: e.g., Age (in years: 25, 57, 34 etc.,), monthly income (in £: 2399.58, £5559.89, £1,450.99 etc.,), height (in meters) or weight (in kg)</li>
-<li><strong>Categorical</strong> variables contain categories or groups: e.g., gender (male or female), ethnicity (Asian, Black, Mixed, White etc.,); or employment status.</li>
-</ol>
+<p><strong>Definition 2</strong>: A variable is any characteristics, numbered value, or quantity that can be measured or counted. A variable can also be referred to a data Item. A variable can be broadly classified as discrete, continuous or categorical variable.</p>
+<p>We have provided two videos: the first which broadly explains why statistics as a subject is important; and the second explains in much details what statistics is as a subject, and what are the various data types.</p>
+<p><strong>Video [Theory]: Why is statistics important? (Length: 13:21 minutes)</strong></p>
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://web.microsoftstream.com/embed/video/192ee582-f0d3-4caa-ac1d-87eea97bd06e?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;" data-external="1"></iframe>
+</div>
+</div>
+<p>Video: <a href="https://web.microsoftstream.com/video/192ee582-f0d3-4caa-ac1d-87eea97bd06e"><strong>LINK</strong></a></p>
+<p><strong>Video [Theory]: What is statistics, and the types of variables? (Length: 31:17 minutes)</strong></p>
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://web.microsoftstream.com/embed/video/f19e6726-47fe-4335-88ff-9499ced57944?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;" data-external="1"></iframe>
+</div>
+</div>
+<p>Video: <a href="https://web.microsoftstream.com/video/f19e6726-47fe-4335-88ff-9499ced57944"><strong>LINK</strong></a></p>
+<div class="note">
+<p><strong>Important Notes:</strong> Both videos are introductory footage extracted from Week 1’s lectures titled: “Understand Data”, a session in <a href="https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-quantitative-research-methods-POLS0008"><strong>POLS0008: Introduction to Quantitative Methods</strong></a>.</p>
+</div>
+</div>
+<div id="analysing-air-pollution-data-in-barcelona" class="section level2 unnumbered hasAnchor">
+<h2>Analysing air pollution data in Barcelona<a href="part-3-exploratory-analysis-in-rstudio.html#analysing-air-pollution-data-in-barcelona" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We will focus on descriptive statistics as an introduction introducing everyone to the absolute basics. Descriptive statistics is all about knowing the <strong>data types</strong> and finding the <strong>distribution</strong>, <strong>central tendency</strong> and <strong>variability</strong> in such data set. These four key words may sound intimidating – but trust me – it is very easy! Let us learn how to perform this in RStudio using the air pollution data for Barcelona.</p>
 <p>Let us import for following dataset <code>Barcelona_Air_Pollution_data.csv</code> into RStudio, and call this object <code>air_ quality_data</code>.</p>
 <p>Remember - always make sure that your work directory is linked to your folder containing your data.</p>
 <p>For Windows:</p>
