@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Part 2: Basics of Managing Data in RStudio | GEOG0013: Geography in the Field 1 (GIF1) 2022/23</title>
+  <meta name="description" content="GEOG0013: Geography in the Field 1 (GIF1)" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Part 2: Basics of Managing Data in RStudio | GEOG0013: Geography in the Field 1 (GIF1) 2022/23" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="GEOG0013: Geography in the Field 1 (GIF1)" />
+  <meta name="github-repo" content="UCLPG-MSC-SGDS/GEOG0013" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Part 2: Basics of Managing Data in RStudio | GEOG0013: Geography in the Field 1 (GIF1) 2022/23" />
+  
+  <meta name="twitter:description" content="GEOG0013: Geography in the Field 1 (GIF1)" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="part-1-getting-started-with-rstudio.html"/>
+<link rel="next" href="part-3-exploratory-analysis-in-rstudio.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="assets/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo">
+<a href="https://www.ucl.ac.uk/module-catalogue/modules/GEOG0013"><img src="images/general/ucl_logo.png">
+</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to Introduction to Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#self-guided-tutorials"><i class="fa fa-check"></i>Self-guided tutorials</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#questions-discusson-forum-on-moodle"><i class="fa fa-check"></i>Questions &amp; Discusson Forum on Moodle</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#meet-team"><i class="fa fa-check"></i>Meet team</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#learning-outcomes"><i class="fa fa-check"></i>Learning outcomes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html"><i class="fa fa-check"></i>Part 1: Getting started with RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html#what-is-rstudio-or-r"><i class="fa fa-check"></i>What is RStudio (or R)</a></li>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html#download-and-install-rstudio-on-to-your-laptop"><i class="fa fa-check"></i>Download and install RStudio on to your laptop</a></li>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html#becoming-familiar-with-the-panels-in-rstudio"><i class="fa fa-check"></i>Becoming familiar with the panels in RStudio</a></li>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html#using-r-console-as-a-calculator"><i class="fa fa-check"></i>Using R Console as a Calculator</a></li>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html#creating-basic-objects-and-assigning-values-to-it"><i class="fa fa-check"></i>Creating basic objects and assigning values to it</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html"><i class="fa fa-check"></i>Part 2: Basics of Managing Data in RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#how-do-we-enter-data-into-rstudio"><i class="fa fa-check"></i>How do we enter data into RStudio?</a></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#how-do-we-create-a-variable-based-on-other-existing-variables-in-our-data-frame"><i class="fa fa-check"></i>How do we create a variable based on other existing variables in our data frame?</a></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#how-to-set-the-working-directory-with-setwd-function"><i class="fa fa-check"></i>How to set the working directory with <code>setwd()</code> function?</a></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#importing-data-using-read.csv"><i class="fa fa-check"></i>Importing data using <code>read.csv()</code></a></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#joining-two-datasets-using-the-merge-function"><i class="fa fa-check"></i>Joining two datasets using the <code>merge()</code> function</a></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#saving-your-dataset-using-the-write.csv-function"><i class="fa fa-check"></i>Saving your dataset using the <code>write.csv()</code> function</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html"><i class="fa fa-check"></i>Part 3: Exploratory analysis in RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#data-types-and-variables"><i class="fa fa-check"></i>Data types and variables</a></li>
+<li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#frequency-distributions"><i class="fa fa-check"></i>Frequency distributions</a></li>
+<li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#descriptive-and-central-tendency-measures"><i class="fa fa-check"></i>Descriptive and central tendency measures</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusion-workshop-preparation.html"><a href="conclusion-workshop-preparation.html"><i class="fa fa-check"></i>Conclusion: Workshop Preparation</a></li>
+<li class="chapter" data-level="" data-path="appendendum.html"><a href="appendendum.html"><i class="fa fa-check"></i>Appendendum</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendendum.html"><a href="appendendum.html#appendix-1-list-of-functions-used-in-this-workshop"><i class="fa fa-check"></i>Appendix 1: List of functions used in this workshop</a></li>
+<li class="chapter" data-level="" data-path="appendendum.html"><a href="appendendum.html#appendix-2-list-of-symbols-used-in-this-workshop"><i class="fa fa-check"></i>Appendix 2: List of symbols used in this workshop</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">GEOG0013: Geography in the Field 1 (GIF1) 2022/23</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="part-2-basics-of-managing-data-in-rstudio" class="section level1 unnumbered hasAnchor">
+<h1>Part 2: Basics of Managing Data in RStudio<a href="part-2-basics-of-managing-data-in-rstudio.html#part-2-basics-of-managing-data-in-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="how-do-we-enter-data-into-rstudio" class="section level2 unnumbered hasAnchor">
+<h2>How do we enter data into RStudio?<a href="part-2-basics-of-managing-data-in-rstudio.html#how-do-we-enter-data-into-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As you have already seen, RStudio is an object-oriented software package and so entering data is slightly different for the usual way of inputting information into a spreadsheet (e.g., Microsoft Excel). Here, you will need to enter the information as a <strong>Vector</strong> object before combining them into a <strong>Data Frame</strong> object.</p>
+<p>Consider this crude example of data containing the additional health information for 4 people. It contains the variable (or column) names ‘id’, ‘name’, ‘height’, ‘weight’ and ‘gender’</p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>id</strong></th>
+<th><strong>name</strong></th>
+<th><strong>height</strong></th>
+<th><strong>weight</strong></th>
+<th><strong>gender</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Kofi</td>
+<td>1.65</td>
+<td>64.2</td>
+<td>M</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Harry</td>
+<td>1.77</td>
+<td>80.3</td>
+<td>M</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Huijun</td>
+<td>1.70</td>
+<td>58.7</td>
+<td>F</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Fatima</td>
+<td>1.68</td>
+<td>75.0</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<p>Now, when entering data to RStudio it is not like Microsoft Excel where we enter data into the cells of a spreadsheet. In RStudio, data is entered as a sequence of elements and listed inside an object called a <strong>vector</strong>. For instance, if we have three age values of 12, 57 and 26 years, and we want to enter this in RStudio, we need to use the combine function <code>c()</code> and combine these three elements into a vector object. Hence, the code will be <code>c(12, 57, 26)</code>. We can assign this data by typing this code as <code>age &lt;- c(12, 57, 26)</code>. Any time you type ‘age’ into RStudio console it will hence return these three values unless you chose to overwrite it with different information.</p>
+<p>Let us look at this more closely with the <code>'id'</code> variable in the above data. Each person has an ID number from 1 to 4. We are going to list the numbers 1, 2, 3 and 4 as a sequence of elements into a vector using the combine function <code>c()</code> and then assign it to as a vector object calling it <code>'id'</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create &#39;id&#39; vector object </span></span>
+<span id="cb6-2"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb6-2" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb6-3"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Type the vector object &#39;id&#39; in console to see output</span></span>
+<span id="cb6-5"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb6-5" aria-hidden="true" tabindex="-1"></a>id</span></code></pre></div>
+<p>Now, let us enter the information the same way for the remaining columns for ‘name’, ‘height’, ‘weight’ and ‘gender’ like we did for ‘id’:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create &#39;name&#39; vector object</span></span>
+<span id="cb7-2"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb7-2" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Kofi&quot;</span>, <span class="st">&quot;Harry&quot;</span>, <span class="st">&quot;Huijun&quot;</span>, <span class="st">&quot;Fatima&quot;</span>)</span>
+<span id="cb7-3"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create &#39;height&#39; (in meters) vector object</span></span>
+<span id="cb7-5"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb7-5" aria-hidden="true" tabindex="-1"></a>height <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.65</span>, <span class="fl">1.77</span>, <span class="fl">1.70</span>, <span class="fl">1.68</span>)</span>
+<span id="cb7-6"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create &#39;weight&#39; (in kg) vector object</span></span>
+<span id="cb7-8"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb7-8" aria-hidden="true" tabindex="-1"></a>weight <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">64.2</span>, <span class="fl">80.3</span>, <span class="fl">58.7</span>, <span class="fl">75.0</span>)</span>
+<span id="cb7-9"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create &#39;gender&#39; vector object</span></span>
+<span id="cb7-11"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb7-11" aria-hidden="true" tabindex="-1"></a>gender <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>)</span></code></pre></div>
+<p>Now, that we have the vector objects ready. Let us bring them together to create a proper dataset. This new object is called a <code>Data frame</code>. We need to list the vectors inside the <code>data.frame()</code> function.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dataset (data frame)</span></span>
+<span id="cb8-2"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb8-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(id, name, height, weight, gender)</span>
+<span id="cb8-3"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Type the data frame object &#39;dataset&#39; in console to see output</span></span>
+<span id="cb8-5"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb8-5" aria-hidden="true" tabindex="-1"></a>dataset</span>
+<span id="cb8-6"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># You can also see dataset in a data viewer, type View() to data:</span></span>
+<span id="cb8-8"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dataset)</span></code></pre></div>
+<div class="note">
+<p><strong>Important Notes:</strong> The column ‘id’ is a numeric variable with integers. The second column ‘name’ is a text variable with strings. The third &amp; fourth columns ‘height’ and ‘weight’ are examples of numeric variables with real numbers with continuous measures. The variable ‘gender’ is a text variable with strings – however, this type of variable is classed as a categorical variable as individuals were categorised as either ‘M’ and ‘F’.</p>
+</div>
+</div>
+<div id="how-do-we-create-a-variable-based-on-other-existing-variables-in-our-data-frame" class="section level2 unnumbered hasAnchor">
+<h2>How do we create a variable based on other existing variables in our data frame?<a href="part-2-basics-of-managing-data-in-rstudio.html#how-do-we-create-a-variable-based-on-other-existing-variables-in-our-data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To access a variable by its name within a data frame, you will need to first type the name of the data frame followed by a <code>$</code> (dollar sign), and then typing the variable’s name of interest. For instance, suppose you just want to see the height values in the Console viewer - you just type:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to access height - you need to type &#39;dataset$height&#39;</span></span>
+<span id="cb9-2"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb9-2" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>height</span></code></pre></div>
+<p>We can use other columns or variables within our data frame to create another variable. This technique is essentially important when cleaning and managing data. From this dataset, it is possible to derive the body mass index <code>bmi</code> from height and weight using the formula:</p>
+</br>
+<center>
+<span class="math inline">\(BMI = weight/height^2\)</span>
+</center>
+<p></br></p>
+<p>To generate <code>bmi</code> into our data frame, we would need to access the <code>height</code> (m) and <code>weight</code> (kg) columns using the <code>$</code> from the data frame its stored to, and apply the above formula as a code to generate the new <code>bmi</code> column:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create &#39;bmi&#39; in the data frame i.e.,&#39;dataset&#39; and calculate &#39;bmi&#39;</span></span>
+<span id="cb10-2"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># using the $weight and $height</span></span>
+<span id="cb10-3"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb10-3" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>bmi <span class="ot">&lt;-</span> dataset<span class="sc">$</span>weight<span class="sc">/</span>((dataset<span class="sc">$</span>height)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb10-4"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View the data frame ‘dataset’ and you will see the new bmi variable inside</span></span>
+<span id="cb10-5"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dataset)</span></code></pre></div>
+<p>You can overwrite the <code>height</code> (m) column to change its units into centimeters by multiplying it to 100; equally, the <code>weight</code> (kg) column can be overwritten and converted from units of kilograms to grams by multiplying it to 1000.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using $height and *100 </span></span>
+<span id="cb11-2"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb11-2" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>height <span class="ot">&lt;-</span> dataset<span class="sc">$</span>height<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb11-3"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># using $weight and *100</span></span>
+<span id="cb11-4"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb11-4" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>weight <span class="ot">&lt;-</span> dataset<span class="sc">$</span>weight<span class="sc">*</span><span class="dv">1000</span></span>
+<span id="cb11-5"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># use View() the data frame ‘dataset’ and you will see the updated variables</span></span>
+<span id="cb11-6"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dataset)</span></code></pre></div>
+</div>
+<div id="how-to-set-the-working-directory-with-setwd-function" class="section level2 unnumbered hasAnchor">
+<h2>How to set the working directory with <code>setwd()</code> function?<a href="part-2-basics-of-managing-data-in-rstudio.html#how-to-set-the-working-directory-with-setwd-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Now, we are getting very serious here!</strong></p>
+<div class="note">
+<p><strong>Important action:</strong> Before we do anything - make sure to have downloaded the data set for week 1 if you haven’t done so by <a href=""><strong>clicking here</strong></a>. In your computer, create a new folder on your desktop page and rename the folder to <strong>“GEOG0114”</strong>, and create another folder within <strong>“GEOG0013”</strong> and rename it as <strong>“Workshop 1”</strong>. Make sure to unzip and transfer <strong>ALL</strong> the downloaded data directly to the <strong>Workshop 1</strong> folder.</p>
+</div>
+<p>Now, this part of the practicals are probably the most important section of this tutorial. It’s usually the <strong>“make”</strong> or <strong>“break”</strong> phase (i.e., you ending up loving RStudio OR you hating it and not ever wanting to pick up R again).</p>
+<p>We are going to learn how to set-up a working directory. This basically refers to us connecting the RStudio to the folder containing our dataset. It allows the user to tell RStudio to open data from a folder once it knows the <strong>path location</strong>. The path location specifies the whereabouts of the data file(s) stored within a computer. Setting your directory in RStudio beforehand makes life incredibly easier in terms of finding, importing, exporting and saving data in and out of RStudio.</p>
+<p>To illustrate what a path location is – suppose on my desktop (mac/widows) there is a folder called <strong>“GEOG0013”</strong>, and within that folder, exists another folder called <strong>“Workshop 1”</strong>. Finally, suppose a comma separated value (.csv) data file called <strong>“XXX.csv”</strong> is store in this last folder i.e., <strong>Workshop 1</strong>. If via RStudio you want to open this CSV data file located in within the <strong>“Workshop 1”</strong> folder. You will need to first set the path to <strong>“Workshop 1”</strong> in RStudio using the <code>setwd()</code> function.</p>
+<p>Therefore, the path location to this folder on a <strong>Windows</strong> machine would be written as follows, <code>"C:/Users/accountName/Desktop/GEOG0013/Workshop 1"</code>. You can access this piece of information simply by:</p>
+<ol style="list-style-type: decimal">
+<li>Open the <strong>GEOG0013</strong> folder to reveal the <strong>Workshop 1</strong> folder.</li>
+<li>Open the <strong>Workshop 1</strong> folder in the data files are stored.</li>
+<li>Now, click on the bar at the top which shows <code>GEOG0013 &gt; Workshop 1</code>. This should highlight and show <code>"C:\Users\accountName\Desktop\GEOG0013\Workshop 1"</code> (see image below):</li>
+</ol>
+<p><img src="images/general/getting_started/image3_path_window.png" width="100%" style="display: block; margin: auto;" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Now, copy <code>"C:\Users\accountName\Desktop\GEOG0013\Workshop 1"</code> and paste the path name into the <code>setwd()</code> function in your R script.</li>
+<li>Lastly, change all the back slashes <code>\</code> in the path name to forward slashes <code>/</code> and run the code. It should look like this: <code>setwd("C:/Users/accountName/Desktop/GEOG0013/Workshop 1")</code>.</li>
+</ol>
+<p>For <strong>Windows</strong>, the <code>setwd()</code> is as follows:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set work directory in windows</span></span>
+<span id="cb12-2"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/accountName/Desktop/GEOG0013/Workshop 1&quot;</span>)</span></code></pre></div>
+<p>For <strong>MAC</strong> users, its marginally different. The path location would be written as follows, <code>"/Users/accountName/Desktop/GEOG0013/Workshop 1"</code>. You can access this piece of information simply by:</p>
+<ol style="list-style-type: decimal">
+<li>Right-clicking on the folder “Workshop 1” (not file) in which the files are stored.</li>
+<li>Hold the “Option” <code>⌥</code> key down</li>
+</ol>
+<p><img src="images/general/getting_started/image4_path_mac.png" width="100%" style="display: block; margin: auto;" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Click <code>Copy "filename" as Pathname</code></li>
+<li>Paste the copied path name into the function <code>setwd()</code> and run the code</li>
+</ol>
+<p>For Mac, the <code>setwd()</code> is as follows:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set work directory in macs</span></span>
+<span id="cb13-2"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/Users/accountName/Desktop/GEOG0013/Workshop 1&quot;</span>)</span></code></pre></div>
+<p>This should set the working directory. Now, let us learn how to import a CSV data into RStudio.</p>
+</div>
+<div id="importing-data-using-read.csv" class="section level2 unnumbered hasAnchor">
+<h2>Importing data using <code>read.csv()</code><a href="part-2-basics-of-managing-data-in-rstudio.html#importing-data-using-read.csv" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As you will be working mostly with comma separated value formatted data (i.e., csv) we will therefore learn how to import and export in RStudio. There are two files that we are going to import into RStudio from Week 1’s folder:</p>
+<ol style="list-style-type: decimal">
+<li><code>XXX.csv</code> which contains information on seven indicators (as scores) and an IMD ranking for socioeconomic deprivation for 4,836 postcodes across London in 2019.</li>
+<li><code>YYY.csv</code> which contains details about the observed and estimated expected number of fire-related accidents to have occurred in residential premises with the overall number of houses in 4,836 postcodes across London in 2019.</li>
+</ol>
+<p>To import a csv into RStudio, we use the <code>read.csv()</code> function. To demonstrate this, let us import the data for fires into an data frame object and name it as <code>X_OBJECT</code></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data using read.csv() function </span></span>
+<span id="cb14-2"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb14-2" aria-hidden="true" tabindex="-1"></a>Fire_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">&quot;XXX.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<p>Just in case…suppose if we did <strong>NOT</strong> set the working directory earlier. We would have to go through the hassle of typing the path location in the <code>read.csv()</code>.</p>
+<p>For windows:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb15-1" aria-hidden="true" tabindex="-1"></a>X_OBJECT <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">&quot;C:/Users/accountName/Desktop/GEOG0013/Workshop 1/XXX.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<p>For Mac:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb16-1" aria-hidden="true" tabindex="-1"></a>X_OBJECT <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">&quot;/Users/accountName/Desktop/GEOG0013/Workshop 1/XXX.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<p>I do not recommend doing it this way. Just set the work directory with <code>setwd()</code> to make life easier for yourself.</p>
+<div class="note">
+<p><strong>Important Notes:</strong> The arguments used in <code>read.csv()</code> function – 1.) ‘<code>file =</code>’ is a mandatory option where you quote the name of the file to be imported; 2.) ‘<code>header = TRUE</code>’ option is set to <code>TRUE</code> which is telling RStudio that the file that is about to be imported has column names on the first row so it should not treat as observations; and 3.) ‘<code>sep = ","</code>’ we are telling RStudio that the format of the dataset is comma separated.</p>
+</div>
+<p>We have imported the XXX data. Now, let us import the second data for YYY using the <code>read.csv()</code> function and call it <code>Y_OBJECT</code>. The code would look something as follows:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data using read.csv() function </span></span>
+<span id="cb17-2"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb17-2" aria-hidden="true" tabindex="-1"></a>Y_OBJECT <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">&quot;YYY.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
+<span id="cb17-3"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Show viewer the data sets</span></span>
+<span id="cb17-5"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(Y_OBJECT)</span>
+<span id="cb17-6"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(X_OBJECT)</span></code></pre></div>
+</div>
+<div id="joining-two-datasets-using-the-merge-function" class="section level2 unnumbered hasAnchor">
+<h2>Joining two datasets using the <code>merge()</code> function<a href="part-2-basics-of-managing-data-in-rstudio.html#joining-two-datasets-using-the-merge-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In your journey with data sets, you will certainly find yourself merging two or more data frames together, especially bringing together a spatial object with a non-spatial object. We cannot stress the importance of merging objects in the correct order so that the spatial attributes are preserved.</p>
+<p>In this instance, we are just dealing with two ordinary dataset which are non-spatial - i.e., one data set contains information on Fires that occurred in geographic units in London know as Lower Super Output Areas (LSOA), while the other contains its corresponding information for socioeconomic indicators that describe the LSOA. Hence, it is possible to merge the two data frames uniquely using a common key variable like <code>Key_variable</code>.</p>
+<p><img src="images/general/getting_started/image5_dataviewer.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>This task can be done using the merge function <code>merge()</code>. Consequently, we want the format of the merge code to look something akin to this syntax <code>merge(target_object, selected_object, by=”Key_variable”)</code>.</p>
+<p>Merging data frames is indeed a very important technique to know especially if you need to bring together event information with no spatial dimension with actual spatial data. Alright, let’s merge the deprivation data on the fire records using the <code>Key_variable</code> column, and generate a bigger data frame that contains both the fire and socioeconomic information:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the merge() function </span></span>
+<span id="cb18-2"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb18-2" aria-hidden="true" tabindex="-1"></a>Barcelona_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(X_OBJECT, Y_OBJECT, <span class="at">by.x =</span> “Key_variable”, <span class="at">by.y =</span> “Key_variable”, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-3"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View the datasets</span></span>
+<span id="cb18-5"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(Barcelona_data)</span></code></pre></div>
+<div class="note">
+<p><strong>Important Notes:</strong> The arguments used in <code>merge.csv()</code>:</p>
+<ol style="list-style-type: decimal">
+<li><code>X_OBJECT</code> is the target data frame we want something to be merged on to.</li>
+<li><code>Y_OBJECT</code> is the selected data frame we are using to merge with the <code>X_OBJECT</code>.</li>
+<li><code>by.x = “Key_variable”</code> option we are specifying the name of the join column from the target data frame i.e., <code>X_OBJECT</code>.</li>
+<li><code>by.y = “Key_variable”</code> option we are specifying the name of the join column from the selected data frame i.e., <code>Y_OBJECT</code></li>
+<li><code>all.x=TRUE</code> option we are telling RStudio to retain all rows that are originally from the target data after merging regardless of whether or not they are present in the selected data frame. So even if a row from the selected data does not find a unique link with any of the rows in target data to match too - it will still preserve the target data frame by not discarding unlinked rows. But it will discard the unmatched rows from the selected data frame.</li>
+</ol>
+</div>
+</div>
+<div id="saving-your-dataset-using-the-write.csv-function" class="section level2 unnumbered hasAnchor">
+<h2>Saving your dataset using the <code>write.csv()</code> function<a href="part-2-basics-of-managing-data-in-rstudio.html#saving-your-dataset-using-the-write.csv-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let us save a version of this as a <code>.csv</code> file as a saved product named <code>“Barcelona_Data.csv”</code>. This can be done by using the <code>write.csv()</code> function. It will export the data frame object into a <code>.csv</code> format.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Export ‘Barcelona_Data’ object as .csv into &#39;Week 1&#39; folder</span></span>
+<span id="cb19-2"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Barcelona_Data, <span class="at">file =</span> <span class="st">&quot;Barcelona_Data.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="note">
+<p><strong>Important Notes:</strong> The arguments used in <code>merge.csv()</code>:</p>
+<ol style="list-style-type: decimal">
+<li><code>Barcelona_Data</code> is an object we are exporting. It is compulsory to specify the object data frame we want to export</li>
+<li><code>file =</code> is a mandatory argument. We must give a name to the file we wish to export it as with <code>.csv</code> extension.</li>
+<li><code>row.names =</code> this is an annoying argument! It will automatically index the dataset with unique row numbers by default if we do not specify <code>FALSE</code>! Since the data has its own unique identifiers (i.e., LSOA_code) we specify ‘FALSE’ to not perform this action of indexing</li>
+</ol>
+</div>
+<p>Again, suppose if you did <strong>NOT</strong> set the work directory to your folder, you will have to type the whole path location to where you want the data to be exported which could be a hassle:</p>
+<p>For Windows:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Full_data, <span class="at">file =</span> <span class="st">&quot;C:/Users/accountName/Desktop/GEOG0013/Workshop 1/Barcelona_data.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>For Mac:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(Full_data, <span class="at">file =</span> <span class="st">&quot;/Users/accountName/Desktop/GEOG0013/Workshop 1/Barcelona_data.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>Again, I do not recommend doing it this way. Just set the work directory with <code>setwd()</code> to make life easier for yourself and to avoid R calling you out for errors.</p>
+<p>Now that we have learned a lot of the basic things in RStudio – the stuff shown in <strong>Part 2</strong> will be used quite a lot moving forward in journey of studies. Now, let us progress to the <strong>meat</strong> and <strong>potatoes</strong> in *Part 3** where will start using RStudio for statistical analysis. Here, we will conduct some descriptive profile of the air quality using pollution data from Barcelona.</p>
+<p>We’re in the final stretch now.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="part-1-getting-started-with-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="part-3-exploratory-analysis-in-rstudio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/UCLPG-MSC-SGDS/GEOG0013/edit/main/01-Getting_started_with_RStudio.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
