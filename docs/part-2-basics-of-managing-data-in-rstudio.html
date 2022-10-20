@@ -50,6 +50,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -138,6 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to Introduction to Statistics</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#video-1-getting-started-length-1450-minutes"><i class="fa fa-check"></i>Video 1: Getting started (Length: 14:50 minutes)</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#self-guided-tutorials"><i class="fa fa-check"></i>Self-guided tutorials</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#questions-discusson-forum-on-moodle"><i class="fa fa-check"></i>Questions &amp; Discusson Forum on Moodle</a></li>
@@ -342,7 +344,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>Barcelona_cars_2015.csv</code> which contains an indicator for proportion of car ownership in 73 Spanish neighbourhoods in Barcelona in 2015.</li>
 <li><code>Barcelona_rents_2015.csv</code> which contains an indicator for average monthly rent (in euros) spent in 73 Spanish neighbourhoods in Barcelona in 2015.</li>
 </ol>
-<p>To import a csv into RStudio, we use the <code>read.csv()</code> function. To demonstrate this, let us import the data for fires into an data frame object and name it as <code>Barcelona_rents_2015.csv</code></p>
+<p>To import a csv into RStudio, we use the <code>read.csv()</code> function. To demonstrate this, let us import the data for average monthly rents into an data frame object and name it as <code>Rent_data</code></p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data using read.csv() function </span></span>
 <span id="cb14-2"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb14-2" aria-hidden="true" tabindex="-1"></a>Rent_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">&quot;Barcelona_rents_2015.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
 <p>Just in case…suppose if we did <strong>NOT</strong> set the working directory earlier. We would have to go through the hassle of typing the path location in the <code>read.csv()</code>.</p>
@@ -354,7 +356,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="note">
 <p><strong>Important Notes:</strong> The arguments used in <code>read.csv()</code> function – 1.) ‘<code>file =</code>’ is a mandatory option where you quote the name of the file to be imported; 2.) ‘<code>header = TRUE</code>’ option is set to <code>TRUE</code> which is telling RStudio that the file that is about to be imported has column names on the first row so it should not treat as observations; and 3.) ‘<code>sep = ","</code>’ we are telling RStudio that the format of the dataset is comma separated.</p>
 </div>
-<p>We have imported the <code>Barcelona_rents_2015.csv</code> data. Now, let us import the second data for YYY using the <code>read.csv()</code> function and call it <code>Barcelona_cars_2015.csv</code>. The code would look something as follows:</p>
+<p>We have imported the <code>Barcelona_rents_2015.csv</code> data. Now, let us import the second data for <code>Barcelona_cars_2015.csv</code> using the <code>read.csv()</code> function and call it <code>Cars_data</code>. The code would look something as follows:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data using read.csv() function </span></span>
 <span id="cb17-2"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb17-2" aria-hidden="true" tabindex="-1"></a>Cars_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">&quot;Barcelona_cars_2015.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
 <span id="cb17-3"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -367,7 +369,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In your journey with data sets, you will certainly find yourself merging two or more data frames together, especially bringing together a spatial object with a non-spatial object. We cannot stress the importance of merging objects in the correct order so that the spatial attributes are preserved. It is possible to merge the two data frames uniquely using a common key variable like <code>neighbourhoods</code> that is present in both data sets.</p>
 <p><img src="images/general/getting_started/image5_dataviewer.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>This task can be done using the merge function <code>merge()</code>. Consequently, we want the format of the merge code to look something akin to this syntax <code>merge(target_object, selected_object, by=”Key_variable”)</code>.</p>
-<p>Merging data frames is indeed a very important technique to know especially if you need to bring together event information with no spatial dimension with actual spatial data. Alright, let’s merge the rental information on the fire records using the <code>Key_variable</code> column, and generate a bigger data frame that contains both the fire and socioeconomic information:</p>
+<p>Merging data frames is indeed a very important technique to know especially if you need to bring together event information with no spatial dimension with actual spatial data. Alright, let’s merge the cars ownership information on the home rental records using the <code>Key_variable</code> column, and generate a bigger data frame that contains both the rental and car ownership information:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the merge() function </span></span>
 <span id="cb18-2"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb18-2" aria-hidden="true" tabindex="-1"></a>Barcelona_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(Rent_data, Cars_data, <span class="at">by.x =</span> <span class="st">&quot;neighbourhood&quot;</span>, <span class="at">by.y =</span> <span class="st">&quot;neighbourhood&quot;</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb18-3"><a href="part-2-basics-of-managing-data-in-rstudio.html#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
