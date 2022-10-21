@@ -29,7 +29,7 @@
   
   
 <link rel="prev" href="part-2-basics-of-managing-data-in-rstudio.html"/>
-<link rel="next" href="conclusion-workshop-preparation.html"/>
+<link rel="next" href="preparation-for-workshop-assignment.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -172,7 +172,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#frequency-distributions"><i class="fa fa-check"></i>Frequency distributions</a></li>
 <li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#descriptive-and-central-tendency-measures"><i class="fa fa-check"></i>Descriptive and central tendency measures</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="conclusion-workshop-preparation.html"><a href="conclusion-workshop-preparation.html"><i class="fa fa-check"></i>Conclusion: Workshop Preparation</a></li>
+<li class="chapter" data-level="" data-path="preparation-for-workshop-assignment.html"><a href="preparation-for-workshop-assignment.html"><i class="fa fa-check"></i>Preparation for Workshop &amp; Assignment</a>
+<ul>
+<li class="chapter" data-level="" data-path="preparation-for-workshop-assignment.html"><a href="preparation-for-workshop-assignment.html#assignment"><i class="fa fa-check"></i>Assignment</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="appendendum.html"><a href="appendendum.html"><i class="fa fa-check"></i>Appendendum</a>
 <ul>
 <li class="chapter" data-level="" data-path="appendendum.html"><a href="appendendum.html#appendix-1-list-of-functions-used-in-this-workshop"><i class="fa fa-check"></i>Appendix 1: List of functions used in this workshop</a></li>
@@ -571,14 +574,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="descriptive-and-central-tendency-measures" class="section level2 unnumbered hasAnchor">
 <h2>Descriptive and central tendency measures<a href="part-3-exploratory-analysis-in-rstudio.html#descriptive-and-central-tendency-measures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We have used frequency distribution to describe the distribution about the data for air pollution in Barcelona. The description is at face-value though. Central tendency measures contains a list of summary measurements that allows the user to summarize the data to some central measure and to gauge the spread of the data (i.e., errors/departures from central measure). It is best for continuous variables, we can hence compute the following summary measurements (watch video see to definitions):</p>
+<p>We have used frequency distribution to describe the distribution about the data for air pollution in Barcelona. The description is at face-value though. Central tendency measures contains a list of summary measurements that allows the user to summarize the data to some central measure and to gauge the spread of the data (i.e., errors/departures from central measure). It is best for continuous variables, we can hence compute the following summary measurements (watch video below see to definitions):</p>
 <ol style="list-style-type: decimal">
 <li>Mean</li>
 <li>Median</li>
-<li>Standard deviation</li>
+<li>Variance and Standard deviation</li>
 <li>Minimum and Maximum values</li>
-<li>Quartiles (or Interquartile ranges)</li>
+<li>Upper and Lower Quartiles (or Interquartile ranges)</li>
 </ol>
+<p><strong>Video [Theory]: Central tendency measures (Length: 17:09 minutes)</strong></p>
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://web.microsoftstream.com/embed/video/f876de0c-12a7-4dd1-9eab-5d833bf73543?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;" data-external="1"></iframe>
+</div>
+</div>
+<p>Video: <a href="https://web.microsoftstream.com/video/f876de0c-12a7-4dd1-9eab-5d833bf73543"><strong>LINK</strong></a></p>
+<p><strong>Video [Theory]: Range values and interquartile ranges (Length: 18:24 minutes)</strong></p>
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://web.microsoftstream.com/embed/video/5d95c429-4c0d-451f-8359-2cb9729eb837?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;" data-external="1"></iframe>
+</div>
+</div>
+<p>Video: <a href="https://web.microsoftstream.com/video/5d95c429-4c0d-451f-8359-2cb9729eb837"><strong>LINK</strong></a></p>
+<div class="note">
+<p><strong>Important Notes:</strong> The above videos are introductory footage extracted from Week 2’s lectures titled: “Examining Data I”, a session in <a href="https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-quantitative-research-methods-POLS0008"><strong>POLS0008: Introduction to Quantitative Methods</strong></a>.</p>
+</div>
 <p>To compute the summary statistics rapidly – simply use the <code>summary()</code> function on the variable of interest (i.e., <code>NO2_est</code> from the original dataset).</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute all descriptive summaries measurements</span></span>
 <span id="cb48-2"><a href="part-3-exploratory-analysis-in-rstudio.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(air_quality_data<span class="sc">$</span>NO2_est)</span></code></pre></div>
@@ -588,6 +608,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute all descriptive summaries measurements</span></span>
 <span id="cb50-2"><a href="part-3-exploratory-analysis-in-rstudio.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(air_quality_data<span class="sc">$</span>NO2_est)</span></code></pre></div>
 <pre><code>## [1] 20.60876</code></pre>
+<p><strong>Video [Theory]: Variance &amp; standard deviation (Length: 13:39 minutes)</strong></p>
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://web.microsoftstream.com/embed/video/8f043b29-3e71-4ef7-85f2-6c7a6dd1f090?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;" data-external="1"></iframe>
+</div>
+</div>
+<p>Video: <a href="https://web.microsoftstream.com/video/8f043b29-3e71-4ef7-85f2-6c7a6dd1f090"><strong>LINK</strong></a></p>
+<div class="note">
+<p><strong>Important Notes:</strong> The above video was an introductory footage extracted from Week 2’s lectures titled: “Examining Data I”, a session in <a href="https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-quantitative-research-methods-POLS0008"><strong>POLS0008: Introduction to Quantitative Methods</strong></a>.</p>
+</div>
 <p>The standard deviation is ± 20.61pbb – this is the error around the mean of NO<span class="math inline">\(_2\)</span> i.e., estimated as 59.69ppb. To visualise the distribution of a continuous variable – your ‘go-to’ plot is a boxplot. You can use the function <code>boxplot()</code> to generate one. Type the following to churn it:</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Box plot</span></span>
 <span id="cb52-2"><a href="part-3-exploratory-analysis-in-rstudio.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(air_quality_data<span class="sc">$</span>NO2_est, <span class="at">ylab =</span> <span class="st">&quot;NO2 estimates (ppb)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Box plot: Summary of Nitrogen Dioxide in Barcelona&quot;</span>)</span></code></pre></div>
@@ -603,7 +633,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="part-2-basics-of-managing-data-in-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="conclusion-workshop-preparation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="preparation-for-workshop-assignment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
