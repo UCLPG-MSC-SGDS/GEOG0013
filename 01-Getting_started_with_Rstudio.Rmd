@@ -349,7 +349,7 @@ embed_msstream('ac402dee-4ccb-4a55-8207-c31567605a8b') %>% use_align('center')
 If the video does not play within this section, then try playing it from Microsoft Streams - you should be able to view it there using this [**LINK**](https://web.microsoftstream.com/video/ac402dee-4ccb-4a55-8207-c31567605a8b)
 
 <div class= "note">
-**Important action:** Before we do anything - make sure to have downloaded the data set for week 1 if you haven't done so by [**clicking here**](https://github.com/UCLPG-MSC-SGDS/GEOG0013/raw/main/Datasets%20for%20Tutorials.zip). In your computer, create a new folder on your desktop page and rename the folder to **"GEOG0113"**, and create another folder within **"GEOG0013"** and rename it as **"Workshop 1"**. Make sure to unzip and transfer **ALL** the downloaded data directly to the **Workshop 1** folder.
+**Important action:** Please download the data set for this practical by [**clicking here**](https://github.com/UCLPG-MSC-SGDS/GEOG0013/raw/main/Datasets%20for%20Tutorials.zip). Now, in your computer, please create a new folder on your desktop page and rename the folder to **"GEOG0113"**, and create another folder within **"GEOG0013"** and rename it as **"Workshop 1"**. Make sure to unzip and transfer **ALL** the downloaded data directly to the **Workshop 1** folder.
 </div>
 
 Now, we are getting very serious here! This part of the practicals are probably the most important section of this tutorial. It's usually the **"make"** or **"break"** phase (i.e., you ending up loving RStudio OR you hating it and not ever wanting to pick up R again). 
@@ -397,7 +397,22 @@ For Mac, the `setwd()` is as follows:
 setwd("/Users/accountName/Desktop/GEOG0013/Workshop 1")
 ```
 
-This should set the working directory. Now, let us learn how to import a CSV data into RStudio. 
+This should set the working directory. Alternatively, if the `setwd()` is problematic - you can do this manually. See short video below.
+
+**Added video: [Tutorials]: Setting Work Directory Manually if Using the `setwd()` function is problematic (Length: 3:58 minutes)**
+
+```{r video_44, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_msstream('925eff59-002b-4c60-bbf5-2fcbd83cd3e6') %>% use_align('center')
+```
+
+Video: [**LINK**](https://web.microsoftstream.com/video/925eff59-002b-4c60-bbf5-2fcbd83cd3e6)
+
+<div class= "note">
+**Important action:** Again, please make sure to have downloaded the data set for this practical by [**clicking here**](https://github.com/UCLPG-MSC-SGDS/GEOG0013/raw/main/Datasets%20for%20Tutorials.zip). Also, in your computer, please make sure you have already created a new folder on your desktop page and renamed the folder to **"GEOG0113"**, and have also created another folder within **"GEOG0013"** and have renamed that to **"Workshop 1"**. Make sure to unzip and transfer **ALL** the downloaded data directly to the **Workshop 1** folder.
+</div>
+
+Now, let us learn how to import a CSV data into RStudio. 
 
 ## Importing data using `read.csv()` {-}
 
