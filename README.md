@@ -2,7 +2,7 @@
 
 This GitHub repository creates the workshop content for Introduction to Statistics for the module [GEOG0013 Geography in the Field 1 (GIF1) (2022/23)][course] at the [University College London][uni]'s [Department of Geography][dept]. It contains the tutorials as follows:
 
-Part 1: Getting started with RStudio <br/> Part 2: Basics of Managing Data in RStudio <br/> Part 3: Exploratory Analysis in RStudio <br/> Introduction to Distributions
+Part 1: Getting started with RStudio <br/> Part 2: Basics of Managing Data in RStudio <br/> Part 3: Exploratory Analysis in RStudio <br/> Part 4: Introduction to Distributions
 
 It can be found here: https://uclpg-msc-sgds.github.io/GEOG0013/
 
