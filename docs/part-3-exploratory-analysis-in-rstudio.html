@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Part 3: Exploratory analysis in RStudio | GEOG0013: Geography in the Field 1 (GIF1) 2023/24</title>
+  <meta name="description" content="GEOG0013: Geography in the Field 1 (GIF1)" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Part 3: Exploratory analysis in RStudio | GEOG0013: Geography in the Field 1 (GIF1) 2023/24" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="GEOG0013: Geography in the Field 1 (GIF1)" />
+  <meta name="github-repo" content="UCLPG-MSC-SGDS/GEOG0013" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Part 3: Exploratory analysis in RStudio | GEOG0013: Geography in the Field 1 (GIF1) 2023/24" />
+  
+  <meta name="twitter:description" content="GEOG0013: Geography in the Field 1 (GIF1)" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="part-2-basics-of-managing-data-in-rstudio.html"/>
+<link rel="next" href="part-4-introduction-to-distributions.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="assets/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo">
+<a href="https://www.ucl.ac.uk/module-catalogue/modules/GEOG0013"><img src="images/general/ucl_logo.png">
+</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to Introduction to Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#self-guided-tutorials"><i class="fa fa-check"></i>Self-guided tutorials</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#questions-discusson-forum-on-moodle"><i class="fa fa-check"></i>Questions &amp; Discusson Forum on Moodle</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#learning-outcomes"><i class="fa fa-check"></i>Learning outcomes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html"><i class="fa fa-check"></i>Part 1: Getting started with RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html#what-is-rstudio-or-r"><i class="fa fa-check"></i>What is RStudio (or R)</a></li>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html#download-and-install-rstudio-directly-on-to-your-laptop-best-option"><i class="fa fa-check"></i>Download and install RStudio directly on to your laptop (BEST OPTION)</a></li>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html#using-the-ucl-desktop-cloud-system-to-access-rstudio"><i class="fa fa-check"></i>Using the UCL Desktop Cloud system to access RStudio</a></li>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html#becoming-familiar-with-the-panels-in-rstudio"><i class="fa fa-check"></i>Becoming familiar with the panels in RStudio</a></li>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html#using-r-console-as-a-calculator"><i class="fa fa-check"></i>Using R Console as a Calculator</a></li>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html#creating-basic-objects-and-assigning-values-to-it"><i class="fa fa-check"></i>Creating basic objects and assigning values to it</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html"><i class="fa fa-check"></i>Part 2: Basics of Managing Data in RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#how-do-we-enter-data-into-rstudio"><i class="fa fa-check"></i>How do we enter data into RStudio?</a></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#how-do-we-create-a-variable-based-on-other-existing-variables-in-our-data-frame"><i class="fa fa-check"></i>How do we create a variable based on other existing variables in our data frame?</a></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#how-to-set-the-working-directory-with-setwd-function"><i class="fa fa-check"></i>How to set the working directory with <code>setwd()</code> function?</a></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#importing-data-using-read.csv"><i class="fa fa-check"></i>Importing data using <code>read.csv()</code></a></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#joining-two-datasets-using-the-merge-function"><i class="fa fa-check"></i>Joining two datasets using the <code>merge()</code> function</a></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#saving-your-dataset-using-the-write.csv-function"><i class="fa fa-check"></i>Saving your dataset using the <code>write.csv()</code> function</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html"><i class="fa fa-check"></i>Part 3: Exploratory analysis in RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#what-is-statistics-and-data-in-general"><i class="fa fa-check"></i>What is statistics and data in general?</a></li>
+<li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#analysing-air-pollution-data-in-barcelona"><i class="fa fa-check"></i>Analysing air pollution data in Barcelona</a></li>
+<li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#frequency-distributions"><i class="fa fa-check"></i>Frequency distributions</a></li>
+<li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#descriptive-and-central-tendency-measures"><i class="fa fa-check"></i>Descriptive and central tendency measures</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-distributions.html"><a href="part-4-introduction-to-distributions.html"><i class="fa fa-check"></i>Part 4: Introduction to Distributions</a></li>
+<li class="chapter" data-level="" data-path="formative-assignment.html"><a href="formative-assignment.html"><i class="fa fa-check"></i>Formative Assignment</a></li>
+<li class="chapter" data-level="" data-path="appendendum.html"><a href="appendendum.html"><i class="fa fa-check"></i>Appendendum</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendendum.html"><a href="appendendum.html#appendix-1-list-of-functions-used-in-this-workshop"><i class="fa fa-check"></i>Appendix 1: List of functions used in this workshop</a></li>
+<li class="chapter" data-level="" data-path="appendendum.html"><a href="appendendum.html#appendix-2-list-of-symbols-used-in-this-workshop"><i class="fa fa-check"></i>Appendix 2: List of symbols used in this workshop</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">GEOG0013: Geography in the Field 1 (GIF1) 2023/24</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="part-3-exploratory-analysis-in-rstudio" class="section level1 unnumbered hasAnchor">
+<h1>Part 3: Exploratory analysis in RStudio<a href="part-3-exploratory-analysis-in-rstudio.html#part-3-exploratory-analysis-in-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="what-is-statistics-and-data-in-general" class="section level2 unnumbered hasAnchor">
+<h2>What is statistics and data in general?<a href="part-3-exploratory-analysis-in-rstudio.html#what-is-statistics-and-data-in-general" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Definition 1</strong>: Statistics is a branch in the mathematical sciences that pertains to the collection, analysis, interpretation, and graphical presentation of data. The best thing about statistics is that it’s a highly applied branch of science which is applicable to many areas such as social science, politics, health (e.g., epidemiology), business &amp; finance, environmental sciences and geography.</p>
+<p>Statistics is broadly split into two main areas:</p>
+<ol style="list-style-type: decimal">
+<li>Descriptive statistics, which focuses on describing the visible characteristics about a dataset</li>
+<li>Inferential statistics is more research-based, which focuses on making predictions (rather than stating facts) and testing hypothesis about a phenomenon.</li>
+</ol>
+<p><strong>Definition 2</strong>: A variable is any characteristics, numbered value, or quantity that can be measured or counted. A variable can also be referred to a data Item. A variable can be broadly classified as discrete, continuous or categorical variable.</p>
+<p>We have provided two videos: the first which broadly explains why statistics as a subject is important; and the second explains in much details what statistics is as a subject, and what are the various data types.</p>
+<p><strong>[Theory] Why is statistics important? (Length: 13:21 minutes)</strong></p>
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://www.youtube.com/embed/BTQihTqIR8Y" width="711" height="400" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+<p>Watch on YouTube <a href="https://youtu.be/BTQihTqIR8Y">[<strong>LINK</strong>]</a></p>
+<p><strong>[Theory &amp; Code] What is statistics, and the types of variables? (Length: 31:17 minutes)</strong></p>
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://www.youtube.com/embed/FJh6Cu-ATLM" width="711" height="400" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+<p>Watch on YouTube <a href="https://youtu.be/FJh6Cu-ATLM">[<strong>LINK</strong>]</a></p>
+</div>
+<div id="analysing-air-pollution-data-in-barcelona" class="section level2 unnumbered hasAnchor">
+<h2>Analysing air pollution data in Barcelona<a href="part-3-exploratory-analysis-in-rstudio.html#analysing-air-pollution-data-in-barcelona" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We will focus on descriptive statistics as an introduction introducing everyone to the absolute basics. Descriptive statistics is all about knowing the <strong>data types</strong> and finding the <strong>distribution</strong>, <strong>central tendency</strong> and <strong>variability</strong> in such data set. These four key words may sound intimidating – but trust me – it is very easy! Let us learn how to perform this in RStudio using the air pollution data for Barcelona.</p>
+<p>Let us import for following dataset <code>Barcelona_Air_Pollution_data.csv</code> into RStudio, and call this object <code>air_ quality_data</code>.</p>
+<p>Remember - always make sure that your work directory is linked to your folder containing your data.</p>
+<p>For Windows:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb22-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/accountName/Desktop/GEOG0013/Workshop 1/&quot;</span>)</span></code></pre></div>
+<p>For Macs:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb23-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/Users/accountName/Desktop/GEOG0013/Workshop 1/&quot;</span>)</span></code></pre></div>
+<p>Now, import you the data set as follows:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb24-1" tabindex="-1"></a>air_quality_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Barcelona_Air_Pollution_data.csv&quot;</span>)</span></code></pre></div>
+<p>You use the command <code>View()</code> see the full data viewer, or <code>head()</code> to see the first five rows of the dataset.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb25-1" tabindex="-1"></a><span class="co"># see imported dataset</span></span>
+<span id="cb25-2"><a href="part-3-exploratory-analysis-in-rstudio.html#cb25-2" tabindex="-1"></a><span class="fu">View</span>(air_quality_data)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb26-1" tabindex="-1"></a><span class="fu">head</span>(air_quality_data)</span></code></pre></div>
+<p>You will notice that the data contains six variables with the following information:</p>
+<table>
+<colgroup>
+<col width="21%" />
+<col width="23%" />
+<col width="54%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Variable name</strong></th>
+<th><strong>Variable Type</strong></th>
+<th><strong>Information</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Location</td>
+<td>String/Text only</td>
+<td>Name of location Eixample, Barcelona</td>
+</tr>
+<tr class="even">
+<td>ReadingDate</td>
+<td>Date</td>
+<td>Data collection date for air quality measures</td>
+</tr>
+<tr class="odd">
+<td>NO2_est</td>
+<td>Continuous</td>
+<td>Measurements for Nitrogen dioxide (NO<span class="math inline">\(_2\)</span>) (ppb)</td>
+</tr>
+<tr class="even">
+<td>NO2_category</td>
+<td>Categorical</td>
+<td>Health impacts (negligible/low/moderate/high)</td>
+</tr>
+<tr class="odd">
+<td>PM10_est</td>
+<td>Continuous</td>
+<td>Measurements for Particulate matter (PM10)</td>
+</tr>
+<tr class="even">
+<td>PM10_category</td>
+<td>Categorical</td>
+<td>Health impacts (negligible/low/moderate)</td>
+</tr>
+</tbody>
+</table>
+<div class="note">
+<p><strong>Important Notes</strong>: The <code>NO2_est</code>, for example, contains measurable items i.e., 718 observations for concentrations of ambient NO<span class="math inline">\(_2\)</span> in Eixample area of Barcelona, and hence its a continuous variable. These estimates have been categorised in accordance with their health dangers i.e., negligible (<span class="math inline">\(&lt;\)</span> 10 ppb); low (11-50 ppb); moderate (51-100 ppb) and high (&gt;101 pbb). The categories are contained in the variable <code>NO2_category</code>.</p>
+</div>
+<p>Let us begin to analyse <code>NO2_est</code> and <code>NO2_category</code> with <strong>frequency distributions</strong></p>
+</div>
+<div id="frequency-distributions" class="section level2 unnumbered hasAnchor">
+<h2>Frequency distributions<a href="part-3-exploratory-analysis-in-rstudio.html#frequency-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We use frequency distribution to analyse a set continuous data. In data handling in this context, there are two outputs generated:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Frequency</strong>, which tells us how often a particular result was obtained. From this we can calculate a percentage value which is referred to as <strong>Relative Frequency</strong>.<br />
+</li>
+<li><strong>Cumulative Frequency</strong>, this is a cumulative sum of the frequencies, which indicates how often a result was obtained that is less than a stated value in our collection of data. Again, from this we can also calculate a cumulative percentage value which is referred to as <strong>Cumulative Relative Frequency</strong>.</li>
+</ol>
+<p>Suppose, we want to assess the 718 observations for air pollutant Nitrogen Dioxide (NO<span class="math inline">\(_2\)</span>).</p>
+<p>Let’s list the observations for Nitrogen Dioxide (NO<span class="math inline">\(_2\)</span>) in Barcelona:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb27-1" tabindex="-1"></a>air_quality_data<span class="sc">$</span>NO2_est</span></code></pre></div>
+<pre><code>##   [1]  61  59  29  75  23  49  43  35  83  75  71  56  54  44  41  54  62  56  26  42  71  86  85  52  56  45  68  86  69  71   4  82  43  51 114  43  18  58  24  53
+##  [41]  98  53 100  53  49  49  46  82  77  67  76  52  61  80  77  70  56  49  42  73  64  33  71  72  13  37  26  46  84  72  65  76  90  46  61  81  64  62  58  78
+##  [81]  83  37 130  43  20  40 102  68  48  74  52  43  80  71  42  84  44 121  41  66  44  50  38  75  41  45  48  63  53  63  63  46  34  87  75  74  36  69  46  15
+## [121]  80  75  83  95   5  65  21  84  68  32  45  73  53  31  85  91  73  46  25  75  70  84  68  65  58 113  62  60  55  69  82 100 105  47  60 103  53  34  39  22
+## [161]  21  71  85  56  73  61  24  44  47  49 100  64  91  79  42  32  33  84  43  61  63  49  80  46  58  45  37  66  60  75  35  75  48  43  57  67  54  38  22  51
+## [201]  69  51  64  32  20  52  42  65  69  47  40  34  34  51  57  43  52  86  53  43  54  75  56  62  41  84  41  22  83  76  51  31  50  65  76  77  61  50  75  49
+## [241]  47  65  78  39  51  49  75  45  50  69  86  75  89  68  84  90  90  56 106  63  90  57  38  86  22  39  19  61  44  63  52  42  46  56  40  69  62  42  54  17
+## [281]  49  84  34  89  65  53  78  67  55  61  39  82  58  15  63  76  55  80  56  79  72  58  74  27  93  40  40  58  79  81 123  84  37  87  38  49  91  50  59  69
+## [321]  57  68  53  38  51  78  71  72  55  70  56  63  85  78  64  23  84  43  46  33  59  58  47  64  68  89  76  86 116  52  34  63  40  41  72  87  37  62  38  68
+## [361]  88  39  59  77  75 112  44  40  90  37  66  61  65  50  79  79  36  36  12  86  40  62  63  71  53  30  44  76  41  62  77  80  62  86  37  48  80  55  56  49
+## [401]  84  48  49  84  60  76  28  77  41  57  55  51  54  54  11  43  38  86  30  23  78  29  80  16  48  90  44  42  50  54  45  42  70  49  67  73  60  42  99  97
+## [441]  77  46  52  24  75  30  70  81  53  17  63  59  44  41  67  56  58 111  43  47  49  58  36  72  36 103  63  77  65  42  42  79  41  24  59  50  46  55  77  91
+## [481]  54  70  73  53  80  53  72  67  95  57  87  39  73  56  34  56  75  74  72  42 119  55  43  69  55  52  77  63 108  43  61  47 117  80  61  67  78  49  42  35
+## [521]  58  54  36  84  56  72  70  40  59  71  56  49  66  52  48  60  54  73  66  67  70  93  65  60  13  83  49  42  62  63  50  46  54  94  73  54  74  54  10  71
+## [561]  41  17  75  55  54  54  83  47  49  90  76  89  83  43  76  67  75  88  59  60  34  36  63  42  59  71  73  73  40  74  53  56  99  46  46  64  37  20  84  86
+## [601]  47  57  54  56  78  73  65  72  37  57  38  46  43  57  98  32  98  53  86  59  63  42  60  60  51  58  59  83  67  42  74  62  84  67  49  76   2  44  51  69
+## [641]  69  87  49  18  73  66  81  78  82  69  50  36  71  60   7  50  49  60  55  25  58  76  69  61  88  45  59  59  91  61  81  81  83  71 108  99  46  69  38  54
+## [681]  59  16  75  81  35  63  65  71  57  53  58  37  39  43  64  76  56  72  87  74  74  77  46  87  53  60  47  10  61  35  36  60  71  45  47  79  37 123</code></pre>
+<p>In a list format it is quite difficult to make head or tail on what observations appear frequently and its distribution. To summarise this - it will be helpful to classify the information into <strong>Classes</strong> and then obtain the <strong>Frequency</strong> and <strong>Cumulative Frequency</strong> in a table. We call this table a <strong>Frequency Table</strong>.</p>
+<p>The minimum value for NO<span class="math inline">\(_2\)</span> is 2 and the maximum is 130. We can group the 718 observations into 13 <strong>classes</strong> using an interval of 10s e.g., <code>1-10, 11-20, 21-30, 31-40, 41-50, 51-60, 61-70, 71-80, 81-90, 91-100, 101-110, 111-120</code> and <code>121-130</code></p>
+<div class="note">
+<p><strong>Important Notes</strong>: The way and manner you specify the classes and interval are up to you really. Here, 10 is being used for convenience.</p>
+</div>
+<p>The interval width is 10, we can generate sequence of number from 0 to 130, inclusively, to create the <strong>classes</strong> which in turn be used to group the 718 observations into 13 classes using the <code>seq()</code> and <code>cut()</code>.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb29-1" tabindex="-1"></a><span class="co"># using starting value as 0</span></span>
+<span id="cb29-2"><a href="part-3-exploratory-analysis-in-rstudio.html#cb29-2" tabindex="-1"></a><span class="co"># using highest value as 130</span></span>
+<span id="cb29-3"><a href="part-3-exploratory-analysis-in-rstudio.html#cb29-3" tabindex="-1"></a><span class="co"># using interval as 10</span></span>
+<span id="cb29-4"><a href="part-3-exploratory-analysis-in-rstudio.html#cb29-4" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="part-3-exploratory-analysis-in-rstudio.html#cb29-5" tabindex="-1"></a><span class="co">#  specify in this order the lower, highest, interval value in seq() function</span></span>
+<span id="cb29-6"><a href="part-3-exploratory-analysis-in-rstudio.html#cb29-6" tabindex="-1"></a>classes <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">130</span>, <span class="dv">10</span>)</span>
+<span id="cb29-7"><a href="part-3-exploratory-analysis-in-rstudio.html#cb29-7" tabindex="-1"></a>classes</span></code></pre></div>
+<pre><code>##  [1]   0  10  20  30  40  50  60  70  80  90 100 110 120 130</code></pre>
+<p>The sequence of values are stored in the object called <code>classes</code>. Now, let us apply the <code>cut()</code> function to group the NO<span class="math inline">\(_2\)</span> data accordingly. We can do this by generating a new variable called <code>Groups</code>.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb31-1" tabindex="-1"></a><span class="co"># tell the cut() function to group NO2_est using the classes object</span></span>
+<span id="cb31-2"><a href="part-3-exploratory-analysis-in-rstudio.html#cb31-2" tabindex="-1"></a>air_quality_data<span class="sc">$</span>Groups <span class="ot">&lt;-</span> <span class="fu">cut</span>(air_quality_data<span class="sc">$</span>NO2_est, <span class="at">breaks=</span>classes)</span>
+<span id="cb31-3"><a href="part-3-exploratory-analysis-in-rstudio.html#cb31-3" tabindex="-1"></a>air_quality_data<span class="sc">$</span>Groups</span></code></pre></div>
+<pre><code>##   [1] (60,70]   (50,60]   (20,30]   (70,80]   (20,30]   (40,50]   (40,50]   (30,40]   (80,90]   (70,80]   (70,80]   (50,60]   (50,60]   (40,50]   (40,50]   (50,60]  
+##  [17] (60,70]   (50,60]   (20,30]   (40,50]   (70,80]   (80,90]   (80,90]   (50,60]   (50,60]   (40,50]   (60,70]   (80,90]   (60,70]   (70,80]   (0,10]    (80,90]  
+##  [33] (40,50]   (50,60]   (110,120] (40,50]   (10,20]   (50,60]   (20,30]   (50,60]   (90,100]  (50,60]   (90,100]  (50,60]   (40,50]   (40,50]   (40,50]   (80,90]  
+##  [49] (70,80]   (60,70]   (70,80]   (50,60]   (60,70]   (70,80]   (70,80]   (60,70]   (50,60]   (40,50]   (40,50]   (70,80]   (60,70]   (30,40]   (70,80]   (70,80]  
+##  [65] (10,20]   (30,40]   (20,30]   (40,50]   (80,90]   (70,80]   (60,70]   (70,80]   (80,90]   (40,50]   (60,70]   (80,90]   (60,70]   (60,70]   (50,60]   (70,80]  
+##  [81] (80,90]   (30,40]   (120,130] (40,50]   (10,20]   (30,40]   (100,110] (60,70]   (40,50]   (70,80]   (50,60]   (40,50]   (70,80]   (70,80]   (40,50]   (80,90]  
+##  [97] (40,50]   (120,130] (40,50]   (60,70]   (40,50]   (40,50]   (30,40]   (70,80]   (40,50]   (40,50]   (40,50]   (60,70]   (50,60]   (60,70]   (60,70]   (40,50]  
+## [113] (30,40]   (80,90]   (70,80]   (70,80]   (30,40]   (60,70]   (40,50]   (10,20]   (70,80]   (70,80]   (80,90]   (90,100]  (0,10]    (60,70]   (20,30]   (80,90]  
+## [129] (60,70]   (30,40]   (40,50]   (70,80]   (50,60]   (30,40]   (80,90]   (90,100]  (70,80]   (40,50]   (20,30]   (70,80]   (60,70]   (80,90]   (60,70]   (60,70]  
+## [145] (50,60]   (110,120] (60,70]   (50,60]   (50,60]   (60,70]   (80,90]   (90,100]  (100,110] (40,50]   (50,60]   (100,110] (50,60]   (30,40]   (30,40]   (20,30]  
+## [161] (20,30]   (70,80]   (80,90]   (50,60]   (70,80]   (60,70]   (20,30]   (40,50]   (40,50]   (40,50]   (90,100]  (60,70]   (90,100]  (70,80]   (40,50]   (30,40]  
+## [177] (30,40]   (80,90]   (40,50]   (60,70]   (60,70]   (40,50]   (70,80]   (40,50]   (50,60]   (40,50]   (30,40]   (60,70]   (50,60]   (70,80]   (30,40]   (70,80]  
+## [193] (40,50]   (40,50]   (50,60]   (60,70]   (50,60]   (30,40]   (20,30]   (50,60]   (60,70]   (50,60]   (60,70]   (30,40]   (10,20]   (50,60]   (40,50]   (60,70]  
+## [209] (60,70]   (40,50]   (30,40]   (30,40]   (30,40]   (50,60]   (50,60]   (40,50]   (50,60]   (80,90]   (50,60]   (40,50]   (50,60]   (70,80]   (50,60]   (60,70]  
+## [225] (40,50]   (80,90]   (40,50]   (20,30]   (80,90]   (70,80]   (50,60]   (30,40]   (40,50]   (60,70]   (70,80]   (70,80]   (60,70]   (40,50]   (70,80]   (40,50]  
+## [241] (40,50]   (60,70]   (70,80]   (30,40]   (50,60]   (40,50]   (70,80]   (40,50]   (40,50]   (60,70]   (80,90]   (70,80]   (80,90]   (60,70]   (80,90]   (80,90]  
+## [257] (80,90]   (50,60]   (100,110] (60,70]   (80,90]   (50,60]   (30,40]   (80,90]   (20,30]   (30,40]   (10,20]   (60,70]   (40,50]   (60,70]   (50,60]   (40,50]  
+## [273] (40,50]   (50,60]   (30,40]   (60,70]   (60,70]   (40,50]   (50,60]   (10,20]   (40,50]   (80,90]   (30,40]   (80,90]   (60,70]   (50,60]   (70,80]   (60,70]  
+## [289] (50,60]   (60,70]   (30,40]   (80,90]   (50,60]   (10,20]   (60,70]   (70,80]   (50,60]   (70,80]   (50,60]   (70,80]   (70,80]   (50,60]   (70,80]   (20,30]  
+## [305] (90,100]  (30,40]   (30,40]   (50,60]   (70,80]   (80,90]   (120,130] (80,90]   (30,40]   (80,90]   (30,40]   (40,50]   (90,100]  (40,50]   (50,60]   (60,70]  
+## [321] (50,60]   (60,70]   (50,60]   (30,40]   (50,60]   (70,80]   (70,80]   (70,80]   (50,60]   (60,70]   (50,60]   (60,70]   (80,90]   (70,80]   (60,70]   (20,30]  
+## [337] (80,90]   (40,50]   (40,50]   (30,40]   (50,60]   (50,60]   (40,50]   (60,70]   (60,70]   (80,90]   (70,80]   (80,90]   (110,120] (50,60]   (30,40]   (60,70]  
+## [353] (30,40]   (40,50]   (70,80]   (80,90]   (30,40]   (60,70]   (30,40]   (60,70]   (80,90]   (30,40]   (50,60]   (70,80]   (70,80]   (110,120] (40,50]   (30,40]  
+## [369] (80,90]   (30,40]   (60,70]   (60,70]   (60,70]   (40,50]   (70,80]   (70,80]   (30,40]   (30,40]   (10,20]   (80,90]   (30,40]   (60,70]   (60,70]   (70,80]  
+## [385] (50,60]   (20,30]   (40,50]   (70,80]   (40,50]   (60,70]   (70,80]   (70,80]   (60,70]   (80,90]   (30,40]   (40,50]   (70,80]   (50,60]   (50,60]   (40,50]  
+## [401] (80,90]   (40,50]   (40,50]   (80,90]   (50,60]   (70,80]   (20,30]   (70,80]   (40,50]   (50,60]   (50,60]   (50,60]   (50,60]   (50,60]   (10,20]   (40,50]  
+## [417] (30,40]   (80,90]   (20,30]   (20,30]   (70,80]   (20,30]   (70,80]   (10,20]   (40,50]   (80,90]   (40,50]   (40,50]   (40,50]   (50,60]   (40,50]   (40,50]  
+## [433] (60,70]   (40,50]   (60,70]   (70,80]   (50,60]   (40,50]   (90,100]  (90,100]  (70,80]   (40,50]   (50,60]   (20,30]   (70,80]   (20,30]   (60,70]   (80,90]  
+## [449] (50,60]   (10,20]   (60,70]   (50,60]   (40,50]   (40,50]   (60,70]   (50,60]   (50,60]   (110,120] (40,50]   (40,50]   (40,50]   (50,60]   (30,40]   (70,80]  
+## [465] (30,40]   (100,110] (60,70]   (70,80]   (60,70]   (40,50]   (40,50]   (70,80]   (40,50]   (20,30]   (50,60]   (40,50]   (40,50]   (50,60]   (70,80]   (90,100] 
+## [481] (50,60]   (60,70]   (70,80]   (50,60]   (70,80]   (50,60]   (70,80]   (60,70]   (90,100]  (50,60]   (80,90]   (30,40]   (70,80]   (50,60]   (30,40]   (50,60]  
+## [497] (70,80]   (70,80]   (70,80]   (40,50]   (110,120] (50,60]   (40,50]   (60,70]   (50,60]   (50,60]   (70,80]   (60,70]   (100,110] (40,50]   (60,70]   (40,50]  
+## [513] (110,120] (70,80]   (60,70]   (60,70]   (70,80]   (40,50]   (40,50]   (30,40]   (50,60]   (50,60]   (30,40]   (80,90]   (50,60]   (70,80]   (60,70]   (30,40]  
+## [529] (50,60]   (70,80]   (50,60]   (40,50]   (60,70]   (50,60]   (40,50]   (50,60]   (50,60]   (70,80]   (60,70]   (60,70]   (60,70]   (90,100]  (60,70]   (50,60]  
+## [545] (10,20]   (80,90]   (40,50]   (40,50]   (60,70]   (60,70]   (40,50]   (40,50]   (50,60]   (90,100]  (70,80]   (50,60]   (70,80]   (50,60]   (0,10]    (70,80]  
+## [561] (40,50]   (10,20]   (70,80]   (50,60]   (50,60]   (50,60]   (80,90]   (40,50]   (40,50]   (80,90]   (70,80]   (80,90]   (80,90]   (40,50]   (70,80]   (60,70]  
+## [577] (70,80]   (80,90]   (50,60]   (50,60]   (30,40]   (30,40]   (60,70]   (40,50]   (50,60]   (70,80]   (70,80]   (70,80]   (30,40]   (70,80]   (50,60]   (50,60]  
+## [593] (90,100]  (40,50]   (40,50]   (60,70]   (30,40]   (10,20]   (80,90]   (80,90]   (40,50]   (50,60]   (50,60]   (50,60]   (70,80]   (70,80]   (60,70]   (70,80]  
+## [609] (30,40]   (50,60]   (30,40]   (40,50]   (40,50]   (50,60]   (90,100]  (30,40]   (90,100]  (50,60]   (80,90]   (50,60]   (60,70]   (40,50]   (50,60]   (50,60]  
+## [625] (50,60]   (50,60]   (50,60]   (80,90]   (60,70]   (40,50]   (70,80]   (60,70]   (80,90]   (60,70]   (40,50]   (70,80]   (0,10]    (40,50]   (50,60]   (60,70]  
+## [641] (60,70]   (80,90]   (40,50]   (10,20]   (70,80]   (60,70]   (80,90]   (70,80]   (80,90]   (60,70]   (40,50]   (30,40]   (70,80]   (50,60]   (0,10]    (40,50]  
+## [657] (40,50]   (50,60]   (50,60]   (20,30]   (50,60]   (70,80]   (60,70]   (60,70]   (80,90]   (40,50]   (50,60]   (50,60]   (90,100]  (60,70]   (80,90]   (80,90]  
+## [673] (80,90]   (70,80]   (100,110] (90,100]  (40,50]   (60,70]   (30,40]   (50,60]   (50,60]   (10,20]   (70,80]   (80,90]   (30,40]   (60,70]   (60,70]   (70,80]  
+## [689] (50,60]   (50,60]   (50,60]   (30,40]   (30,40]   (40,50]   (60,70]   (70,80]   (50,60]   (70,80]   (80,90]   (70,80]   (70,80]   (70,80]   (40,50]   (80,90]  
+## [705] (50,60]   (50,60]   (40,50]   (0,10]    (60,70]   (30,40]   (30,40]   (50,60]   (70,80]   (40,50]   (40,50]   (70,80]   (30,40]   (120,130]
+## Levels: (0,10] (10,20] (20,30] (30,40] (40,50] (50,60] (60,70] (70,80] (80,90] (90,100] (100,110] (110,120] (120,130]</code></pre>
+<p>The observations have now been grouped to the classes. You can see this explicitly in the data viewer:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb33-1" tabindex="-1"></a><span class="fu">View</span>(air_quality_data)</span></code></pre></div>
+<div class="note">
+<p><strong>Important Notes</strong>: What have we done here? The first value under the <code>NO2_est</code> column is 61, this value falls between 61-70 and hence under the <code>Group</code> column is was classed into the (61,70] interval by the <code>cut()</code> function. The second value in <code>NO2_est</code> is 59, and hence it was classed into the (51,60] interval, and so on.</p>
+</div>
+<p><strong>Computing the Frequency Distribution table</strong></p>
+<p>We can now generate our <strong>frequency table</strong> and hence determine <strong>frequency</strong> and <strong>cumulative frequency</strong> of the ambient levels of NO<span class="math inline">\(_2\)</span> in Eixample. We perform by using the <code>table()</code> function to tabulate the frequency of values that were grouped within an interval using the <code>Group</code> column.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb34-1" tabindex="-1"></a><span class="fu">table</span>(air_quality_data<span class="sc">$</span>Groups)</span></code></pre></div>
+<pre><code>## 
+##    (0,10]   (10,20]   (20,30]   (30,40]   (40,50]   (50,60]   (60,70]   (70,80]   (80,90]  (90,100] (100,110] (110,120] (120,130] 
+##         6        17        24        68       131       137       109       116        72        20         7         7         4</code></pre>
+<p>Using <code>table()</code> function only shows results in the Console - lets store the table results in a <strong>data frame</strong> object and call it <code>frequency_results</code>:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb36-1" tabindex="-1"></a>frequency_results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">table</span>(air_quality_data<span class="sc">$</span>Groups))</span>
+<span id="cb36-2"><a href="part-3-exploratory-analysis-in-rstudio.html#cb36-2" tabindex="-1"></a>frequency_results</span></code></pre></div>
+<pre><code>##         Var1 Freq
+## 1     (0,10]    6
+## 2    (10,20]   17
+## 3    (20,30]   24
+## 4    (30,40]   68
+## 5    (40,50]  131
+## 6    (50,60]  137
+## 7    (60,70]  109
+## 8    (70,80]  116
+## 9    (80,90]   72
+## 10  (90,100]   20
+## 11 (100,110]    7
+## 12 (110,120]    7
+## 13 (120,130]    4</code></pre>
+<p>You can see column names <code>Var1</code> and <code>Freq</code>. The <code>Var1</code> is the original <code>Groups</code> columns which incidentally been renamed to <code>Var1</code>. The <code>Freq</code> column was generated from the <code>table()</code> function. We can rename the 1st and 2nd columns using <code>colnames()</code>.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb38-1" tabindex="-1"></a><span class="co"># rename first column t9 &quot;Groups&quot;</span></span>
+<span id="cb38-2"><a href="part-3-exploratory-analysis-in-rstudio.html#cb38-2" tabindex="-1"></a><span class="co"># rename second column to &quot;Frequency&quot;</span></span>
+<span id="cb38-3"><a href="part-3-exploratory-analysis-in-rstudio.html#cb38-3" tabindex="-1"></a><span class="co"># print new variable names in console using names() function</span></span>
+<span id="cb38-4"><a href="part-3-exploratory-analysis-in-rstudio.html#cb38-4" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="part-3-exploratory-analysis-in-rstudio.html#cb38-5" tabindex="-1"></a><span class="fu">colnames</span>(frequency_results)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Groups&quot;</span>    </span>
+<span id="cb38-6"><a href="part-3-exploratory-analysis-in-rstudio.html#cb38-6" tabindex="-1"></a><span class="fu">colnames</span>(frequency_results)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Frequency&quot;</span> </span>
+<span id="cb38-7"><a href="part-3-exploratory-analysis-in-rstudio.html#cb38-7" tabindex="-1"></a><span class="fu">names</span>(frequency_results) </span></code></pre></div>
+<pre><code>## [1] &quot;Groups&quot;    &quot;Frequency&quot;</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb40-1" tabindex="-1"></a>frequency_results</span></code></pre></div>
+<pre><code>##       Groups Frequency
+## 1     (0,10]         6
+## 2    (10,20]        17
+## 3    (20,30]        24
+## 4    (30,40]        68
+## 5    (40,50]       131
+## 6    (50,60]       137
+## 7    (60,70]       109
+## 8    (70,80]       116
+## 9    (80,90]        72
+## 10  (90,100]        20
+## 11 (100,110]         7
+## 12 (110,120]         7
+## 13 (120,130]         4</code></pre>
+<p>Finally, we derive the <strong>relative frequency</strong> i.e., a percentage that is derived by dividing each frequency value from a group by the total number of observations (i.e., in this case: 718). We can add the <code>relativeFreq</code> column to the <code>frequency_results</code> table.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb42-1" tabindex="-1"></a><span class="co"># generate a new column</span></span>
+<span id="cb42-2"><a href="part-3-exploratory-analysis-in-rstudio.html#cb42-2" tabindex="-1"></a>frequency_results<span class="sc">$</span>relativeFreq <span class="ot">&lt;-</span> frequency_results<span class="sc">$</span>Frequency<span class="sc">/</span><span class="dv">718</span></span></code></pre></div>
+<div class="note">
+<p><strong>Interpretation of frequency</strong>: The above table output show the frequency distribution of a set of concentrations for Nitrogen Dioxide measured in Eixample (in Barcelona). The group with the highest frequency value is <code>50-60ppb</code> (i.e., 137) which accounts for 0.1908 (19.08%) of the data. These measurements typically fall under the category that’s considered to cause moderate harm to humans.</p>
+</div>
+<p>Let’s add the <strong>cumulative frequency</strong> and <strong>cumulative relative frequency</strong> i.e., percentage using this code below:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb43-1" tabindex="-1"></a><span class="co"># add cumulativeFreq column to the data frame by adding Frequency using cumsum() function</span></span>
+<span id="cb43-2"><a href="part-3-exploratory-analysis-in-rstudio.html#cb43-2" tabindex="-1"></a>frequency_results<span class="sc">$</span>cumulativeFreq <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(frequency_results<span class="sc">$</span>Frequency)</span>
+<span id="cb43-3"><a href="part-3-exploratory-analysis-in-rstudio.html#cb43-3" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="part-3-exploratory-analysis-in-rstudio.html#cb43-4" tabindex="-1"></a><span class="co"># add cumulativeRelFreq column to the data frame by adding Frequency using cumsum() function</span></span>
+<span id="cb43-5"><a href="part-3-exploratory-analysis-in-rstudio.html#cb43-5" tabindex="-1"></a>frequency_results<span class="sc">$</span>cumulativeRelFreq <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(frequency_results<span class="sc">$</span>relativeFreq)</span>
+<span id="cb43-6"><a href="part-3-exploratory-analysis-in-rstudio.html#cb43-6" tabindex="-1"></a></span>
+<span id="cb43-7"><a href="part-3-exploratory-analysis-in-rstudio.html#cb43-7" tabindex="-1"></a><span class="co"># print table results</span></span>
+<span id="cb43-8"><a href="part-3-exploratory-analysis-in-rstudio.html#cb43-8" tabindex="-1"></a>frequency_results</span></code></pre></div>
+<pre><code>##       Groups Frequency relativeFreq cumulativeFreq cumulativeRelFreq
+## 1     (0,10]         6  0.008356546              6       0.008356546
+## 2    (10,20]        17  0.023676880             23       0.032033426
+## 3    (20,30]        24  0.033426184             47       0.065459610
+## 4    (30,40]        68  0.094707521            115       0.160167131
+## 5    (40,50]       131  0.182451253            246       0.342618384
+## 6    (50,60]       137  0.190807799            383       0.533426184
+## 7    (60,70]       109  0.151810585            492       0.685236769
+## 8    (70,80]       116  0.161559889            608       0.846796657
+## 9    (80,90]        72  0.100278552            680       0.947075209
+## 10  (90,100]        20  0.027855153            700       0.974930362
+## 11 (100,110]         7  0.009749304            707       0.984679666
+## 12 (110,120]         7  0.009749304            714       0.994428969
+## 13 (120,130]         4  0.005571031            718       1.000000000</code></pre>
+<div class="note">
+<p><strong>Interpretation of cumulative frequency</strong>: The above table output show the cumulative frequency distribution ambient concentrations for Nitrogen Dioxide measured in Eixample (in Barcelona). We can see that there are 246 measurements or less with N0<span class="math inline">\(_2\)</span> concentrations to be considered as negligible or low impact to health (<code>&lt;50ppb</code>). This corresponds to 0.3426 (34.26%) of the data.</p>
+<p>Conversely, we can also say - we can see that there are 472 measurements with N0<span class="math inline">\(_2\)</span> concentrations more than <code>50ppb</code> which is considered to be moderate or high impact to human health. This corresponds to 0.6573 (65.73%) of the data.</p>
+</div>
+<p><strong>Graphical representation of frequency data</strong></p>
+<p>The frequency table for <strong>frequencies</strong> and <strong>cumulative frequencies</strong> can be graphical represented in a form of <strong>histogram</strong> and <strong>frequency diagram</strong> respectively. Now, we need the data must be in its original form (i.e., not grouped) to plot the histogram, and we will need to use the <code>classes</code> object which we created earlier on from the <code>seq()</code> function so as to use as breaks in the <code>hist()</code> plot function:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb45-1" tabindex="-1"></a><span class="fu">hist</span>(air_quality_data<span class="sc">$</span>NO2_est, <span class="at">breaks =</span> classes)</span></code></pre></div>
+<p><img src="GEOG0013--GIF1_files/figure-html/histogramPlot-1.png" width="672" /></p>
+<p>The above graph is not publication-worthy. It is missing key details such as the title and label for the x-axis. Let’s apply some cosmetics such as a main title and label for the x-axis</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb46-1" tabindex="-1"></a><span class="fu">hist</span>(air_quality_data<span class="sc">$</span>NO2_est, <span class="at">breaks =</span> classes, <span class="at">main =</span> <span class="st">&quot;Histogram for NO2 in Barcelona&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;NO2 estimates (ppb)&quot;</span>)</span></code></pre></div>
+<p><img src="GEOG0013--GIF1_files/figure-html/histogram_cosmetics-1.png" width="672" /></p>
+<div class="note">
+<p><strong>Interpretation of histogram</strong>: The above figure output describes the shape for ambient measures of NO<span class="math inline">\(_2\)</span> in Barcelona which appears bell-shaped centered around 60ppb. Note that the frequency bars in this graph are essentially the same as the frequency values in the table.</p>
+</div>
+<p>Lastly, we then compute its cumulative frequency with <code>cumsum()</code> to support the interpretation. The coding needs a bit of hacking because we need to force a starting zero element for this graph to work.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb47-1" tabindex="-1"></a>cumfreq0 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">cumsum</span>(frequency_results<span class="sc">$</span>Frequency))</span>
+<span id="cb47-2"><a href="part-3-exploratory-analysis-in-rstudio.html#cb47-2" tabindex="-1"></a><span class="fu">plot</span>(classes, cumfreq0, <span class="at">main=</span><span class="st">&quot;Cumulative Frequency for N02 in Barcelona&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;NO2 estimates (ppb)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Cumulative Frequencies&quot;</span>)</span>
+<span id="cb47-3"><a href="part-3-exploratory-analysis-in-rstudio.html#cb47-3" tabindex="-1"></a><span class="fu">lines</span>(classes, cumfreq0) </span></code></pre></div>
+<p><img src="GEOG0013--GIF1_files/figure-html/cumsum_plot-1.png" width="672" /></p>
+</div>
+<div id="descriptive-and-central-tendency-measures" class="section level2 unnumbered hasAnchor">
+<h2>Descriptive and central tendency measures<a href="part-3-exploratory-analysis-in-rstudio.html#descriptive-and-central-tendency-measures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We have used frequency distribution to describe the distribution about the data for air pollution in Barcelona. The description is at face-value though. Central tendency measures contains a list of summary measurements that allows the user to summarize the data to some central measure and to gauge the spread of the data (i.e., errors/departures from central measure). It is best for continuous variables, we can hence compute the following summary measurements (watch video below see to definitions):</p>
+<ol style="list-style-type: decimal">
+<li>Mean</li>
+<li>Median</li>
+<li>Variance and Standard deviation</li>
+<li>Minimum and Maximum values</li>
+<li>Upper and Lower Quartiles (or Interquartile ranges)</li>
+</ol>
+<p><strong>[Theory]: Central tendency measures (Length: 17:12 minutes)</strong></p>
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://www.youtube.com/embed/p2dkkSiS2RQ" width="711" height="400" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+<p>Watch on YouTube <a href="https://youtu.be/p2dkkSiS2RQ"><strong>LINK</strong></a></p>
+<p><strong>[Theory]: Range values and interquartile ranges (Length: 18:32 minutes)</strong></p>
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://www.youtube.com/embed/_EW2SUGHyko" width="711" height="400" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+<p>Watch on YouTube <a href="https://youtu.be/_EW2SUGHyko">[<strong>LINK</strong>]</a></p>
+<p>To compute the summary statistics rapidly – simply use the <code>summary()</code> function on the variable of interest (i.e., <code>NO2_est</code> from the original dataset).</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb48-1" tabindex="-1"></a><span class="co"># compute all descriptive summaries measurements</span></span>
+<span id="cb48-2"><a href="part-3-exploratory-analysis-in-rstudio.html#cb48-2" tabindex="-1"></a><span class="fu">summary</span>(air_quality_data<span class="sc">$</span>NO2_est)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    2.00   46.00   59.00   59.69   74.00  130.00</code></pre>
+<p>As you can see using <code>summary()</code> automatically gives you almost all the summary estimates needed for interpretation. The NO<span class="math inline">\(_2\)</span> air levels in Barcelona was 59.69ppb (with median 59.00pbb). The lowest and highest values are 2.0ppb and 130.0ppb, respectively (with 25th and 75th percentiles being 46.00ppb and 74.00pbb, respectively.) Finally, you can compute the standard deviation using the <code>sd()</code> function as follows for income:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb50-1" tabindex="-1"></a><span class="co"># compute all descriptive summaries measurements</span></span>
+<span id="cb50-2"><a href="part-3-exploratory-analysis-in-rstudio.html#cb50-2" tabindex="-1"></a><span class="fu">sd</span>(air_quality_data<span class="sc">$</span>NO2_est)</span></code></pre></div>
+<pre><code>## [1] 20.60876</code></pre>
+<p><strong>[Theory]: Variance &amp; standard deviation (Length: 13:39 minutes)</strong></p>
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://www.youtube.com/embed/J_6CuV0kNKI" width="711" height="400" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+<p>Watch on YouTube <a href="https://youtu.be/J_6CuV0kNKI">[<strong>LINK</strong>]</a></p>
+<p>The standard deviation is ± 20.61pbb – this is the error around the mean of NO<span class="math inline">\(_2\)</span> i.e., estimated as 59.69ppb. To visualise the distribution of a continuous variable – your ‘go-to’ plot is a boxplot. You can use the function <code>boxplot()</code> to generate one. Type the following to churn it:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="part-3-exploratory-analysis-in-rstudio.html#cb52-1" tabindex="-1"></a><span class="co"># Box plot</span></span>
+<span id="cb52-2"><a href="part-3-exploratory-analysis-in-rstudio.html#cb52-2" tabindex="-1"></a><span class="fu">boxplot</span>(air_quality_data<span class="sc">$</span>NO2_est, <span class="at">ylab =</span> <span class="st">&quot;NO2 estimates (ppb)&quot;</span>, <span class="at">main=</span><span class="st">&quot;Box plot: Summary of Nitrogen Dioxide in Barcelona&quot;</span>)</span></code></pre></div>
+<p><img src="GEOG0013--GIF1_files/figure-html/boxplot_vis-1.png" width="672" /></p>
+<p>The above box plot is essential the visual representation of the summary results churned by the <code>summary()</code>. Here is the concise interpretation of the above results:</p>
+<div class="note">
+<p><strong>Interpretation</strong>: The overall mean air pollution levels for NO<span class="math inline">\(_2\)</span> in Eixample (Barcelona) from 718 observation was 59.69ppb (with one SD of ± 20.63ppb). 25% (at the lower end i.e., lower quartile) of the distribution for air population levels for Nitrogen Dioxide are below 46.00ppb (which is considered to cause low health impact); while from 75% onwards (i.e., upper quartile) of the distribution has air pollution levels of N0<span class="math inline">\(_2\)</span> which is above 74.00pbb (which is consider to considered to cause some moderate health impact). The overall range in the distribution is 128ppb where the lowest observed value is 2.0ppb (minimum) and the highest observed value is 130ppb (maximum)</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="part-2-basics-of-managing-data-in-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="part-4-introduction-to-distributions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/UCLPG-MSC-SGDS/GEOG0013/edit/main/01-Getting_started_with_RStudio.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

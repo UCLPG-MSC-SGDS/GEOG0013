@@ -1,0 +1,876 @@
+# Introduction {-}
+
+The goal in the next two weeks are threefold - the first part is to get you started with using RStudio and being familiar with its environment. The second part of the session aims to introduce you to the basic programming etiquette for basic data management. The third part is focused on building your confidence for using RStudio for data analysis such as descriptive analysis. The last part is to get you to understand what distributions are and using them for basic probability predictions. 
+
+At the end of this workshop, you should be able to perform some basic data managing and analysis task in RStudio. The skills learned here will enable you complete the **Formative Assignment** and prepare you for what's next in GIF2.
+
+## Learning outcomes {-}
+
+Across the three parts, the learning outcomes for this workshop are partitioned are as follows:
+
+1. The first task includes getting you started with RStudio by installing the needed software(s) (i.e., **RStudio** and **R (Base)**) on to your personal laptop.
+2. The second task aims to get you to being familiar with its RStudio's environment and panels. Here, we begin with you interacting with RStudio's console to do simple arithmatic and creating objects. 
+3. The third task we will begin a soft introduction on the basics of managing data in RStudio. This includes learning how to create various objects in RStudio such as **vector** and **data frame** objects which forms the basics of data structures.
+4. The crucial part of this session will be to teach how to set-up working directories, scripting and importing Barcelona datasets in RStudio. 
+5. Next, we will learn how to handle the imported data for descriptive analysis using the following techniques: (a.) data types and visualisation; (b.) frequency distribution; and (c.) central tendency measures.
+6. Lastly, we will learn the following techniques: (a.) generating theoretical distribution particularly the **Normal Distribution**; (b.) standardizing continuous data using z-scores; and (c.) making probability predictions.
+
+These task will be supported with guidance videos to help with the self-guided learning. Alright, let do this [**[LINK]**](https://youtu.be/0aMhmo9fHps?si=485K4dk6AfDQUAvj&t=11)!
+
+# Part 1: Getting started with RStudio {-}
+
+## What is RStudio (or R) {-}
+
+R, or RStudio is a statistical software programming package that allows the user to carry out different types of statistical analysis. It can also be used as a GIS software to perform various kinds of analysis on geographical data. In the same vein, you can use it for data managing and geo-processing (i.e., importing different types of data that non-spatial, or spatial formats for manipulation beforehand for analysis). There are two versions:
+
+```{r echo=FALSE, out.width = "100%", fig.align='center', cache=TRUE,}
+knitr::include_graphics('images/general/getting_started/image1_R-versiontypes.png', error = FALSE) 
+```
+
+The famous icon on the left is the version for [**R (Base)**](https://www.r-project.org), and the one on the right is the version for [**RStudio**](https://www.rstudio.com). Both software packages are the same. The only difference is that RStudio is attractive, intuitive, and more importantly, it is user-friendly than Base R. So, we will be using this version (i.e., RStudio) throughout this workshop. 
+
+Let us talk about downloading RStudio.
+
+**Getting started with RStudio (Length: 23:53 minutes)**
+```{r video_2, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_youtube('9QehUxna_bo', height = 400) %>% use_align('center')
+```
+
+Watch on YouTube [**[LINK]**](https://youtu.be/9QehUxna_bo)
+
+## Download and install RStudio directly on to your laptop (BEST OPTION) {-}
+
+RStudio is an open source software, and today its the go-to software for many researchers - its highly recommended for anyone in the domains of data science, scientific research, and technical communication. It is easy to access, and easy to download and install. In order for RStudio to work you must first install **R (Base)**. You can follow the steps and use the table below to download the correct version for your operating system (i.e., Windows or MAC).
+
+**STEPS**
+
+1. Download the file (i.e., `.exe` or `.pkg`) for **R (Base)** in accordance with your operating system from the links provided in the table below. Next, install it by clicking on the downloaded file (i.e., `.exe` or `.pkg`). 
+
+2. Now, we can download the file (i.e., `.exe` or `.dmg`) for **RStudio** in accordance with your operating system from the links provided in the table below. You can install it by clicking on the downloaded file (i.e., `.exe` or `.dmg`).  
+
+**OS User type**| **R (Base)** | **RStudio Desktop**
+------------ | ------------- | -------------
+Windows | [**R-4.3.2-win.exe**](https://cran.ma.imperial.ac.uk/bin/windows/base/R-4.3.2-win.exe)| [**RStudio-2023.09.1-494.exe**](https://download1.rstudio.org/electron/windows/RStudio-2023.09.1-494.exe)
+MAC | [**R-4.3.2.pkg**](https://cran.ma.imperial.ac.uk/bin/macosx/big-sur-x86_64/base/R-4.3.2-x86_64.pkg)| [**RStudio-2023.09.1-494.dmg**](https://download1.rstudio.org/electron/macos/RStudio-2023.09.1-494.dmg)
+
+Jump straight to this [**section**](https://uclpg-msc-sgds.github.io/GEOG0013/part-1-getting-started-with-rstudio.html#becoming-familiar-with-the-panels-in-rstudio) if you managed to install RStudio successfully.
+
+Else, if you are having difficulties installing RStudio, and installation is a no go - then here is an alternative solution. Use the UCL Desktop Cloud system to work remotely and gain access RStudio from you laptop/PC.
+
+## Using the UCL Desktop Cloud system to access RStudio {-}
+
+**Remote access to RStudio (Length: 22:39 minutes)**
+```{r video_22, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_youtube('EXnQAEPhs0Y', height = 400) %>% use_align('center')
+```
+
+Watch on YouTube [[**LINK**]](https://youtu.be/EXnQAEPhs0Y)
+
+To use RStudio (or any other software which UCL provides as service to students) remotely from your personal computer you can:
+
+1. Go to **https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere**
+2. Click on the blue button that say: **“Log in to Desktop @ UCL Anywhere”**
+3. You will be prompted to enter your UCL username (username[@]ucl.ac.uk) and password. Enter the correct credentials and you are granted access to a remote portal.
+4. If you see “Use Web browser” select this option. Or if a different option appears i.e., **“Full”** or **“lite version”**, then do select the **“lite version”** – so you can use the remote functions on the fly without having to install any Citrix Workspace Application.
+5. You should see a **Desktop @ UCL Anywhere** button – click on this button to finally be granted remote access
+6. At this stage, it like you are logging into a UCL Workstation in a cluster room, or library. Wait for it and you will be fully logged in. 
+7. Click on the Start button (in the left-bottom corner) of the desktop, and go to the app section and scroll to the RStudio folder
+8. Click on the latest version UCL has RStudio 4.3.2 and open it once and not multiple times! Kindly wait until it opens.
+
+This is how you access RStudio remotely. 
+
+Some general notes:
+
+1. Do open your internet browser within this remote window – not outside on you actually computer. Open the online worksheet and download the dataset there and not from you actual computer!
+2. When downloading, all downloads by default goes to the Download folder.
+3. UCL Desktops by default uses a Window OS. So, setting up the directory will be akin to how you do the set up normally on your windows PC. Go see the instructions in part two on how you set up work directory. However, because UCL has provided the N: Drive for us instead of C: Drive – you will hence need to set-up you working directory there which will look like: `"N:/GEOG0013/Workshop 1"` and not `"C:/Users/accountName/Desktop/GEOG0013/Workshop 1"`
+4. UCL Desktops provided students access to the N: Drive for storing data, work etc., – so make good use of this facility. 
+
+## Becoming familiar with the panels in RStudio {-}
+
+Now that you have installed RStudio onto our computer. You should by now have opened RStudio on your laptop. When opening RStudio for the first time, you are greeted with its interface. The window is split into three panels: 1.) R Console, 2.) Environments and 3.) Files, help & Output.
+
+```{r echo=FALSE, out.width = "100%", fig.align='center', cache=TRUE,}
+knitr::include_graphics('images/general/getting_started/image2_panels.png', error = FALSE) 
+```
+
+- **Panel 1**: The **Console** lets the user type in R-codes to perform quick commands and basic calculations.
+- **Panel 2**: The **Environments** lets the user see which datasets, spatial objects and other files are currently stored in RStudio’s memory
+- **Panel 3**: Under the **File** tab, it lets the user access other folders stored in the computer to open datasets. Under the **Help** tab, it also allows the user to view the help menu for codes and commands. Finally, under the **Plots** tab, the user can perusal his/her generated plots (e.g., histogram, scatterplot, maps etc.).
+
+The above section is the **Menu Bar**. You can access other functions for saving, editing, and opening a new **Script File** for writing codes. Opening a new **Script File** will reveal a fourth panel above the **Console**.
+
+You can open a **Script File** by:
+
+1. Clicking on the **File** tab listed inside the **Menu Bar**. A scroll down bar will reveal itself. Here, you can scroll to the section that says **New File**.
+
+2. Under **New File**, click on **R Script**. This should open a new Script File titled “**Untitled 1**”. 
+
+<div class="note">
+**Important Notes:** Throughout the course, and in all practical tutorials, you will be encouraged to use an R Script for collating and saving the codes you have written for carrying out spatial analysis. However, we will start writing codes in a script in part 2 of the tutorials. For now, let us start with the absolute basics, which is interacting with the R Console and using it as a basic calculator for typing simple code.
+</div>
+
+## Using R Console as a Calculator {-}
+
+The R console window (i.e., Panel 1) is the place where RStudio is waiting for you to tell it what to do. It will show the code you have commanded RStudio to execute, and it will also show the results from that command. You can type the commands directly into the window for execution as well.
+
+Let us start by using the console window as a basic calculator for typing in addition (`+`), subtraction (`-`), multiplication (`*`), division (`/`), exponents (`^`) and performing other complex sums. 
+
+Click inside the R Console window and type `19+8`, and press enter key button `↵` to get your answer. Quickly perform the following maths by typing them inside the R Console window:
+
+```{r, eval=FALSE}
+# Perform addition
+19+8
+
+# Perform subtraction
+20-89
+
+# Perform multiplication
+18*20
+
+# Perform division
+27/3
+
+# To number to a power e.g., 2 raise to the power of 8
+2^8
+
+# Perform complex sums
+(5*(170-3.405)/91)+1002
+```
+
+<div class="note">
+**Important Notes:** The text that follows after the hash tag `#` in the above code chunk is a comment and actual code. It is there telling you what the code without hash tag `#` in front of it is doing.
+</div>
+
+Aside from basic arithmetic operations, we can use some basic mathematical functions such as the exponential and logarithms: 
+
+- `exp()` is the exponential function
+- `log()` is the logarithmic function
+
+Do not worry at all about these functions as you will use them later in GIF2 to come for transforming variables. Perform the following by typing them inside the R Console window:
+
+```{r, eval=FALSE}
+# use exp() to apply an exponential to a value
+exp(5) 
+
+# use log() to transforrm a value on to a logarithm scale
+log(3)
+```
+
+## Creating basic objects and assigning values to it {-}
+
+Now that we are familiar with using the console as a calculator. Let us build from this and learn one of the most important codes in RStudio which is called the **Assignment Operator**.
+
+This arrow symbol `<-` is called the **Assignment Operator**. It is typed by pressing the less than symbol key `<` followed by the hyphen symbol key `-`. It allows the user to assign values  to an **Object** in R.
+
+**Objects** are defined as stored quantities in RStudio's environment. These objects can be assigned anything from numeric values to character string values. For instance, say we want to create a numeric object called `x` and assign it with a value of `3`. We do this by typing `x <- 3`. When you enter the object `x` in the console and press enter `↵`, it will return the numeric value `3`. 
+
+Another example, suppose we want to create a string object called `y` and assign it with some text `"Hello!"`. We do this typing `y <- "Hello!"`. When you enter `y` in console, it will return the text value `Hello`.
+
+Let us create the objects `a`,`b`, `c`, and `d` and assign them with numeric values. Perform the following by typing them inside the R Console window:
+
+```{r, eval=FALSE}
+# Create an object called 'a' and assign the value 17 to it
+a <- 17
+# Type the object 'a' in console as a command to return value 17
+a
+
+# Create an object called 'b' and assign the value 10 to it
+b <- 10
+# Type the object 'b' in console as a command to return value 10
+b
+
+# Create an object called 'c' and assign the value 9 to it
+c <- 9
+# Type the object 'c' in console as a command to return value 9
+c
+
+# Create an object called 'd' and assign the value 8 to it
+d <- 8
+# Type the object 'd' in console as a command to return value 8
+d
+```
+
+Notice how the objects `a`, `b`, `c` and `d` and its value are stored in RStudio's environment panel. We can perform the following arithmetic operations with these object values:
+
+```{r, eval=FALSE}
+# type the following and return an answer
+(a + b + c + d)/5
+
+# type the following and return an answer
+(5*(a-c)/d)^2
+```
+
+Let us create more objects but this time we will assign character string(s) to them. Please note that when typing a string of characters as data you will need to cover them with quotation marks `"..."`. For example, say we want to create a string object called `y` and assign it with some text `"Hello!"`. We do this by typing `y <- "Hello!"`.
+
+Try these examples of assigning the following character text to an object:
+
+```{r, eval=FALSE}
+# Create an object called 'e' and assign the character string "RStudio"
+e <- "RStudio"
+# Type the object 'e' in the console as a command to return "RStudio"
+e
+
+# Create an object called 'f', assign character string "Hello world" 
+f <- "Hello world"
+
+# Type the object 'f' in the console as a command to return "Hello world"
+f
+
+# Create an object called 'g' and assign "Blade Runner is amazing"
+g <- "Blade Runner is amazing"
+# Type the object 'g' in the console to return the result
+g
+```
+
+We are now familiar with using the console and assigning values (i.e., numeric and string values) to objects. The parts covered here are the initial steps and building blocks for coding and creating datasets in RStudio. 
+
+Let us progress to the next section. We will learn the basics of managing data and some coding etiquette - this includes creating data frames, importing & exporting spreadsheets, setting up work directories, column manipulations and merging two data frames. Learning these basic tasks are key for managing data in RStudio.
+
+<div class="note">
+**Important Notes**: We will be using R-scripts file for typing codes from this point onwards.  
+</div>
+
+# Part 2: Basics of Managing Data in RStudio {-}
+
+**Data entry & column generation (Length: 19:23 minutes)**
+```{r video_3, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_youtube('OyK3OCF9xeI', height=400) %>% use_align('center')
+```
+
+Watch on YouTube [[**LINK**]](https://youtu.be/OyK3OCF9xeI)
+
+## How do we enter data into RStudio? {-}
+
+As you have already seen, RStudio is an object-oriented software package and so entering data is slightly different for the usual way of inputting information into a spreadsheet (e.g., Microsoft Excel). Here, you will need to enter the information as a **Vector** object before combining them into a **Data Frame** object.
+
+Consider this crude example of data containing the additional health information for 4 people. It contains the variable (or column) names 'id', 'name', 'height', 'weight' and 'gender'
+
+**id**|**name**|**height**|**weight**|**gender**
+------|------|------|------|------|
+1|Kofi|1.65|64.2|M
+2|Harry|1.77|80.3|M
+3|Huijun|1.70|58.7|F
+4|Fatima|1.68|75.0|F
+
+Now, when entering data to RStudio it is not like Microsoft Excel where we enter data into the cells of a spreadsheet. In RStudio, data is entered as a sequence of elements and listed inside an object called a **vector**. For instance, if we have three age values of 12, 57 and 26 years, and we want to enter this in RStudio,  we need to use the combine function `c()` and combine these three elements into a vector object. Hence, the code will be `c(12, 57, 26)`. We can assign this data by typing this code as `age <- c(12, 57, 26)`. Any time you type ‘age’ into RStudio console it will hence return these three values unless you chose to overwrite it with different information.
+
+Let us look at this more closely with the `'id'` variable in the above data. Each person has an ID number from 1 to 4. We are going to list the numbers 1, 2, 3 and 4 as a sequence of elements into a vector using the combine function `c()` and then assign it to as a vector object calling it `'id'`.
+
+```{r, eval=FALSE}
+# Create 'id' vector object 
+id <- c(1, 2, 3, 4)
+
+# Type the vector object 'id' in console to see output
+id
+```
+
+Now, let us enter the information the same way for the remaining columns for 'name', 'height', 'weight' and 'gender' like we did for ‘id’:
+
+```{r, eval=FALSE}
+# Create 'name' vector object
+name <- c("Kofi", "Harry", "Huijun", "Fatima")
+
+# Create 'height' (in meters) vector object
+height <- c(1.65, 1.77, 1.70, 1.68)
+
+# Create 'weight' (in kg) vector object
+weight <- c(64.2, 80.3, 58.7, 75.0)
+
+# Create 'gender' vector object
+gender <- c("M", "M", "F", "F")
+```
+
+Now, that we have the vector objects ready. Let us bring them together to create a proper dataset. This new object is called a `Data frame`. We need to list the vectors inside the `data.frame()` function.
+
+```{r, eval=FALSE}
+# Create a dataset (data frame)
+dataset <- data.frame(id, name, height, weight, gender)
+
+# Type the data frame object 'dataset' in console to see output
+dataset
+
+# You can also see dataset in a data viewer, type View() to data:
+View(dataset)
+```
+
+<div class="note">
+**Important Notes:** The column 'id' is a numeric variable with integers. The second column 'name' is a text variable with strings. The third & fourth columns 'height' and ‘weight’ are examples of numeric variables with real numbers with  continuous measures. The variable 'gender' is a text variable with strings – however, this type of variable is classed as a categorical variable as individuals were categorised as either 'M' and 'F'.
+</div>
+
+## How do we create a variable based on other existing variables in our data frame? {-}
+
+To access a variable by its name within a data frame, you will need to first type the name of the data frame followed by a `$` (dollar sign), and then typing the variable’s name of interest. For instance, suppose you just want to see the height values in the Console viewer - you just type:
+
+```{r, eval=FALSE}
+# to access height - you need to type 'dataset$height'
+dataset$height
+```
+
+We can use other columns or variables within our data frame to create another variable. This technique is essentially important when cleaning and managing data. From this dataset, it is possible to derive the body mass index `bmi` from height and weight using the formula: 
+
+</br>
+<center>
+$BMI = weight/height^2$
+</center>
+</br>
+
+To generate `bmi` into our data frame, we would need to access the `height` (m) and `weight` (kg) columns using the `$` from the data frame its stored to, and apply the above formula as a code to generate the new `bmi` column:
+
+```{r, eval=FALSE}
+# Create 'bmi' in the data frame i.e.,'dataset' and calculate 'bmi'
+# using the $weight and $height
+dataset$bmi <- dataset$weight/((dataset$height)^2)
+# View the data frame ‘dataset’ and you will see the new bmi variable inside
+View(dataset)
+```
+
+You can overwrite the `height` (m) column to change its units into centimeters by multiplying it to 100; equally, the `weight` (kg) column can be overwritten and converted from units of kilograms to grams by multiplying it to 1000.
+
+```{r, eval=FALSE}
+# using $height and *100 
+dataset$height <- dataset$height*100
+# using $weight and *100
+dataset$weight <- dataset$weight*1000
+# use View() the data frame ‘dataset’ and you will see the updated variables
+View(dataset)
+```
+
+## How to set the working directory with `setwd()` function? {-}
+
+**Set-up work directory and importing data (Length: 25:43 minutes)**
+```{r video_4, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_youtube('G-mlE9EAn18', height = 400) %>% use_align('center')
+```
+
+Watch on YouTube [[**LINK**]](https://youtu.be/G-mlE9EAn18)
+
+<div class= "warning">
+**IMPORTANT ACTION:** Please download the data set for this practical by [**clicking here**](https://github.com/UCLPG-MSC-SGDS/GEOG0013/raw/main/Datasets%20for%20Tutorials.zip). Now, in your computer, please create a new folder on your desktop page and rename the folder to **"GEOG0113"**, and create another folder within **"GEOG0013"** and rename it as **"Workshop 1"**. Make sure to unzip and transfer **ALL** the downloaded data directly to the **Workshop 1** folder.
+</div>
+
+Now, we are getting very serious here! This part of the practicals are probably the most important section of this tutorial. It's usually the **"make"** or **"break"** phase (i.e., you ending up loving RStudio OR you hating it and not ever wanting to pick up R again). 
+
+We are going to learn how to set-up a working directory. This basically refers to us connecting the RStudio to the folder containing our dataset. It allows the user to tell RStudio to open data from a folder once it knows the **path location**. The path location specifies the whereabouts of the data file(s) stored within a computer. Setting your directory in RStudio beforehand makes life incredibly easier in terms of finding, importing, exporting and saving data in and out of RStudio.
+
+To illustrate what a path location is – suppose on my desktop (mac/widows) there is a folder called **"GEOG0013"**, and within that folder, exists another folder called **"Workshop 1"**. Finally, suppose a comma separated value (.csv) data file called **“Barcelona_rents_2015.csv”** is store in this last folder i.e., **Workshop 1**. If via RStudio you want to open this CSV data file located in within the **"Workshop 1"** folder. You will need to first set the path to **"Workshop 1"** in RStudio using the `setwd()` function. 
+
+Therefore, the path location to this folder on a **Windows** machine would be written as follows, `"C:/Users/accountName/Desktop/GEOG0013/Workshop 1"`. You can access this piece of information simply by:
+
+1. Open the **GEOG0013** folder to reveal the **Workshop 1** folder.
+2. Open the **Workshop 1** folder in the data files are stored.
+3. Now, click on the bar at the top which shows `GEOG0013 > Workshop 1`. This should highlight and show `"C:\Users\accountName\Desktop\GEOG0013\Workshop 1"` (see image below):
+
+```{r echo=FALSE, out.width = "100%", fig.align='center', cache=TRUE,}
+knitr::include_graphics('images/general/getting_started/image3_path_windows.PNG', error = FALSE) 
+```
+
+4. Now, copy `"C:\Users\accountName\Desktop\GEOG0013\Workshop 1"` and paste the path name into the `setwd()` function in your R script.
+5. Lastly, change all the back slashes `\` in the path name to forward slashes `/` and run the code. It should look like this: `setwd("C:/Users/accountName/Desktop/GEOG0013/Workshop 1")`.
+
+For **Windows**, the `setwd()` is as follows:
+
+```{r, eval=FALSE}
+# set work directory in windows
+setwd("C:/Users/accountName/Desktop/GEOG0013/Workshop 1")
+```
+
+For **MAC** users, its marginally different. The path location would be written as follows, `"/Users/accountName/Desktop/GEOG0013/Workshop 1"`. You can access this piece of information simply by:
+
+1. Right-clicking on the folder "Workshop 1" (not file) in which the files are stored.
+2. Hold the "Option" `⌥` key down
+
+```{r echo=FALSE, out.width = "100%", fig.align='center', cache=TRUE,}
+knitr::include_graphics('images/general/getting_started/image4_path_mac.png', error = FALSE) 
+```
+
+3. Click `Copy "filename" as Pathname`
+4. Paste the copied path name into the function `setwd()` and run the code
+
+For Mac, the `setwd()` is as follows:
+
+```{r, eval=FALSE}
+# set work directory in macs
+setwd("/Users/accountName/Desktop/GEOG0013/Workshop 1")
+```
+
+This should set the working directory. Alternatively, if the `setwd()` is problematic - you can do this manually. See short video below.
+
+**Setting Work Directory Manually if Using the `setwd()` function is problematic (Length: 3:58 minutes)**
+
+```{r video_44, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_youtube('Dn2UzBaUqRk', height = 400) %>% use_align('center')
+```
+
+Watch on YouTube [[**LINK**]](https://youtu.be/Dn2UzBaUqRk)
+
+<div class= "warning">
+**IMPORTANT ACTION:** Again, please make sure to have downloaded the data set for this practical by [**clicking here**](https://github.com/UCLPG-MSC-SGDS/GEOG0013/raw/main/Datasets%20for%20Tutorials.zip). Also, in your computer, please make sure you have already created a new folder on your desktop page and renamed the folder to **"GEOG0113"**, and have also created another folder within **"GEOG0013"** and have renamed that to **"Workshop 1"**. Make sure to unzip and transfer **ALL** the downloaded data directly to the **Workshop 1** folder.
+</div>
+
+Now, let us learn how to import a CSV data into RStudio. 
+
+## Importing data using `read.csv()` {-}
+
+As you will be working mostly with comma separated value formatted data (i.e., csv) we will therefore learn how to import and export in RStudio. There are two files that we are going to import into RStudio from Week 1’s folder:
+
+1. `Barcelona_cars_2015.csv` which contains an indicator for proportion of car ownership in 73 Spanish neighbourhoods in Barcelona in 2015.
+2. `Barcelona_rents_2015.csv` which contains an indicator for average monthly rent (in euros) spent in 73 Spanish neighbourhoods in Barcelona in 2015. 
+
+To import a csv into RStudio, we use the `read.csv()` function. To demonstrate this, let us import the data for average monthly rents into an data frame object and name it as `Rent_data`
+
+```{r, eval=FALSE}
+# Import data using read.csv() function 
+Rent_data <- read.csv(file="Barcelona_rents_2015.csv", header = TRUE, sep = ",")
+```
+
+Just in case...suppose if we did **NOT** set the working directory earlier. We would have to go through the hassle of typing the path location in the `read.csv()`.
+
+For windows:
+
+```{r, eval=FALSE}
+Rent_data <- read.csv(file="C:/Users/accountName/Desktop/GEOG0013/Workshop 1/Barcelona_rent_2015.csv", header = TRUE, sep = ",")
+```
+
+For Mac:
+
+```{r, eval=FALSE}
+Rent_data <- read.csv(file="/Users/accountName/Desktop/GEOG0013/Workshop 1/Barcelona_rent_2015.csv", header = TRUE, sep = ",")
+```
+
+I do not recommend doing it this way. Just set the work directory with `setwd()` to make life easier for yourself.
+
+<div class="note">
+**Important Notes:** The arguments used in `read.csv()` function – 1.) '`file =`' is a mandatory option where you quote the name of the file to be imported; 2.) '`header = TRUE`' option is set to `TRUE` which is telling RStudio that the file that is about to be imported has column names on the first row so it should not treat as observations; and 3.) '`sep = ","` ' we are telling RStudio that the format of the dataset is comma separated.
+</div>
+
+We have imported the `Barcelona_rents_2015.csv` data. Now, let us import the second data for `Barcelona_cars_2015.csv` using the `read.csv()` function and call it `Cars_data`. The code would look something as follows:
+
+```{r, eval=FALSE}
+# Import data using read.csv() function 
+Cars_data <- read.csv(file="Barcelona_cars_2015.csv", header = TRUE, sep = ",")
+
+# Show viewer the data sets
+View(Rent_data)
+View(Cars_data)
+```
+
+## Joining two datasets using the `merge()` function {-}
+
+**Merging and saving datasets (Length: 23:15 minutes)**
+```{r video_5, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_youtube('fd306QEIJXs', height = 400) %>% use_align('center')
+```
+
+Watch on YouTube [[**LINK**]](https://youtu.be/fd306QEIJXs)
+
+In your journey with data sets, you will certainly find yourself merging two or more data frames together, especially bringing together a spatial object with a non-spatial object. We cannot stress the importance of merging objects in the correct order so that the spatial attributes are preserved. It is possible to merge the two data frames uniquely using a common key variable like `neighbourhoods` that is present in both data sets.
+
+```{r echo=FALSE, out.width = "100%", fig.align='center', cache=TRUE,}
+knitr::include_graphics('images/general/getting_started/image5_dataviewer.png', error = FALSE) 
+```
+
+This task can be done using the merge function `merge()`. Consequently, we want the format of the merge code to look something akin to this syntax `merge(target_object, selected_object, by=”Key_variable”)`.
+
+Merging data frames is indeed a very important technique to know especially if you need to bring together event information with no spatial dimension with actual spatial data. Alright, let’s merge the cars ownership information on the home rental records using the `Key_variable` column, and generate a bigger data frame that contains both the rental and car ownership information:
+
+```{r, eval=FALSE}
+# Using the merge() function 
+Barcelona_data <- merge(Rent_data, Cars_data, by.x = "neighbourhood", by.y = "neighbourhood", all.x = TRUE)
+
+# View the datasets
+View(Barcelona_data)
+```
+
+<div class="note">
+**Important Notes:** The arguments used in `merge.csv()`: 
+
+1. `Rent_data` is the target data frame we want something to be merged on to. 
+2. `Cars_data` is the selected data frame we are using to merge with the `Rent_data`. 
+3. `by.x = “neighbourhood”` option we are specifying the name of the join column from the target data frame i.e., `Rent_data`.
+4. `by.y = “neighbourhood”` option we are specifying the name of the join column from the selected data frame i.e., `Cars_data`
+5. `all.x=TRUE` option we are telling RStudio to retain all rows that are originally from the target data after merging regardless of whether or not they are present in the selected data frame. So even if a row from the selected data does not find a unique link with any of the rows in target data to match too - it will still preserve the target data frame by not discarding unlinked rows. But it will discard the unmatched rows from the selected data frame.
+
+</div>
+
+## Saving your dataset using the `write.csv()` function {-}
+
+Let us save a version of this as a `.csv` file as a saved product named `“Barcelona_Data.csv”`. This can be done by using the `write.csv()` function. It will export the data frame object into a `.csv` format.
+
+```{r, eval=FALSE}
+# Export ‘Barcelona_Data’ object as .csv into 'Week 1' folder
+write.csv(Barcelona_Data, file = "Barcelona_Data.csv", row.names = FALSE)
+```
+
+<div class="note">
+**Important Notes:** The arguments used in `merge.csv()`: 
+
+1. `Barcelona_Data` is an object we are exporting. It is compulsory to specify the object data frame we want to export
+2. `file =` is a mandatory argument. We must give a name to the file we wish to export it as with `.csv` extension.
+3. `row.names =` this is an annoying argument! It will automatically index the dataset with unique row numbers by default if we do not specify `FALSE`! Since the data has its own unique identifiers (i.e., neighbourhoods) we specify 'FALSE' to not perform this action of indexing
+</div>
+
+Again, suppose if you did **NOT** set the work directory to your folder, you will have to type the whole path location to where you want the data to be exported which could be a hassle:
+
+For Windows:
+
+```{r, eval=FALSE}
+write.csv(Full_data, file = "C:/Users/accountName/Desktop/GEOG0013/Workshop 1/Barcelona_data.csv", row.names = FALSE)
+```
+
+For Mac:
+
+```{r, eval=FALSE}
+write.csv(Full_data, file = "/Users/accountName/Desktop/GEOG0013/Workshop 1/Barcelona_data.csv", row.names = FALSE)
+```
+
+Again, I do not recommend doing it this way. Just set the work directory with `setwd()` to make life easier for yourself and to avoid R calling you out for errors.
+
+Now that we have learned a lot of the basic things in RStudio – the stuff shown in **Part 2** will be used quite a lot moving forward in journey of studies. Now, let us progress to the **meat** and **potatoes** in *Part 3** where will start using RStudio for statistical analysis. Here, we will conduct some descriptive profile of the air quality using pollution data from Barcelona.
+
+We're in the final stretch now. 
+
+# Part 3: Exploratory analysis in RStudio {-}
+
+## What is statistics and data in general? {-}
+
+**Definition 1**: Statistics is a branch in the mathematical sciences that pertains to the collection, analysis, interpretation, and graphical presentation of data. The best thing about statistics is that it’s a highly applied branch of science which is applicable to many areas such as social science, politics, health (e.g., epidemiology), business & finance, environmental sciences and geography. 
+
+Statistics is broadly split into two main areas:
+
+1.	Descriptive statistics, which focuses on describing the visible characteristics about a dataset
+2.	Inferential statistics is more research-based, which focuses on making predictions (rather than stating facts) and testing hypothesis about a phenomenon.
+
+**Definition 2**: A variable is any characteristics, numbered value, or quantity that can be measured or counted. A variable can also be referred to a data Item. A variable can be broadly classified as discrete, continuous or categorical variable.
+
+We have provided two videos: the first which broadly explains why statistics as a subject is important; and the second explains in much details what statistics is as a subject, and what are the various data types.
+
+**[Theory] Why is statistics important? (Length: 13:21 minutes)**
+```{r video_6, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_youtube('BTQihTqIR8Y', height = 400) %>% use_align('center')
+```
+Watch on YouTube [[**LINK**]](https://youtu.be/BTQihTqIR8Y)
+
+**[Theory & Code] What is statistics, and the types of variables? (Length: 31:17 minutes)**
+```{r video_7, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_youtube('FJh6Cu-ATLM', height = 400) %>% use_align('center')
+```
+Watch on YouTube [[**LINK**]](https://youtu.be/FJh6Cu-ATLM)
+
+## Analysing air pollution data in Barcelona {-}
+
+We will focus on descriptive statistics as an introduction introducing everyone to the absolute basics. Descriptive statistics is all about knowing the **data types** and finding the **distribution**, **central tendency** and **variability** in such data set. These four key words may sound intimidating – but trust me – it is very easy! Let us learn how to perform this in RStudio using the air pollution data for Barcelona.
+
+Let us import for following dataset `Barcelona_Air_Pollution_data.csv` into RStudio, and call this object `air_ quality_data`.
+
+```{r set_up_path_GIF2, include = FALSE}
+knitr::opts_knit$set(root.dir = "/Volumes/Anwar-HHD/GEOG0013/Github/2022_2023/data/Tutorials/")
+knitr::opts_chunk$set(cache = FALSE)
+```
+
+Remember - always make sure that your work directory is linked to your folder containing your data.
+
+For Windows:
+
+```{r, eval=FALSE}
+setwd("C:/Users/accountName/Desktop/GEOG0013/Workshop 1/")
+```
+
+For Macs:
+
+```{r, eval=FALSE}
+setwd("/Users/accountName/Desktop/GEOG0013/Workshop 1/")
+```
+
+Now, import you the data set as follows:
+
+```{r import_dataset}
+air_quality_data <- read.csv("Barcelona_Air_Pollution_data.csv")
+```
+
+You use the command `View()` see the full data viewer, or `head()` to see the first five rows of the dataset. 
+
+```{r, eval=FALSE}
+# see imported dataset
+View(air_quality_data)
+```
+
+```{r, eval=FALSE}
+head(air_quality_data)
+```
+
+You will notice that the data contains six variables with the following information:
+
+**Variable name**|**Variable Type**|**Information**
+---------------- | ----------------- | ----------------------------------------
+Location| String/Text only | Name of location Eixample, Barcelona
+ReadingDate| Date | Data collection date for air quality measures
+NO2_est | Continuous | Measurements for Nitrogen dioxide (NO$_2$) (ppb)
+NO2_category | Categorical | Health impacts (negligible/low/moderate/high)
+PM10_est | Continuous | Measurements for Particulate matter (PM10)
+PM10_category | Categorical | Health impacts (negligible/low/moderate)
+
+<div class="note">
+**Important Notes**: The `NO2_est`, for example, contains measurable items i.e., 718 observations for concentrations of ambient NO$_2$ in Eixample area of Barcelona, and hence its a continuous variable. These estimates have been categorised in accordance with their health dangers i.e., negligible ($<$ 10 ppb); low (11-50 ppb); moderate (51-100 ppb) and high (>101 pbb). The categories are contained in the variable `NO2_category`.
+</div>
+
+Let us begin to analyse `NO2_est` and `NO2_category` with **frequency distributions**
+
+## Frequency distributions {-}
+
+We use frequency distribution to analyse a set continuous data. In data handling in this context, there are two outputs generated: 
+
+1. **Frequency**, which tells us how often a particular result was obtained. From this we can calculate a percentage value which is referred to as **Relative Frequency**.  
+2. **Cumulative Frequency**, this is a cumulative sum of the frequencies, which indicates how often a result was obtained that is less than a stated value in our collection of data. Again, from this we can also calculate a cumulative percentage value which is referred to as **Cumulative Relative Frequency**.
+
+Suppose, we want to assess the 718 observations for air pollutant Nitrogen Dioxide (NO$_2$).
+
+Let's list the observations for Nitrogen Dioxide (NO$_2$) in Barcelona:
+
+```{r no2_list}
+air_quality_data$NO2_est
+```
+
+In a list format it is quite difficult to make head or tail on what observations appear frequently and its distribution. To summarise this - it will be helpful to classify the information into **Classes** and then obtain the **Frequency** and **Cumulative Frequency** in a table. We call this table a **Frequency Table**.
+
+The minimum value for NO$_2$ is 2 and the maximum is 130. We can group the 718 observations into 13 **classes** using an interval of 10s e.g., `1-10, 11-20, 21-30, 31-40, 41-50, 51-60, 61-70, 71-80, 81-90, 91-100, 101-110, 111-120` and `121-130`
+
+<div class="note">
+**Important Notes**: The way and manner you specify the classes and interval are up to you really. Here, 10 is being used for convenience.
+</div>
+
+The interval width is 10, we can generate sequence of number from 0 to 130, inclusively, to create the **classes** which in turn be used to group the 718 observations into 13 classes using the `seq()` and `cut()`.
+
+For example:
+
+```{r gen_seq}
+# using starting value as 0
+# using highest value as 130
+# using interval as 10
+
+#  specify in this order the lower, highest, interval value in seq() function
+classes <- seq(0, 130, 10)
+classes
+```
+
+The sequence of values are stored in the object called `classes`. Now, let us apply the `cut()` function to group the NO$_2$ data accordingly. We can do this by generating a new variable called `Groups`.
+
+```{r gen_classes}
+# tell the cut() function to group NO2_est using the classes object
+air_quality_data$Groups <- cut(air_quality_data$NO2_est, breaks=classes)
+air_quality_data$Groups
+```
+
+The observations have now been grouped to the classes. You can see this explicitly in the data viewer:
+
+```{r, eval=FALSE}
+View(air_quality_data)
+```
+
+<div class="note">
+**Important Notes**: What have we done here? The first value under the `NO2_est` column is 61, this value falls between 61-70 and hence under the `Group` column is was classed into the (61,70] interval by the `cut()` function. The second value in `NO2_est` is 59, and hence it was classed into the (51,60] interval, and so on. 
+</div>
+
+**Computing the Frequency Distribution table**
+
+We can now generate our **frequency table** and hence determine **frequency** and **cumulative frequency** of the ambient levels of NO$_2$ in Eixample. We perform by using the `table()` function to tabulate the frequency of values that were grouped within an interval using the `Group` column. 
+
+```{r table_freq}
+table(air_quality_data$Groups)
+```
+
+Using `table()` function only shows results in the Console - lets store the table results in a **data frame** object and call it `frequency_results`:
+
+```{r table_freq_result1}
+frequency_results <- data.frame(table(air_quality_data$Groups))
+frequency_results
+```
+
+You can see column names `Var1` and `Freq`. The `Var1` is the original `Groups` columns which incidentally been renamed to `Var1`. The `Freq` column was generated from the `table()` function. We can rename the 1st and 2nd columns using `colnames()`.
+
+```{r column_name1}
+# rename first column t9 "Groups"
+# rename second column to "Frequency"
+# print new variable names in console using names() function
+
+colnames(frequency_results)[1] <- "Groups"    
+colnames(frequency_results)[2] <- "Frequency" 
+names(frequency_results) 
+frequency_results
+```
+
+Finally, we derive the **relative frequency** i.e., a percentage that is derived by dividing each frequency value from a group by the total number of observations (i.e., in this case: 718). We can add the `relativeFreq` column to the `frequency_results` table.
+
+```{r relative_freq}
+# generate a new column
+frequency_results$relativeFreq <- frequency_results$Frequency/718
+```
+
+<div class="note">
+**Interpretation of frequency**: The above table output show the frequency distribution of a set of concentrations for Nitrogen Dioxide measured in Eixample (in Barcelona). The group with the highest frequency value is `50-60ppb` (i.e., 137) which accounts for 0.1908 (19.08%) of the data. These measurements typically fall under the category that's considered to cause moderate harm to humans.   
+</div>
+
+Let's add the **cumulative frequency** and **cumulative relative frequency** i.e., percentage using this code below:
+
+```{r cumulative_values}
+# add cumulativeFreq column to the data frame by adding Frequency using cumsum() function
+frequency_results$cumulativeFreq <- cumsum(frequency_results$Frequency)
+
+# add cumulativeRelFreq column to the data frame by adding Frequency using cumsum() function
+frequency_results$cumulativeRelFreq <- cumsum(frequency_results$relativeFreq)
+
+# print table results
+frequency_results
+```
+
+<div class="note">
+**Interpretation of cumulative frequency**: The above table output show the cumulative frequency distribution ambient concentrations for Nitrogen Dioxide measured in Eixample (in Barcelona). We can see that there are  246 measurements or less with N0$_2$ concentrations to be considered as negligible or low impact to health (`<50ppb`). This corresponds to 0.3426 (34.26%) of the data. 
+
+Conversely, we can also say - we can see that there are 472 measurements with N0$_2$ concentrations more than `50ppb` which is considered to be moderate or high impact to human health. This corresponds to 0.6573 (65.73%) of the data. 
+</div>
+
+**Graphical representation of frequency data**
+
+The frequency table for **frequencies** and **cumulative frequencies** can be graphical represented in a form of **histogram** and **frequency diagram** respectively. Now, we need the data must be in its original form (i.e., not grouped) to plot the histogram, and we will need to use the `classes` object which we created earlier on from the `seq()` function so as to use as breaks in the `hist()` plot function:
+
+```{r histogramPlot}
+hist(air_quality_data$NO2_est, breaks = classes)
+```
+
+The above graph is not publication-worthy. It is missing key details such as the title and label for the x-axis. Let's apply some cosmetics such as a main title and label for the x-axis
+
+```{r histogram_cosmetics}
+hist(air_quality_data$NO2_est, breaks = classes, main = "Histogram for NO2 in Barcelona", xlab = "NO2 estimates (ppb)")
+```
+
+<div class="note">
+**Interpretation of histogram**: The above figure output describes the shape for ambient measures of NO$_2$ in Barcelona which appears bell-shaped centered around 60ppb. Note that the frequency bars in this graph are essentially the same as the frequency values in the table.
+</div>
+
+Lastly, we then compute its cumulative frequency with `cumsum()` to support the interpretation. The coding needs a bit of hacking because we need to force a starting zero element for this graph to work.
+
+```{r cumsum_plot}
+cumfreq0 <- c(0, cumsum(frequency_results$Frequency))
+plot(classes, cumfreq0, main="Cumulative Frequency for N02 in Barcelona", xlab="NO2 estimates (ppb)", ylab="Cumulative Frequencies")
+lines(classes, cumfreq0) 
+```
+
+## Descriptive and central tendency measures {-}
+
+We have used frequency distribution to describe the distribution about the data for air pollution in Barcelona. The description is at face-value though. Central tendency measures contains a list of summary measurements that allows the user to summarize the data to some central measure and to gauge the spread of the data (i.e., errors/departures from central measure). It is best for continuous variables, we can hence compute the following summary measurements (watch video below see to definitions):
+
+1.	Mean
+2.	Median
+3.	Variance and Standard deviation
+4.	Minimum and Maximum values
+5.	Upper and Lower Quartiles (or Interquartile ranges)
+
+**[Theory]: Central tendency measures (Length: 17:12 minutes)**
+```{r video_8, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_youtube('p2dkkSiS2RQ', height=400) %>% use_align('center')
+```
+Watch on YouTube [**LINK**](https://youtu.be/p2dkkSiS2RQ)
+
+**[Theory]: Range values and interquartile ranges (Length: 18:32 minutes)**
+```{r video_9, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_youtube('_EW2SUGHyko', height=400) %>% use_align('center')
+```
+Watch on YouTube [[**LINK**]](https://youtu.be/_EW2SUGHyko)
+
+To compute the summary statistics rapidly – simply use the `summary()` function on the variable of interest (i.e., `NO2_est` from the original dataset).
+
+```{r summary_est1}
+# compute all descriptive summaries measurements
+summary(air_quality_data$NO2_est)
+```
+
+As you can see using `summary()` automatically gives you almost all the summary estimates needed for interpretation. The NO$_2$ air levels in Barcelona was 59.69ppb (with median 59.00pbb). The lowest and highest values are 2.0ppb and 130.0ppb, respectively (with 25th and 75th percentiles being 46.00ppb and 74.00pbb, respectively.) Finally, you can compute the standard deviation using the `sd()` function as follows for income:
+
+```{r summary_est2}
+# compute all descriptive summaries measurements
+sd(air_quality_data$NO2_est)
+```
+
+**[Theory]: Variance & standard deviation (Length: 13:39 minutes)**
+```{r video_10, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_youtube('J_6CuV0kNKI', height=400) %>% use_align('center')
+```
+Watch on YouTube [[**LINK**]](https://youtu.be/J_6CuV0kNKI)
+
+The standard deviation is ± 20.61pbb – this is the error around the mean of NO$_2$ i.e., estimated as 59.69ppb. To visualise the distribution of a continuous variable – your ‘go-to’ plot is a boxplot. You can use the function `boxplot()` to generate one. Type the following to churn it:
+
+```{r boxplot_vis}
+# Box plot
+boxplot(air_quality_data$NO2_est, ylab = "NO2 estimates (ppb)", main="Box plot: Summary of Nitrogen Dioxide in Barcelona")
+```
+
+The above box plot is essential the visual representation of the summary results churned by the `summary()`. Here is the concise interpretation of the above results:
+
+<div class="note">
+**Interpretation**: The overall mean air pollution levels for NO$_2$ in Eixample (Barcelona) from 718 observation was 59.69ppb (with one SD of ± 20.63ppb). 25% (at the lower end i.e., lower quartile) of the distribution for air population levels for Nitrogen Dioxide are below 46.00ppb (which is considered to cause low health impact); while from 75% onwards (i.e., upper quartile) of the distribution has air pollution levels of N0$_2$ which is above 74.00pbb (which is consider to considered to cause some moderate health impact). The overall range in the distribution is 128ppb where the lowest observed value is 2.0ppb (minimum) and the highest observed value is 130ppb (maximum)
+</div>
+
+# Part 4: Introduction to Distributions {-}
+
+```{r echo=FALSE, out.width = "100%", fig.align='center', cache=TRUE,}
+knitr::include_graphics('images/general/getting_started/Under_Construction.png', error = FALSE) 
+```
+
+# Formative Assignment {-}
+
+```{r echo=FALSE, out.width = "100%", fig.align='center', cache=TRUE,}
+knitr::include_graphics('images/general/getting_started/Under_Construction.png', error = FALSE) 
+```
+
+# Appendendum {-}
+
+## Appendix 1: List of functions used in this workshop {-}
+
+**Function**|**Description of use**
+---------------- | ----------------------------------------
+`setwd()`| Use it to set the work directory to folder with stored data
+`read.csv()`| Use it to import and open a `.csv` excel spreadsheet
+`write.csv()`| Use it to export and save data as a `.csv` excel spreadsheet
+`data.frame()`| Use it to create data frame object 
+`View()`| Use it to examine your data set in a data viewer 
+`merge()`| Use it to merge two data frames together
+`c()`| Use it to create a list of data items to create a vector object
+`exp()`| A simple mathematical function - exponential
+`log()`| A simple mathematical function - logarithmic 
+`head()`| Use on data frame to see the **first** couple of row observations
+`tail()`| Use on data frame to see the **last** couple of row observations
+`min()`| Use on variable to see the **lowest** value
+`max()`| Use on variable to see the **highest** value
+`seq()`| Use it to generate a sequence of numbers
+`cut()`| Use it to class or categorize a continuous variable
+`table`| Create a table, or to perform cross-tabulation
+`cumsum()`| Compute the cumulative sums of a variable
+`hist()`| Plot a histogram
+`plot()`| Make a general plot
+`colnames()`| To rename columns
+`summmary()`| Reports the min, max, median, mean, and IQRs
+`sd()`| Reports the standard deviation
+`boxplot()` | Plot a box plot
+
+## Appendix 2: List of symbols used in this workshop {-}
+
+**Symbol**|**Description of use**
+---------------- | ----------------------------------------
+`$`| Dollar sign for accessing a variable within a data frame
+`<-`| Operator sign for assigning values to an object
+`+`| Addition
+`-`| Subtraction
+`*`| Multiplication
+`/`| Divisor
+`^`| Raise to power

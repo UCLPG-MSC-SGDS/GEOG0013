@@ -1,0 +1,27 @@
+h1:introduction Introduction
+h2:learning-outcomes Learning outcomes
+h1:part-1-getting-started-with-rstudio Part 1: Getting started with RStudio
+h2:what-is-rstudio-or-r What is RStudio (or R)
+h2:download-and-install-rstudio-directly-on-to-your-laptop-best-option Download and install RStudio directly on to your laptop (BEST OPTION)
+h2:using-the-ucl-desktop-cloud-system-to-access-rstudio Using the UCL Desktop Cloud system to access RStudio
+h2:becoming-familiar-with-the-panels-in-rstudio Becoming familiar with the panels in RStudio
+h2:using-r-console-as-a-calculator Using R Console as a Calculator
+h2:creating-basic-objects-and-assigning-values-to-it Creating basic objects and assigning values to it
+h1:part-2-basics-of-managing-data-in-rstudio Part 2: Basics of Managing Data in RStudio
+h2:how-do-we-enter-data-into-rstudio How do we enter data into RStudio?
+h2:how-do-we-create-a-variable-based-on-other-existing-variables-in-our-data-frame How do we create a variable based on other existing variables in our data frame?
+h2:how-to-set-the-working-directory-with-setwd-function How to set the working directory with  function?
+h2:importing-data-using-read.csv Importing data using 
+h2:joining-two-datasets-using-the-merge-function Joining two datasets using the  function
+h2:saving-your-dataset-using-the-write.csv-function Saving your dataset using the  function
+h1:part-3-exploratory-analysis-in-rstudio Part 3: Exploratory analysis in RStudio
+h2:what-is-statistics-and-data-in-general What is statistics and data in general?
+h2:analysing-air-pollution-data-in-barcelona Analysing air pollution data in Barcelona
+h2:frequency-distributions Frequency distributions
+h2:descriptive-and-central-tendency-measures Descriptive and central tendency measures
+h1:part-4-introduction-to-distributions Part 4: Introduction to Distributions
+h1:formative-assignment Formative Assignment
+h1:appendendum Appendendum
+h2:appendix-1-list-of-functions-used-in-this-workshop Appendix 1: List of functions used in this workshop
+h2:appendix-2-list-of-symbols-used-in-this-workshop Appendix 2: List of symbols used in this workshop
+

@@ -1,0 +1,86 @@
+---
+title: "GEOG0013: Geography in the Field 1 (GIF1) 2023/24"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+link-citations: yes
+github-repo: "UCLPG-MSC-SGDS/GEOG0013"
+description: "GEOG0013: Geography in the Field 1 (GIF1)"
+bibliography: [book.bib, packages.bib]
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# Welcome to Introduction to Statistics {.unnumbered}
+
+```{r echo=FALSE, out.width = "100%", fig.align='center', cache=TRUE,}
+knitr::include_graphics('images/general/Welcome_page_image.png') 
+```
+
+Welcome to **GIF1's** **Introduction to Statistics**. So far you have been introduced to the core tenets and principles of geography taught through the different themes touching on physical sciences (e.g., coastal and rivers) and social sciences (e.g., ethnographic methods and urbanism). This session focuses on the themes of **statistics** (i.e., data analysis). Here, we will provide you with an introduction to the basic statistical methods for exploring & representing secondary data from Barcelona, using a programming software tool known as **R/RStudio**, as well as using **R/RStudio** to introduce you to the basics of probability distributions and how they can be use for making predictions.
+
+**Getting started with the learning process (Length: 13:50 minutes)**
+
+```{r video_1, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_youtube('NzjYtJGDx8M', height = 400) %>% use_align('center')
+```
+
+Watch on YouTube [**[LINK]**](https://youtu.be/NzjYtJGDx8M)
+
+## Structure {.unnumbered}
+
+The structure of this component of GIF1 is a series of two 3-hour workshop that will be delivered in-person. All students have been allocated to one of these groups (i.e., group **A**, **B**, **C**, **D**, **E**, **F** or **G**). The workshops will take place on the following dates:
+
+**Week 7, Workshop 1 - Introduction to RStudio & Descriptive Analysis:** 
+
+- **Wednesday 22nd November, 09:00am-12:00pm** for groups **A**, **B** and **C**
+- **Friday 24th November, 02:00pm-05:00pm** for groups **D**, **E**, **F** and **G**
+
+|**Group**|**Location**|
+|:--- |:-----------------------   |
+|**A**|IOE, Bedford Way (20) Room 425 (PC Lab 2), [**Map**](https://shorturl.at/anNTW)|
+|**B**|IOE, Bedford Way (20) Room 429 (PC Lab 1), [**Map**](https://shorturl.at/anNTW)|
+|**C**|Torrington Place (1-19) B07 Teal Room, [**Map**](https://shorturl.at/hkosO)|
+|**D**|Bedford Way (26) Room 316 Public Cluster, [**Map**](https://shorturl.at/eKRS0)|
+|**E**|IOE, Bedford Way (20) Room 425 (PC Lab 2), [**Map**](https://shorturl.at/anNTW)|
+|**G**|IOE, Bedford Way (20) Room W3.05, [**Map**](https://shorturl.at/anNTW)|
+
+**Week 8, Workshop 2 - Introduction to Distributions:** 
+
+1. **Wednesday 29th November, 09:00am-12:00pm** for groups **A**, **B** and **C**
+2. **Friday 1st December, 02:00pm-05:00pm** for groups **D**, **E**, **F** and **G**
+
+|**Group**|**Location**|
+|:--- |:-----------------------   |
+|**A**|IOE, Bedford Way (20) Room 425 (PC Lab 2), [**Map**](https://shorturl.at/anNTW)|
+|**B**|IOE, Bedford Way (20) Room 429 (PC Lab 1), [**Map**](https://shorturl.at/anNTW)|
+|**C**|Torrington Place (1-19) B07 Teal Room, [**Map**](https://shorturl.at/hkosO)|
+|**D**|Bedford Way (26) Room 316 Public Cluster, [**Map**](https://shorturl.at/eKRS0)|
+|**E**|IOE, Bedford Way (20) Room 425 (PC Lab 2), [**Map**](https://shorturl.at/anNTW)|
+|**G**|IOE, Bedford Way (20) Room W3.05, [**Map**](https://shorturl.at/anNTW)|
+
+<div class="note">
+**IMPORTANT NOTE 1**: The locations are public clusters with PC workstations. However, I highly recommend you bring your own laptop for computer practicals for ease.
+</div>
+
+<div class="note">
+**IMPORTANT NOTE 2**: Unfortunately, the teaching assistant scheduled to deliver Friday’s RStudio & Statistics workshop for **Group F** at the **School of Pharmacy in Room B37 location** **WILL NOT** be available to teach there. So, if you are in **Group F**, please feel free to go to one of these groups i.e., D, E, or G that’s convenient until further notice.
+</div>
+
+## Self-guided tutorials {-}
+
+You have been given early access to the content. Prior to the workshops which will be supported by the teaching assistants (PGTAs), you are welcome to go through the self-guided tutorials presented on this website at your own pace. The teaching materials have been designed to be accessible to anyone who has never used RStudio in their life. It is also accessible to anyone who has never done statistics before as well. With that being said, we are introducing you to the absolute basics of R-programming and statistics. Hence, these tutorials are prescriptive with instructions which are further supported by guided videos.
+
+## Questions & Discusson Forum on Moodle {-}
+
+On Moodle, you can use the Forum: Questions and Discussion platform to post general questions about the content on this webpage, or for posting problems on technical issues you have encountered during your self-guided study. Myself, or one of the PGTAs will respond accordingly with solutions. Students are welcome to engage and support each other in-person and/or through this forum during this self-study time. Please, **do not send direct emails to Helen, Geography Office or me for resolving technical problems**. We will only respond to emails on critical matters (e.g., personal problems, illness, etc.,). Kindly use the forum in Moodle - thank you!     
+
+**My contact information are:**
+
+Anwar Musah | Lecturer in Social & Geographic Data Science </br>
+UCL Department of Geography </br>
+University College London </br>
+Room 115 North-West Wing, Gower Street, London, WC1E 6BT </br>
+Email: a.musah@ucl.ac.uk
