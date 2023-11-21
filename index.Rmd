@@ -31,12 +31,12 @@ Watch on YouTube [**[LINK]**](https://youtu.be/NzjYtJGDx8M)
 
 ## Structure {.unnumbered}
 
-The structure of this component of GIF1 is a series of two 3-hour workshop that will be delivered in-person. All students have been allocated to one of these groups (i.e., group **A**, **B**, **C**, **D**, **E**, **F** or **G**). The workshops will take place on the following dates:
+The structure of this component of GIF1 is a series of two 3-hour workshop that will be delivered in-person. All students have been allocated to one of these groups (i.e., group **A**, **B**, **C**, **D**, **E** or **G**). The workshops will take place on the following dates:
 
 **Week 7, Workshop 1 - Introduction to RStudio & Descriptive Analysis:** 
 
 - **Wednesday 22nd November, 09:00am-12:00pm** for groups **A**, **B** and **C**
-- **Friday 24th November, 02:00pm-05:00pm** for groups **D**, **E**, **F** and **G**
+- **Friday 24th November, 02:00pm-05:00pm** for groups **D**, **E** and **G**
 
 |**Group**|**Location**|
 |:--- |:-----------------------   |
@@ -50,7 +50,7 @@ The structure of this component of GIF1 is a series of two 3-hour workshop that 
 **Week 8, Workshop 2 - Introduction to Distributions:** 
 
 1. **Wednesday 29th November, 09:00am-12:00pm** for groups **A**, **B** and **C**
-2. **Friday 1st December, 02:00pm-05:00pm** for groups **D**, **E**, **F** and **G**
+2. **Friday 1st December, 02:00pm-05:00pm** for groups **D**, **E** and **G**
 
 |**Group**|**Location**|
 |:--- |:-----------------------   |
@@ -66,7 +66,7 @@ The structure of this component of GIF1 is a series of two 3-hour workshop that 
 </div>
 
 <div class="note">
-**IMPORTANT NOTE 2**: Unfortunately, the teaching assistant scheduled to deliver Friday’s RStudio & Statistics workshop for **Group F** at the **School of Pharmacy in Room B37 location** **WILL NOT** be available to teach there. So, if you are in **Group F**, please feel free to go to one of these groups i.e., D, E, or G that’s convenient until further notice.
+**IMPORTANT NOTE 2**: Unfortunately, the teaching assistant scheduled to deliver Friday’s RStudio & Statistics workshop for **Group F** at the **School of Pharmacy in Room B37 location** **WILL NOT** be available to teach there. So, if you are in **Group F**, I have re-allocated you to another group. Please check your email to see your new group.
 </div>
 
 ## Self-guided tutorials {-}
