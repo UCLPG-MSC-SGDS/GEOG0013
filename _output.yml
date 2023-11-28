@@ -12,7 +12,7 @@ bookdown::gitbook:
     sharing:
           github: yes
           facebook: no
-          twitter: no
+          twitter: yes
           all: no
 #bookdown::pdf_book:
 #  includes:

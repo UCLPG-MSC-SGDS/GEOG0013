@@ -29,7 +29,7 @@
   
   
 <link rel="prev" href="part-2-basics-of-managing-data-in-rstudio.html"/>
-<link rel="next" href="part-4-introduction-to-distributions.html"/>
+<link rel="next" href="part-4-introduction-to-probability-distribution.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -176,7 +176,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#frequency-distributions"><i class="fa fa-check"></i>Frequency distributions</a></li>
 <li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#descriptive-and-central-tendency-measures"><i class="fa fa-check"></i>Descriptive and central tendency measures</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="part-4-introduction-to-distributions.html"><a href="part-4-introduction-to-distributions.html"><i class="fa fa-check"></i>Part 4: Introduction to Distributions</a></li>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html"><i class="fa fa-check"></i>Part 4: Introduction to Probability Distribution</a>
+<ul>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html#quick-recap"><i class="fa fa-check"></i>Quick Recap</a></li>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html#what-are-probability-distributions"><i class="fa fa-check"></i>What are Probability Distributions?</a></li>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html#how-to-generate-a-normal-distribution-curve"><i class="fa fa-check"></i>How to generate a Normal Distribution curve</a></li>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html#using-the-normal-distribution-for-making-a-prediction"><i class="fa fa-check"></i>Using the Normal Distribution for making a prediction</a>
+<ul>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html#scenario-1-the-probabilities-for-at-most"><i class="fa fa-check"></i>Scenario 1: The Probabilities for (<strong>“at most”</strong>)</a></li>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html#scenario-2-the-probabilities-for-at-least"><i class="fa fa-check"></i>Scenario 2: The Probabilities for (<strong>“at least”</strong>)</a></li>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html#scenario-3-the-probabilities-for-within-a-range"><i class="fa fa-check"></i>Scenario 3: The Probabilities for (<strong>“within a range”</strong>)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html#finished"><i class="fa fa-check"></i>Finished!</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="formative-assignment.html"><a href="formative-assignment.html"><i class="fa fa-check"></i>Formative Assignment</a></li>
 <li class="chapter" data-level="" data-path="appendendum.html"><a href="appendendum.html"><i class="fa fa-check"></i>Appendendum</a>
 <ul>
@@ -627,7 +639,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="part-2-basics-of-managing-data-in-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="part-4-introduction-to-distributions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="part-4-introduction-to-probability-distribution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -644,7 +656,7 @@ gitbook.start({
 "sharing": {
 "github": true,
 "facebook": false,
-"twitter": false,
+"twitter": true,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,

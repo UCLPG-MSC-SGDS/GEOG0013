@@ -19,7 +19,15 @@ h2:what-is-statistics-and-data-in-general What is statistics and data in general
 h2:analysing-air-pollution-data-in-barcelona Analysing air pollution data in Barcelona
 h2:frequency-distributions Frequency distributions
 h2:descriptive-and-central-tendency-measures Descriptive and central tendency measures
-h1:part-4-introduction-to-distributions Part 4: Introduction to Distributions
+h1:part-4-introduction-to-probability-distribution Part 4: Introduction to Probability Distribution
+h2:quick-recap Quick Recap
+h2:what-are-probability-distributions What are Probability Distributions?
+h2:how-to-generate-a-normal-distribution-curve How to generate a Normal Distribution curve
+h2:using-the-normal-distribution-for-making-a-prediction Using the Normal Distribution for making a prediction
+h3:scenario-1-the-probabilities-for-at-most Scenario 1: The Probabilities for ()
+h3:scenario-2-the-probabilities-for-at-least Scenario 2: The Probabilities for ()
+h3:scenario-3-the-probabilities-for-within-a-range Scenario 3: The Probabilities for ()
+h2:finished Finished!
 h1:formative-assignment Formative Assignment
 h1:appendendum Appendendum
 h2:appendix-1-list-of-functions-used-in-this-workshop Appendix 1: List of functions used in this workshop

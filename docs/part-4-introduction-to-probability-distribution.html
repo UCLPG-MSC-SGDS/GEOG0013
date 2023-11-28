@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Part 4: Introduction to Probability Distribution | GEOG0013: Geography in the Field 1 (GIF1) 2023/24</title>
+  <meta name="description" content="GEOG0013: Geography in the Field 1 (GIF1)" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Part 4: Introduction to Probability Distribution | GEOG0013: Geography in the Field 1 (GIF1) 2023/24" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="GEOG0013: Geography in the Field 1 (GIF1)" />
+  <meta name="github-repo" content="UCLPG-MSC-SGDS/GEOG0013" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Part 4: Introduction to Probability Distribution | GEOG0013: Geography in the Field 1 (GIF1) 2023/24" />
+  
+  <meta name="twitter:description" content="GEOG0013: Geography in the Field 1 (GIF1)" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="part-3-exploratory-analysis-in-rstudio.html"/>
+<link rel="next" href="formative-assignment.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="assets/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo">
+<a href="https://www.ucl.ac.uk/module-catalogue/modules/GEOG0013"><img src="images/general/ucl_logo.png">
+</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to Introduction to Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#self-guided-tutorials"><i class="fa fa-check"></i>Self-guided tutorials</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#questions-discusson-forum-on-moodle"><i class="fa fa-check"></i>Questions &amp; Discusson Forum on Moodle</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#learning-outcomes"><i class="fa fa-check"></i>Learning outcomes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html"><i class="fa fa-check"></i>Part 1: Getting started with RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html#what-is-rstudio-or-r"><i class="fa fa-check"></i>What is RStudio (or R)</a></li>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html#download-and-install-rstudio-directly-on-to-your-laptop-best-option"><i class="fa fa-check"></i>Download and install RStudio directly on to your laptop (BEST OPTION)</a></li>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html#using-the-ucl-desktop-cloud-system-to-access-rstudio"><i class="fa fa-check"></i>Using the UCL Desktop Cloud system to access RStudio</a></li>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html#becoming-familiar-with-the-panels-in-rstudio"><i class="fa fa-check"></i>Becoming familiar with the panels in RStudio</a></li>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html#using-r-console-as-a-calculator"><i class="fa fa-check"></i>Using R Console as a Calculator</a></li>
+<li class="chapter" data-level="" data-path="part-1-getting-started-with-rstudio.html"><a href="part-1-getting-started-with-rstudio.html#creating-basic-objects-and-assigning-values-to-it"><i class="fa fa-check"></i>Creating basic objects and assigning values to it</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html"><i class="fa fa-check"></i>Part 2: Basics of Managing Data in RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#how-do-we-enter-data-into-rstudio"><i class="fa fa-check"></i>How do we enter data into RStudio?</a></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#how-do-we-create-a-variable-based-on-other-existing-variables-in-our-data-frame"><i class="fa fa-check"></i>How do we create a variable based on other existing variables in our data frame?</a></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#how-to-set-the-working-directory-with-setwd-function"><i class="fa fa-check"></i>How to set the working directory with <code>setwd()</code> function?</a></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#importing-data-using-read.csv"><i class="fa fa-check"></i>Importing data using <code>read.csv()</code></a></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#joining-two-datasets-using-the-merge-function"><i class="fa fa-check"></i>Joining two datasets using the <code>merge()</code> function</a></li>
+<li class="chapter" data-level="" data-path="part-2-basics-of-managing-data-in-rstudio.html"><a href="part-2-basics-of-managing-data-in-rstudio.html#saving-your-dataset-using-the-write.csv-function"><i class="fa fa-check"></i>Saving your dataset using the <code>write.csv()</code> function</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html"><i class="fa fa-check"></i>Part 3: Exploratory analysis in RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#what-is-statistics-and-data-in-general"><i class="fa fa-check"></i>What is statistics and data in general?</a></li>
+<li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#analysing-air-pollution-data-in-barcelona"><i class="fa fa-check"></i>Analysing air pollution data in Barcelona</a></li>
+<li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#frequency-distributions"><i class="fa fa-check"></i>Frequency distributions</a></li>
+<li class="chapter" data-level="" data-path="part-3-exploratory-analysis-in-rstudio.html"><a href="part-3-exploratory-analysis-in-rstudio.html#descriptive-and-central-tendency-measures"><i class="fa fa-check"></i>Descriptive and central tendency measures</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html"><i class="fa fa-check"></i>Part 4: Introduction to Probability Distribution</a>
+<ul>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html#quick-recap"><i class="fa fa-check"></i>Quick Recap</a></li>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html#what-are-probability-distributions"><i class="fa fa-check"></i>What are Probability Distributions?</a></li>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html#how-to-generate-a-normal-distribution-curve"><i class="fa fa-check"></i>How to generate a Normal Distribution curve</a></li>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html#using-the-normal-distribution-for-making-a-prediction"><i class="fa fa-check"></i>Using the Normal Distribution for making a prediction</a>
+<ul>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html#scenario-1-the-probabilities-for-at-most"><i class="fa fa-check"></i>Scenario 1: The Probabilities for (<strong>“at most”</strong>)</a></li>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html#scenario-2-the-probabilities-for-at-least"><i class="fa fa-check"></i>Scenario 2: The Probabilities for (<strong>“at least”</strong>)</a></li>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html#scenario-3-the-probabilities-for-within-a-range"><i class="fa fa-check"></i>Scenario 3: The Probabilities for (<strong>“within a range”</strong>)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-4-introduction-to-probability-distribution.html"><a href="part-4-introduction-to-probability-distribution.html#finished"><i class="fa fa-check"></i>Finished!</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="formative-assignment.html"><a href="formative-assignment.html"><i class="fa fa-check"></i>Formative Assignment</a></li>
+<li class="chapter" data-level="" data-path="appendendum.html"><a href="appendendum.html"><i class="fa fa-check"></i>Appendendum</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendendum.html"><a href="appendendum.html#appendix-1-list-of-functions-used-in-this-workshop"><i class="fa fa-check"></i>Appendix 1: List of functions used in this workshop</a></li>
+<li class="chapter" data-level="" data-path="appendendum.html"><a href="appendendum.html#appendix-2-list-of-symbols-used-in-this-workshop"><i class="fa fa-check"></i>Appendix 2: List of symbols used in this workshop</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">GEOG0013: Geography in the Field 1 (GIF1) 2023/24</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="part-4-introduction-to-probability-distribution" class="section level1 unnumbered hasAnchor">
+<h1>Part 4: Introduction to Probability Distribution<a href="part-4-introduction-to-probability-distribution.html#part-4-introduction-to-probability-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="quick-recap" class="section level2 unnumbered hasAnchor">
+<h2>Quick Recap<a href="part-4-introduction-to-probability-distribution.html#quick-recap" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Last week’s tutorials, in <a href="https://shorturl.at/hkmtK">[<strong>part three of the workbook</strong>]</a>, we learnt how to perform some basic descriptive analysis of air pollution data (specifically 718 observations of Nitrogen Dioxide (NO<span class="math inline">\(_2\)</span>) in <a href="https://shorturl.at/dfBDY"><strong>[Eixample, Barcelona]</strong></a>. We derived the following outputs:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Frequency distribution and table for ambient NO<span class="math inline">\(_2\)</span> levels in Barcelona</strong>, which told us how often a particular measure for NO<span class="math inline">\(_2\)</span> was observed. For instance, we found that in Barcelona, the common measure for ambient NO<span class="math inline">\(_2\)</span> were values that fell in the range of 50-60ppb that accounted for <code>19.08%</code> of the data.</p></li>
+<li><p><strong>Cumulative frequency distribution of ambient NO<span class="math inline">\(_2\)</span> levels in Barcelona</strong>, which - based on a stated value/threshold of interest - indicated how often a particular measure for N0<span class="math inline">\(_2\)</span> was observed. For example, based on this threshold <code>&lt;50ppb</code>, we found that it corresponds to 246 measurements for NO<span class="math inline">\(_2\)</span> below <code>50ppb</code> which composed of <code>0.3426 (34.26%)</code> of the data.</p></li>
+<li><p><strong>Histogram</strong>, which was simply a graphically representation that reflected our Frequency distribution. For instance, the image we produced last week:</p></li>
+</ol>
+<p><img src="images/general/getting_started/image6_histogram.png" width="100%" style="display: block; margin: auto;" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Central Tendency Measures, Variance &amp; Standard Deviation</strong>: These are a set of statistical estimates we used to provide a concise summary of the data. There more important measures were the <strong>mean (or average)</strong> and <strong>standard deviation</strong>. Recall in our air pollution data, we found the overall mean air pollutions level for NO<span class="math inline">\(_2\)</span> in <a href="https://shorturl.at/dfBDY"><strong>[Eixample, Barcelona]</strong></a> was <code>59.69ppb</code> with a standard deviation (i.e., error) of <code>±20.63pbb</code>.</li>
+</ol>
+<p>These four recap points were brought up because they are all connected to <strong>Probability Distributions</strong>. Probability distributions are indeed the basis of data sciences, we actually use to these help model our world, enabling us to estimate or predict the probability that an event (e.g., disease outbreak, mosquito infestation, crime outcome, wildfire hazard etc.,) may occur or not. More importantly, we use these specifically in <strong>Hypothesis Testing</strong> when conducting <strong>Inferential Statistics</strong> - of course, this important point is a story for another day as some of you will see its connection in term two’s <strong>Geography in the Field II (GEOG0014)</strong> and/or in <strong>Introduction to Quantitative Research Methods (POLS0008)</strong>.</p>
+<p>In this tutorial, you will be introduced to the <strong>Normal Distribution</strong>, a famous one which has its place in statistical analysis. <a href="https://youtu.be/0aMhmo9fHps?si=485K4dk6AfDQUAvj&amp;t=11"><strong>[Alright, we’re in final stretch - let’s do this!]</strong></a></p>
+</div>
+<div id="what-are-probability-distributions" class="section level2 unnumbered hasAnchor">
+<h2>What are Probability Distributions?<a href="part-4-introduction-to-probability-distribution.html#what-are-probability-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>[Context]: What are Probability Distributions? (Length: 04:34 minutes)</strong></p>
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://www.youtube.com/embed/fiY01v3Zpc0" width="711" height="400" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+<p>Watch on <a href="https://youtu.be/fiY01v3Zpc0"><strong>[YouTube]</strong></a></p>
+<p>Do remember a time in our GSCEs when we were asked to compute the probability of an event such as - let’s say - what the probability of throwing a die just once and it showing the value “six” as an outcome? The obvious answer to that is <code>1/6</code>. Here, we computed the <strong>probability</strong> of just a <strong>single outcome</strong>. <strong>Probability Distributions</strong> on the other hand allows us to compute <strong>probabilities</strong> for <strong>ALL possible outcomes</strong>. There are <a href="https://en.wikipedia.org/wiki/List_of_probability_distributions"><strong>[SEVERAL]</strong></a> different types of probability distributions; however, the most common types you will come across in data science are:</p>
+<ul>
+<li><strong>Normal Distribution</strong> for continuous data that are <em>measurable</em> (e.g., height, age, air pollution levels etc.)</li>
+<li><strong>Poisson Distribution</strong> for discrete data that are <em>countable</em> (e.g., number of COVID-19 cases, reported number of phone snatched victims etc.,)</li>
+<li><strong>Uniform Distribution</strong> for continuous or discrete data are <em>measurable</em> or <em>countable</em>, respectively, where every data point is assumed to have an equal chance of being observed.</li>
+<li><strong>Bernoulli Distribution</strong> for binary data that contain two categories that are of a <em>Yes/No</em>, <em>Success/Failure</em>, <em>In/Out</em> or <em>Win/Lose</em> format (e.g., a disease outcome of a patient (Yes, No), A victim of theft (Yes, No) and so on).</li>
+</ul>
+<p>Probability distributions are always represented in a graphical format as a curve. As stated, the <strong>Normal Distribution</strong>, which is a <strong>bell-shaped curve</strong>, is the most “famous” and widely used probability distribution because - surprisingly - a lot of measurable phenomena that are continuous data tend to be approximately <strong>bell-shaped</strong>.</p>
+<p>For instance, let’s take our previous example of the histogram graph we created from the NO<span class="math inline">\(_2\)</span> data in Barcelona. While the graph shows the frequency of NO<span class="math inline">\(_2\)</span> data using rectangles. The height of a rectangle (the vertical axis) basically represents the distribution frequency for the NO<span class="math inline">\(_2\)</span> measure, as in, the amount, or how often that value was measured.</p>
+<p>Now, notice how the above figure output takes on shape that is somewhat akin to that of a bell-curve? The histogram indeed describes the shape for the ambient NO<span class="math inline">\(_2\)</span> measures as a distribution that’s bell-shaped which was centered on the mean value of <code>59.69ppb</code> and error (i.e., standard deviation away from the mean) was plus or minus <code>20.63pbb</code>. This output reproduced in image <strong>[A]</strong> was generated from the data that follows <strong>Normal Distribution</strong>.</p>
+<p></br></p>
+<p><img src="images/general/getting_started/image7_normal_curve.png" width="100%" style="display: block; margin: auto;" /></p>
+<p></br></p>
+<p>Sometimes, we can be in a situation where we are dealing with a data science problem but do not have any data at our disposal. But with probability distributions, we can do a work around if have <strong>prior knowledge</strong> or <strong>prior information</strong> of the problem. For instance, it is possible for us to generate a theoretical distribution for these NO<span class="math inline">\(_2\)</span> values based on our knowledge of its <strong>mean</strong> and <strong>standard deviation</strong> with the assumption that its bell-shaped in the first place as shown in image <strong>[B]</strong>. This curve will show us the probability of observing every single possible value for the NO<span class="math inline">\(_2\)</span> in Barcelona, as well as simulate a similar dataset.</p>
+<p>Let us learn how to generate this curve shown in image <strong>B</strong> as a step-by-step demonstration.</p>
+</div>
+<div id="how-to-generate-a-normal-distribution-curve" class="section level2 unnumbered hasAnchor">
+<h2>How to generate a Normal Distribution curve<a href="part-4-introduction-to-probability-distribution.html#how-to-generate-a-normal-distribution-curve" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>[Coding]: How to create the Normal Distribution curve (Length: 32:53 minutes)</strong></p>
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://www.youtube.com/embed/tE-TnsHz43s" width="711" height="400" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+<p>Watch on <a href="https://youtu.be/tE-TnsHz43s"><strong>[YouTube]</strong></a></p>
+<p>We will need to re-import the <code>Barcelona_Air_Pollution_data.csv</code> into RStudio and call this object <code>air_quality_data</code>. Recall, we imported this data in last week’s workshop - you can see the instructions <a href="https://shorturl.at/nuwEH"><strong>[HERE]</strong></a>).</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="part-4-introduction-to-probability-distribution.html#cb53-1" tabindex="-1"></a>air_quality_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Barcelona_Air_Pollution_data.csv&quot;</span>)</span></code></pre></div>
+<div class="note">
+<p><strong>IMPORTANT NOTE</strong>: Importing data and setting up your working directory has been covered extensively in last week’s content. In case you are having trouble, please refer to the learning materials <a href="https://shorturl.at/djCHK">[<strong>HERE</strong>]</a></p>
+</div>
+<p>Let’s use the <code>mean()</code>, <code>sd()</code>, <code>min()</code> and <code>max()</code> function on the <code>NO2_est</code> variable to compute some important values which will use as a basis to create the normal distribution plot.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="part-4-introduction-to-probability-distribution.html#cb54-1" tabindex="-1"></a><span class="co"># calculates the mean of NO2</span></span>
+<span id="cb54-2"><a href="part-4-introduction-to-probability-distribution.html#cb54-2" tabindex="-1"></a><span class="fu">mean</span>(air_quality_data<span class="sc">$</span>NO2_est)</span></code></pre></div>
+<pre><code>## [1] 59.6922</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="part-4-introduction-to-probability-distribution.html#cb56-1" tabindex="-1"></a><span class="co"># calculates the standard deviation of NO2</span></span>
+<span id="cb56-2"><a href="part-4-introduction-to-probability-distribution.html#cb56-2" tabindex="-1"></a><span class="fu">sd</span>(air_quality_data<span class="sc">$</span>NO2_est)</span></code></pre></div>
+<pre><code>## [1] 20.60876</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="part-4-introduction-to-probability-distribution.html#cb58-1" tabindex="-1"></a><span class="co"># finds the lowest value for NO2</span></span>
+<span id="cb58-2"><a href="part-4-introduction-to-probability-distribution.html#cb58-2" tabindex="-1"></a><span class="fu">min</span>(air_quality_data<span class="sc">$</span>NO2_est)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="part-4-introduction-to-probability-distribution.html#cb60-1" tabindex="-1"></a><span class="co"># finds the maximum value for NO2</span></span>
+<span id="cb60-2"><a href="part-4-introduction-to-probability-distribution.html#cb60-2" tabindex="-1"></a><span class="fu">max</span>(air_quality_data<span class="sc">$</span>NO2_est)</span></code></pre></div>
+<pre><code>## [1] 130</code></pre>
+<p>For the graph, we will need to create a template for the <strong>x-axis</strong> in a way that contains clean intervals of <code>10</code>’s starting from <code>0</code>, and ending up to <code>130</code> so as to capture the minimum and maximum values for NO<span class="math inline">\(_2\)</span>.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="part-4-introduction-to-probability-distribution.html#cb62-1" tabindex="-1"></a><span class="co"># create the intervals for the x-axis</span></span>
+<span id="cb62-2"><a href="part-4-introduction-to-probability-distribution.html#cb62-2" tabindex="-1"></a>intervals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">130</span>, <span class="dv">10</span>)</span>
+<span id="cb62-3"><a href="part-4-introduction-to-probability-distribution.html#cb62-3" tabindex="-1"></a>intervals</span></code></pre></div>
+<pre><code>##  [1]   0  10  20  30  40  50  60  70  80  90 100 110 120 130</code></pre>
+<p>Now, we are going to create the a vector for the <strong>x-axis</strong> which will contain a sequence of <strong>EVERY</strong> possible value for the NO<span class="math inline">\(_2\)</span> within the range of <code>2ppb</code> (minimum) to <code>130ppb</code> (maximum). Here, we will create a series of clean values of equal intervals of <code>0.01</code> starting from <code>2</code> (lowest possible value), and up to <code>130</code> (highest possible value) that we know from our dataset.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="part-4-introduction-to-probability-distribution.html#cb64-1" tabindex="-1"></a><span class="co"># create actual x-axis for every single possible value between 2 to 130</span></span>
+<span id="cb64-2"><a href="part-4-introduction-to-probability-distribution.html#cb64-2" tabindex="-1"></a>x_axis <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">130</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span></code></pre></div>
+<div class="note">
+<p><strong>IMPORTANT NOTE</strong>: The above code will create a sequence of values starting from 2 and ending at 130. These values will be <code>2.00</code>, <code>2.01</code>, <code>2.02</code>, <code>2.03</code> … and so on and so forth.</p>
+</div>
+<p>Now, we are going to use a new function called <code>dnorm()</code> which allows us to compute the <strong>probability density</strong> for each of the values along the <code>x_axis</code> object we created. In this function, we will need to specify our <strong>prior information</strong> which is our knowledge about the pollution levels in Barcelona. Hence, we will specify the <strong>mean</strong> and <strong>standard deviation</strong>.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="part-4-introduction-to-probability-distribution.html#cb65-1" tabindex="-1"></a><span class="co"># we use to x_axis and our known mean and SD </span></span>
+<span id="cb65-2"><a href="part-4-introduction-to-probability-distribution.html#cb65-2" tabindex="-1"></a>probability_estimates <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x_axis, <span class="at">mean =</span> <span class="fl">59.69</span>, <span class="at">sd =</span> <span class="fl">20.63</span>)</span></code></pre></div>
+<div class="note">
+<p><strong>IMPORTANT NOTE</strong>: The above code is estimating the exact probability of each value contained in that <code>x_axis</code> object. Hence, each value i.e., <code>2.00</code>, <code>2.01</code>, <code>2.02</code>, <code>2.03</code> … and so on and so forth, will have its own probability estimate which is called a <strong>probability density</strong></p>
+</div>
+<p>Now that we have the key ingredients to visualise our probability distribution for the NO<span class="math inline">\(_2\)</span> values in Barcelona. We can proceed to create our graph from scratch. We start with using the <code>plot()</code> and applying the labels.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="part-4-introduction-to-probability-distribution.html#cb66-1" tabindex="-1"></a><span class="co"># create a plot from scratch</span></span>
+<span id="cb66-2"><a href="part-4-introduction-to-probability-distribution.html#cb66-2" tabindex="-1"></a><span class="fu">plot</span>(x_axis, probability_estimates, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb66-3"><a href="part-4-introduction-to-probability-distribution.html#cb66-3" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">&quot;Probability [Normal] Distribution for NO2 in Barcelona&quot;</span>,</span>
+<span id="cb66-4"><a href="part-4-introduction-to-probability-distribution.html#cb66-4" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">&quot;NO2 values&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability Density&quot;</span>)</span></code></pre></div>
+<p><img src="GEOG0013--GIF1_files/figure-html/dnorm_plot_part1-1.png" width="672" /></p>
+<div class="note">
+<p><strong>IMPORTANT NOTE</strong>: This is full-on custom graph we are making in RStudio. As there is no conventional way of producing such a graph. This is where the programming and hacks come to play, and brute forcing it <a href="https://www.youtube.com/watch?v=xSM_nz6gKOI"><strong>[John Wick style]</strong></a> until we get the desired result!</p>
+<p><strong>About the code:</strong></p>
+<ul>
+<li><code>plot(x_axis, probability_estimates...)</code>, we are saying apply the values from <code>x_axis</code> on to the x-axis and those from <code>probability_estimates</code> on to the y-axis.</li>
+<li>The <code>type = "l"</code>, we are saying that this is a line/curve plot.</li>
+<li><code>lwd = 3</code>, this controls the thickness of the line width. Here, we have set this to 3.</li>
+<li><code>axes = FALSE</code>, we have deliberately set this to not appear. We want to fully customise our graph as you will see in the next set of codes.</li>
+<li><code>main = "..."</code>, set the title of plot</li>
+<li><code>xlab = "..."</code>, set the title for the x-axis</li>
+<li><code>ylab = "..."</code>, set the title for the y-axis</li>
+</ul>
+</div>
+<p>Let’s add our custom made x-axis.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="part-4-introduction-to-probability-distribution.html#cb67-1" tabindex="-1"></a><span class="co"># create a plot from scratch</span></span>
+<span id="cb67-2"><a href="part-4-introduction-to-probability-distribution.html#cb67-2" tabindex="-1"></a><span class="fu">plot</span>(x_axis, probability_estimates, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb67-3"><a href="part-4-introduction-to-probability-distribution.html#cb67-3" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">&quot;Probability [Normal] Distribution for NO2 in Barcelona&quot;</span>,</span>
+<span id="cb67-4"><a href="part-4-introduction-to-probability-distribution.html#cb67-4" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">&quot;NO2 values&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability Density&quot;</span>)</span>
+<span id="cb67-5"><a href="part-4-introduction-to-probability-distribution.html#cb67-5" tabindex="-1"></a><span class="co"># add x-axis and use the interval breaks we created earlier on</span></span>
+<span id="cb67-6"><a href="part-4-introduction-to-probability-distribution.html#cb67-6" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> intervals)</span></code></pre></div>
+<p><img src="GEOG0013--GIF1_files/figure-html/dnorm_plot_part2-1.png" width="672" /></p>
+<p>Let see the maximum probability density estimate, this information will help us to customise the y-axis appropriately</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="part-4-introduction-to-probability-distribution.html#cb68-1" tabindex="-1"></a><span class="fu">max</span>(probability_estimates)</span></code></pre></div>
+<pre><code>## [1] 0.01933797</code></pre>
+<p>Its <code>0.01933797</code>. Okay then, so let’s add y-axis which starts from <code>0</code> and end at <code>0.020</code> spaced at intervals of <code>0.005</code>.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="part-4-introduction-to-probability-distribution.html#cb70-1" tabindex="-1"></a><span class="co"># create a plot from scratch</span></span>
+<span id="cb70-2"><a href="part-4-introduction-to-probability-distribution.html#cb70-2" tabindex="-1"></a><span class="fu">plot</span>(x_axis, probability_estimates, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb70-3"><a href="part-4-introduction-to-probability-distribution.html#cb70-3" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">&quot;Probability [Normal] Distribution for NO2 in Barcelona&quot;</span>,</span>
+<span id="cb70-4"><a href="part-4-introduction-to-probability-distribution.html#cb70-4" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">&quot;NO2 values&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability Density&quot;</span>)</span>
+<span id="cb70-5"><a href="part-4-introduction-to-probability-distribution.html#cb70-5" tabindex="-1"></a><span class="co"># add x-axis and use the interval breaks we created earlier on</span></span>
+<span id="cb70-6"><a href="part-4-introduction-to-probability-distribution.html#cb70-6" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> intervals)</span>
+<span id="cb70-7"><a href="part-4-introduction-to-probability-distribution.html#cb70-7" tabindex="-1"></a><span class="co"># add y-axis and start from 0 and end at 0.020 at intervals of 0.005</span></span>
+<span id="cb70-8"><a href="part-4-introduction-to-probability-distribution.html#cb70-8" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.005</span>, <span class="fl">0.010</span>, <span class="fl">0.015</span>, <span class="fl">0.020</span>))</span></code></pre></div>
+<p><img src="GEOG0013--GIF1_files/figure-html/dnorm_plot_part3-1.png" width="672" /></p>
+<p>We created the normal distribution curve. Now, we add the reference lines for the <strong>mean</strong> as well as the lower and upper bounds for the <strong>standard deviation</strong>.</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="part-4-introduction-to-probability-distribution.html#cb71-1" tabindex="-1"></a><span class="co"># create a plot from scratch</span></span>
+<span id="cb71-2"><a href="part-4-introduction-to-probability-distribution.html#cb71-2" tabindex="-1"></a><span class="fu">plot</span>(x_axis, probability_estimates, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb71-3"><a href="part-4-introduction-to-probability-distribution.html#cb71-3" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">&quot;Probability [Normal] Distribution for NO2 in Barcelona&quot;</span>,</span>
+<span id="cb71-4"><a href="part-4-introduction-to-probability-distribution.html#cb71-4" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">&quot;NO2 values&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability Density&quot;</span>)</span>
+<span id="cb71-5"><a href="part-4-introduction-to-probability-distribution.html#cb71-5" tabindex="-1"></a><span class="co"># add x-axis and use the classes breaks from the histogram</span></span>
+<span id="cb71-6"><a href="part-4-introduction-to-probability-distribution.html#cb71-6" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> intervals)</span>
+<span id="cb71-7"><a href="part-4-introduction-to-probability-distribution.html#cb71-7" tabindex="-1"></a><span class="co"># add y-axis and start from 0 and end at 0.020 at intervals of 0.005</span></span>
+<span id="cb71-8"><a href="part-4-introduction-to-probability-distribution.html#cb71-8" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.005</span>, <span class="fl">0.010</span>, <span class="fl">0.015</span>, <span class="fl">0.020</span>))</span>
+<span id="cb71-9"><a href="part-4-introduction-to-probability-distribution.html#cb71-9" tabindex="-1"></a><span class="co"># add vertical line for mean = 59.69</span></span>
+<span id="cb71-10"><a href="part-4-introduction-to-probability-distribution.html#cb71-10" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">59.69</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>, <span class="at">col=</span><span class="st">&quot;black&quot;</span>)</span>
+<span id="cb71-11"><a href="part-4-introduction-to-probability-distribution.html#cb71-11" tabindex="-1"></a><span class="co"># add two vertical lines for the plus and minus values for our sd = 20.63</span></span>
+<span id="cb71-12"><a href="part-4-introduction-to-probability-distribution.html#cb71-12" tabindex="-1"></a><span class="co"># lower = 59.69 - 20.63</span></span>
+<span id="cb71-13"><a href="part-4-introduction-to-probability-distribution.html#cb71-13" tabindex="-1"></a><span class="co"># upper = 59.69 + 20.63</span></span>
+<span id="cb71-14"><a href="part-4-introduction-to-probability-distribution.html#cb71-14" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fu">c</span>(<span class="fl">39.16</span>, <span class="fl">80.22</span>), <span class="at">lty=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="GEOG0013--GIF1_files/figure-html/dnorm_plot_part4-1.png" width="672" /></p>
+<div class="note">
+<p><strong>IMPORTANT NOTE</strong>: The centre black line represents the position of the mean on the x-axis. Whilst the red dashed lines are the plus and minus limits from the standard deviations.</p>
+<p><strong>About the code:</strong></p>
+<ul>
+<li><code>abline(...)</code>, we are saying apply the reference line on main plot.</li>
+<li><code>v = ...</code>, we are adding a vertical line to a specified value on the x-axis</li>
+<li><code>lty = "dashed"</code>, controls the style format of line. Here, its “dashed”</li>
+</ul>
+</div>
+<p>This is the expected output. Let’s demonstrate how to use it for making a prediction about the air pollution levels for NO<span class="math inline">\(_2\)</span>.</p>
+</div>
+<div id="using-the-normal-distribution-for-making-a-prediction" class="section level2 unnumbered hasAnchor">
+<h2>Using the Normal Distribution for making a prediction<a href="part-4-introduction-to-probability-distribution.html#using-the-normal-distribution-for-making-a-prediction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>[Coding]: Probabilistic predictions (Length: 17:50 minutes)</strong></p>
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://www.youtube.com/embed/1OLAnjj2yjc" width="711" height="400" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+<p>Watch on <a href="https://youtu.be/1OLAnjj2yjc"><strong>[YouTube]</strong></a></p>
+<p>From the above graph - the image shows that for each value of NO<span class="math inline">\(_2\)</span> along the x-axis corresponds to some <strong>probability density</strong> estimate on the y-axis. For instance, the <strong>probability density</strong> for NO<span class="math inline">\(_2\)</span> levels being <strong>exactly</strong> equal to <code>63ppb</code> is <code>0.01911</code> (<code>1.911%</code>); and for an example, the <strong>probability density</strong> for NO<span class="math inline">\(_2\)</span> levels being <strong>exactly</strong> equal to <code>80ppb</code> is <code>0.01191</code> (<code>1.1191%</code>) etc.</p>
+<p>Now, traditionally, we are not interested in computing these <strong>probability densities</strong> for these exact values because these estimates for a <strong>single value</strong> are always <strong>negligible</strong>! But rather - what we are interested in estimating the <strong>cumulative probability density</strong> i.e., finding the probability that such an outcome is either <em>“up to”</em> (or <em>at most</em>) or alternatively <em>“at least”</em> some threshold, or even being <em>“within a range”</em> of values. The questions we usually ask to predict something are typically framed like:</p>
+<ul>
+<li>What is the probability that the air pollution levels of NO<span class="math inline">\(_2\)</span> in Barcelona <em><strong>reaches up to</strong></em> (or is <em><strong>at most</strong></em>) <code>45ppb</code>?</li>
+<li>What is the probability that the air pollution levels of NO<span class="math inline">\(_2\)</span> in Barcelona <em><strong>exceeds</strong></em> (or <strong><em>is at least</em></strong>) <code>80ppb</code>?</li>
+<li>What is the probability that the air pollution levels of NO<span class="math inline">\(_2\)</span> in Barcelona <em><strong>falls within the range of</strong></em> (or <strong><em>is between</em></strong>) <code>45-80ppb</code>?</li>
+</ul>
+<p>Let see how to answer each scenario.</p>
+<div id="scenario-1-the-probabilities-for-at-most" class="section level3 unnumbered hasAnchor">
+<h3>Scenario 1: The Probabilities for (<strong>“at most”</strong>)<a href="part-4-introduction-to-probability-distribution.html#scenario-1-the-probabilities-for-at-most" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose that we want to compute the probability that air pollution levels for NO<span class="math inline">\(_2\)</span> in Barcelona <em><strong>reaches up to</strong></em> <code>45ppb</code>. First of all, note that this is an <em>“<strong>at most</strong>”</em> scenario. The way in which this is represented graphically under our Normal Distribution where our <strong>mean</strong> is <code>59.69</code> and a <strong>standard deviation</strong> of <code>±20.63</code> is:</p>
+<p><img src="images/general/getting_started/image8_atmost_scene.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>The <strong>red shaded area</strong> on the <strong>left-side</strong> under this normal curve represents the <strong>cumulative probabilities</strong> for the NO<span class="math inline">\(_2\)</span> levels being <strong>at most</strong> <code>45ppb</code>. Here, we can calculate this cumulative probability by using the <code>pnorm()</code> function. All we need to do is insert our value of interest along with the <strong>mean</strong> and <strong>standard deviation</strong> to obtain our result.</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="part-4-introduction-to-probability-distribution.html#cb72-1" tabindex="-1"></a><span class="co"># compute the cumulative probability for 45</span></span>
+<span id="cb72-2"><a href="part-4-introduction-to-probability-distribution.html#cb72-2" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">45</span>, <span class="at">mean=</span><span class="fl">59.69</span>, <span class="at">sd=</span><span class="fl">20.63</span>)</span></code></pre></div>
+<pre><code>## [1] 0.2382108</code></pre>
+<p>We get <code>0.2397141</code> or <code>23.97%</code>. So we have therefore predicted that there’s a <code>23.97%</code> chance that NO<span class="math inline">\(_2\)</span> levels in Barcelona <strong>reach up to</strong> <code>45ppb</code>. Please note that the code for generating the above plot for this scenario is shown below. It builds on that custom plot code we made earlier:</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="part-4-introduction-to-probability-distribution.html#cb74-1" tabindex="-1"></a><span class="co"># create a plot from with shaded areas</span></span>
+<span id="cb74-2"><a href="part-4-introduction-to-probability-distribution.html#cb74-2" tabindex="-1"></a><span class="fu">plot</span>(x_axis, probability_estimates, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb74-3"><a href="part-4-introduction-to-probability-distribution.html#cb74-3" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">&quot;Probability of NO2 being at most (or reaching) 45ppb&quot;</span>,</span>
+<span id="cb74-4"><a href="part-4-introduction-to-probability-distribution.html#cb74-4" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">&quot;NO2 values&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability Density&quot;</span>)</span>
+<span id="cb74-5"><a href="part-4-introduction-to-probability-distribution.html#cb74-5" tabindex="-1"></a><span class="co"># add x-axis and use the classes breaks from the histogram</span></span>
+<span id="cb74-6"><a href="part-4-introduction-to-probability-distribution.html#cb74-6" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> intervals)</span>
+<span id="cb74-7"><a href="part-4-introduction-to-probability-distribution.html#cb74-7" tabindex="-1"></a><span class="co"># add y-axis and start from 0 and end at 0.020 at intervals of 0.005</span></span>
+<span id="cb74-8"><a href="part-4-introduction-to-probability-distribution.html#cb74-8" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.005</span>, <span class="fl">0.010</span>, <span class="fl">0.015</span>, <span class="fl">0.020</span>))</span>
+<span id="cb74-9"><a href="part-4-introduction-to-probability-distribution.html#cb74-9" tabindex="-1"></a><span class="co"># add mean reference line</span></span>
+<span id="cb74-10"><a href="part-4-introduction-to-probability-distribution.html#cb74-10" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">59.69</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>, <span class="at">lty =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">col=</span><span class="st">&quot;black&quot;</span>)</span>
+<span id="cb74-11"><a href="part-4-introduction-to-probability-distribution.html#cb74-11" tabindex="-1"></a></span>
+<span id="cb74-12"><a href="part-4-introduction-to-probability-distribution.html#cb74-12" tabindex="-1"></a><span class="co"># add shaded area under the curve (left-side)</span></span>
+<span id="cb74-13"><a href="part-4-introduction-to-probability-distribution.html#cb74-13" tabindex="-1"></a><span class="fu">polygon</span>(</span>
+<span id="cb74-14"><a href="part-4-introduction-to-probability-distribution.html#cb74-14" tabindex="-1"></a>    <span class="fu">c</span>(<span class="fu">min</span>(x_axis), x_axis[x_axis <span class="sc">&lt;</span> <span class="dv">45</span>], <span class="dv">45</span>), </span>
+<span id="cb74-15"><a href="part-4-introduction-to-probability-distribution.html#cb74-15" tabindex="-1"></a>    <span class="fu">c</span>(<span class="dv">0</span>, probability_estimates[x_axis <span class="sc">&lt;</span> <span class="dv">45</span>], <span class="dv">0</span>),  </span>
+<span id="cb74-16"><a href="part-4-introduction-to-probability-distribution.html#cb74-16" tabindex="-1"></a>    <span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="note">
+<p><strong>IMPORTANT NOTE</strong>: In the above custom code for creating the plot, we have just added the <code>polgyon()</code> function to shade that portion of interest in red. You can replace the <code>45</code> with a different value if you want to reproduce this “left-sided” plot.</p>
+</div>
+</div>
+<div id="scenario-2-the-probabilities-for-at-least" class="section level3 unnumbered hasAnchor">
+<h3>Scenario 2: The Probabilities for (<strong>“at least”</strong>)<a href="part-4-introduction-to-probability-distribution.html#scenario-2-the-probabilities-for-at-least" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose that we want to compute the probability that air pollution levels for NO<span class="math inline">\(_2\)</span> in Barcelona <em><strong>exceeds</strong></em> <code>80ppb</code>. Please, note that this problem is an <em>“<strong>at least</strong>”</em> scenario. The way in which this is represented graphically under our Normal Distribution where we use our <strong>mean</strong> of <code>59.69</code> and <strong>standard deviation</strong> of <code>±20.63</code> is as follows:</p>
+<p><img src="images/general/getting_started/image9_atleast_scene.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>The <strong>red shaded area</strong> on the <strong>right-side</strong> under this normal curve represents the <strong>cumulative probabilities</strong> for the NO<span class="math inline">\(_2\)</span> levels being <strong>at least</strong> <code>80ppb</code>. Note that when calculating probabilities of this scenario, we need to do <code>1 - pnorm()</code> to calculate the <strong>red shaded area</strong> on the right side of this graph.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="part-4-introduction-to-probability-distribution.html#cb75-1" tabindex="-1"></a><span class="co"># compute the cumulative probability for 80</span></span>
+<span id="cb75-2"><a href="part-4-introduction-to-probability-distribution.html#cb75-2" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">80</span>, <span class="at">mean=</span><span class="fl">59.69</span>, <span class="at">sd=</span><span class="fl">20.63</span>)</span></code></pre></div>
+<pre><code>## [1] 0.1624377</code></pre>
+<p>We get <code>0.1612494</code> or <code>16.12494%</code>. So we have therefore predicted that there’s a <code>16.12%</code> chance that air concentrations of NO<span class="math inline">\(_2\)</span> levels in Barcelona <strong>exceeds</strong> <code>80ppb</code>. Again, note that the code for generating the above plot for this scenario is shown below. It builds on that custom plot code we made earlier:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="part-4-introduction-to-probability-distribution.html#cb77-1" tabindex="-1"></a><span class="co"># create a plot from scratch</span></span>
+<span id="cb77-2"><a href="part-4-introduction-to-probability-distribution.html#cb77-2" tabindex="-1"></a><span class="fu">plot</span>(x_axis, probability_estimates, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb77-3"><a href="part-4-introduction-to-probability-distribution.html#cb77-3" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">&quot;Probability of NO2 being at least (or exceeding) 80ppb&quot;</span>,</span>
+<span id="cb77-4"><a href="part-4-introduction-to-probability-distribution.html#cb77-4" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">&quot;NO2 values&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability Density&quot;</span>)</span>
+<span id="cb77-5"><a href="part-4-introduction-to-probability-distribution.html#cb77-5" tabindex="-1"></a><span class="co"># add x-axis and use the classes breaks from the histogram</span></span>
+<span id="cb77-6"><a href="part-4-introduction-to-probability-distribution.html#cb77-6" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> intervals)</span>
+<span id="cb77-7"><a href="part-4-introduction-to-probability-distribution.html#cb77-7" tabindex="-1"></a><span class="co"># add y-axis and start from 0 and end at 0.020 at intervals of 0.005</span></span>
+<span id="cb77-8"><a href="part-4-introduction-to-probability-distribution.html#cb77-8" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.005</span>, <span class="fl">0.010</span>, <span class="fl">0.015</span>, <span class="fl">0.020</span>))</span>
+<span id="cb77-9"><a href="part-4-introduction-to-probability-distribution.html#cb77-9" tabindex="-1"></a><span class="co"># add mean reference line</span></span>
+<span id="cb77-10"><a href="part-4-introduction-to-probability-distribution.html#cb77-10" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">59.69</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>, <span class="at">lty =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">col=</span><span class="st">&quot;black&quot;</span>)</span>
+<span id="cb77-11"><a href="part-4-introduction-to-probability-distribution.html#cb77-11" tabindex="-1"></a></span>
+<span id="cb77-12"><a href="part-4-introduction-to-probability-distribution.html#cb77-12" tabindex="-1"></a><span class="co"># add shaded area under the curve (right-side)</span></span>
+<span id="cb77-13"><a href="part-4-introduction-to-probability-distribution.html#cb77-13" tabindex="-1"></a><span class="fu">polygon</span>(</span>
+<span id="cb77-14"><a href="part-4-introduction-to-probability-distribution.html#cb77-14" tabindex="-1"></a>    <span class="fu">c</span>(x_axis[x_axis<span class="sc">&gt;=</span><span class="dv">80</span>], <span class="dv">80</span>), </span>
+<span id="cb77-15"><a href="part-4-introduction-to-probability-distribution.html#cb77-15" tabindex="-1"></a>    <span class="fu">c</span>(probability_estimates[x_axis<span class="sc">&gt;=</span><span class="dv">80</span>], probability_estimates[x_axis<span class="sc">==</span><span class="fu">max</span>(x_axis)]), </span>
+<span id="cb77-16"><a href="part-4-introduction-to-probability-distribution.html#cb77-16" tabindex="-1"></a>    <span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="note">
+<p><strong>IMPORTANT NOTE</strong>: In the above custom code for the plot, we have only added the <code>polgyon()</code> function to shade that portion of interest in red. You can replace the <code>80</code> with a different value if you want to reproduce this “right-sided” plot.</p>
+</div>
+</div>
+<div id="scenario-3-the-probabilities-for-within-a-range" class="section level3 unnumbered hasAnchor">
+<h3>Scenario 3: The Probabilities for (<strong>“within a range”</strong>)<a href="part-4-introduction-to-probability-distribution.html#scenario-3-the-probabilities-for-within-a-range" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose that we want to compute the probability that air pollution levels for NO<span class="math inline">\(_2\)</span> in Barcelona <em><strong>falls between</strong></em> <code>45ppb and 80ppb</code>. Please, note that this problem is an <em>“<strong>within a range</strong>”</em> scenario. The way in which this problem is represented graphically under our Normal Distribution with <strong>mean</strong> of <code>59.69</code> and <strong>standard deviation</strong> of <code>±20.63</code> is:</p>
+<p><img src="images/general/getting_started/image10_between_scene.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>The <strong>red shaded area</strong> in the <strong>middle</strong> portion under this normal curve represents the <strong>cumulative probabilities</strong> for the NO<span class="math inline">\(_2\)</span> levels being <strong>between</strong> <code>45ppb and 80ppb</code>. Note that when calculating probabilities of this scenario, we only need to do <code>pnorm(80...) - pnorm(45..)</code> to calculate the <strong>red shaded area</strong> in middle portion of this graph.</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="part-4-introduction-to-probability-distribution.html#cb78-1" tabindex="-1"></a><span class="co"># compute the cumulative probability for 80</span></span>
+<span id="cb78-2"><a href="part-4-introduction-to-probability-distribution.html#cb78-2" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">80</span>, <span class="at">mean=</span><span class="fl">59.69</span>, <span class="at">sd=</span><span class="fl">20.63</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">45</span>, <span class="at">mean=</span><span class="fl">59.69</span>, <span class="at">sd=</span><span class="fl">20.63</span>)</span></code></pre></div>
+<pre><code>## [1] 0.5993516</code></pre>
+<p>We get <code>0.5993516</code> or <code>59.93516%</code>. So we have therefore predicted that there’s a <code>59.93%</code> chance that air concentrations of NO<span class="math inline">\(_2\)</span> levels in Barcelona <strong>fall between</strong> <code>45ppb and 80ppb</code>. Again, note that the code for generating the above plot for this scenario is shown below. It builds on that custom plot code we made earlier:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="part-4-introduction-to-probability-distribution.html#cb80-1" tabindex="-1"></a><span class="co"># create a plot from scratch</span></span>
+<span id="cb80-2"><a href="part-4-introduction-to-probability-distribution.html#cb80-2" tabindex="-1"></a><span class="fu">plot</span>(x_axis, probability_estimates, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb80-3"><a href="part-4-introduction-to-probability-distribution.html#cb80-3" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">&quot;Probability of NO2 being between 45ppb and 80ppb&quot;</span>,</span>
+<span id="cb80-4"><a href="part-4-introduction-to-probability-distribution.html#cb80-4" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">&quot;NO2 values&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probability Density&quot;</span>)</span>
+<span id="cb80-5"><a href="part-4-introduction-to-probability-distribution.html#cb80-5" tabindex="-1"></a><span class="co"># add x-axis and use the classes breaks from the histogram</span></span>
+<span id="cb80-6"><a href="part-4-introduction-to-probability-distribution.html#cb80-6" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> intervals)</span>
+<span id="cb80-7"><a href="part-4-introduction-to-probability-distribution.html#cb80-7" tabindex="-1"></a><span class="co"># add y-axis and start from 0 and end at 0.020 at intervals of 0.005</span></span>
+<span id="cb80-8"><a href="part-4-introduction-to-probability-distribution.html#cb80-8" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.005</span>, <span class="fl">0.010</span>, <span class="fl">0.015</span>, <span class="fl">0.020</span>))</span>
+<span id="cb80-9"><a href="part-4-introduction-to-probability-distribution.html#cb80-9" tabindex="-1"></a></span>
+<span id="cb80-10"><a href="part-4-introduction-to-probability-distribution.html#cb80-10" tabindex="-1"></a><span class="co"># add shaded area under the curve (middle)</span></span>
+<span id="cb80-11"><a href="part-4-introduction-to-probability-distribution.html#cb80-11" tabindex="-1"></a><span class="fu">polygon</span>(</span>
+<span id="cb80-12"><a href="part-4-introduction-to-probability-distribution.html#cb80-12" tabindex="-1"></a>    <span class="fu">c</span>(<span class="dv">45</span>, x_axis[x_axis<span class="sc">&gt;=</span><span class="dv">45</span> <span class="sc">&amp;</span> x_axis<span class="sc">&lt;=</span><span class="dv">80</span>], <span class="dv">80</span>), </span>
+<span id="cb80-13"><a href="part-4-introduction-to-probability-distribution.html#cb80-13" tabindex="-1"></a>    <span class="fu">c</span>(<span class="dv">0</span>, probability_estimates[x_axis<span class="sc">&gt;=</span><span class="dv">45</span> <span class="sc">&amp;</span> x_axis<span class="sc">&lt;=</span><span class="dv">80</span>] ,<span class="dv">0</span>),</span>
+<span id="cb80-14"><a href="part-4-introduction-to-probability-distribution.html#cb80-14" tabindex="-1"></a>    <span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb80-15"><a href="part-4-introduction-to-probability-distribution.html#cb80-15" tabindex="-1"></a><span class="co"># add mean reference line</span></span>
+<span id="cb80-16"><a href="part-4-introduction-to-probability-distribution.html#cb80-16" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">59.69</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>, <span class="at">lty =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">col=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<div class="note">
+<p><strong>IMPORTANT NOTE</strong>: In the above custom code for the plot, we have only added the <code>polgyon()</code> function to shade that portion of interest in red. You can replace the lower (i.e., <code>45</code>) and upper (i.e., <code>80</code>) values with a different numbers to shade out the middle portion under this curve plot.</p>
+</div>
+</div>
+</div>
+<div id="finished" class="section level2 unnumbered hasAnchor">
+<h2>Finished!<a href="part-4-introduction-to-probability-distribution.html#finished" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>And that’s all to it. That’s how we conduct probabilistic modelling and this example is simply scratching the surface. Probability theory is a fascinating area which is the heart and soul of <strong>Inferential statistics</strong> particularly for <strong>Hypothesis testing</strong>, but it also opens the doors for more advanced fields such as <strong>Machine Learning</strong> and <strong>Bayesian statistics</strong>.</p>
+<p>Anyways, well done for completing these workshops. We know, they were long… and a grueling process. As an appreciation, we end with compliments by expression though this iconic scene from one of our all time great anime, <strong>Neon Genesis Evangelion</strong>.</p>
+<p><img src="images/general/getting_started/congratulations-neon-genesis-evangelion.gif" width="75%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="part-3-exploratory-analysis-in-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="formative-assignment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/UCLPG-MSC-SGDS/GEOG0013/edit/main/01-Getting_started_with_RStudio.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

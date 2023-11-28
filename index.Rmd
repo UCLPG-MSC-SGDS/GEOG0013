@@ -14,7 +14,7 @@ editor_options:
 
 # Welcome to Introduction to Statistics {.unnumbered}
 
-```{r echo=FALSE, out.width = "100%", fig.align='center', cache=TRUE,}
+```{r echo=FALSE, out.width = "100%", fig.align='center', cache=TRUE}
 knitr::include_graphics('images/general/Welcome_page_image.png') 
 ```
 
@@ -62,11 +62,16 @@ The structure of this component of GIF1 is a series of two 3-hour workshop that 
 |**G**|IOE, Bedford Way (20) Room W3.05, [**Map**](https://shorturl.at/anNTW)|
 
 <div class="note">
-**IMPORTANT NOTE 1**: The locations are public clusters with PC workstations. However, I highly recommend you bring your own laptop for computer practicals for ease.
+**IMPORTANT NOTE 1**: 
+
+- The locations for groups **A**, **B**, **C**, **D** and **E** are public clusters with PC workstations. Nevertheless, I highly recommend you bring your own laptop to the computer practicals for ease. 
+- For group **G's** location at **IOE, Bedford Way (20) Room W3.05** - you **MUST** bring your own laptop/tablet as this is **NOT** a public cluster with PC workstations.
 </div>
 
 <div class="note">
-**IMPORTANT NOTE 2**: Unfortunately, the teaching assistant scheduled to deliver Friday’s RStudio & Statistics workshop for **Group F** at the **School of Pharmacy in Room B37 location** **WILL NOT** be available to teach there. So, if you are in **Group F**, I have re-allocated you to another group. Please check your email to see your new group.
+**IMPORTANT NOTE 2**: 
+
+- Unfortunately, the teaching assistant scheduled to deliver Friday’s RStudio & Statistics workshop for **Group F** at the **School of Pharmacy in Room B37 location** **WILL NOT** be available to teach there. So, if you are in **Group F**, I have re-allocated you to another group. Please check your email to see your new group.
 </div>
 
 ## Self-guided tutorials {-}
