@@ -15,7 +15,7 @@ editor_options:
 # Welcome to Introduction to Statistics {.unnumbered}
 
 ```{r echo=FALSE, out.width = "100%", fig.align='center', cache=TRUE}
-knitr::include_graphics('images/general/Welcome_page_image.png') 
+knitr::include_graphics('images/general/intro_page_picture.jpeg') 
 ```
 
 Welcome to **GIF1's** **Introduction to Statistics**. So far you have been introduced to the core tenets and principles of geography taught through the different themes touching on physical sciences (e.g., coastal and rivers) and social sciences (e.g., ethnographic methods and urbanism). This session focuses on the themes of **statistics** (i.e., data analysis). Here, we will provide you with an introduction to the basic statistical methods for exploring & representing secondary data from Barcelona, using a programming software tool known as **R/RStudio**, as well as using **R/RStudio** to introduce you to the basics of probability distributions and how they can be use for making predictions.
