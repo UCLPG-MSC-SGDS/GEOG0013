@@ -10,9 +10,9 @@ bookdown::gitbook:
     edit: https://github.com/UCLPG-MSC-SGDS/GEOG0013/edit/main/%s
     #download: ["pdf"]
     sharing:
-          github: yes
+          github: no
           facebook: no
-          twitter: yes
+          twitter: no
           all: no
 #bookdown::pdf_book:
 #  includes:
