@@ -75,7 +75,7 @@ You have been given early access to the content. Prior to the workshops which wi
 
 On Moodle, you can use the **Forum: Questions and Discussion** platform to post general questions about the content on this webpage, or for posting problems on technical issues you have encountered during your self-guided study. I, or one of the PGTAs will respond accordingly with solutions. Students are welcome to engage and support each other in-person and/or through this forum during this self-study time, and so kindly use the forum on Moodle - thank you! Please **do not send direct emails to Helen, Geography Office or me for resolving technical problems** - we will only respond to emails on critical matters (e.g., personal problems, illness, etc.,).      
 
-**Author information**
+## Author information {-}
 
 Anwar Musah | Lecturer in Social & Geographic Data Science </br>
 UCL Department of Geography </br>
