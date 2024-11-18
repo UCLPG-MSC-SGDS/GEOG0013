@@ -64,7 +64,7 @@ The structure of this component of GIF1 is a series of two 3-hour workshop that 
 |**G**| UCL GOSICH - Wolfson Centre Room D (Ground Floor), [**Map**](http://www.ucl.ac.uk/maps/ich-wolfson-centre)|
 
 <div class="note">
-**IMPORTANT NOTES**: The locations for groups **A**, **B**, **D**, **E**, and **G** are public clusters with PC workstations. Nevertheless, I highly recommend you bring your own laptop to the computer practicals for ease. The locations for groups **C** and **F** are seminar rooms. You **MUST** bring your own laptop as this is **NOT** a public cluster with PC workstations.
+**IMPORTANT NOTES**: The locations for groups **A**, **B**, **D** and **E** are public clusters **with** PC workstations. Nevertheless, I highly recommend you bring your own laptop to the computer practicals for ease. The locations for groups **C**, **F** and **G** are seminar rooms **without** PC workstations, and so please bring your own laptops.
 </div>
 
 ## Self-guided tutorials {-}
